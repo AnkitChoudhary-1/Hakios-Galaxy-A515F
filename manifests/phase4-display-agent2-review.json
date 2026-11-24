@@ -1,0 +1,246 @@
+{
+  "schema_version": 1,
+  "round": "phase4-three-agents-20261117",
+  "revision": "phase4-round-d1-candidate-20261117",
+  "disposition": "changes_required",
+  "prepared_utc": "2026-11-17T15:44:36.571447+00:00",
+  "publication_packet": "evidence/phase-4/display-agent2-review-disposition/20261117154433Z",
+  "registry": "parallel/phase4-three-agents-20261117/codex-integration/REGISTRY.json",
+  "review": {
+    "path": "docs/PHASE-4-DISPLAY-AGENT2-REVIEW.md",
+    "bytes": 21246,
+    "sha256": "505b703e0db5da3b1529c800171736e3de65162262499603f6d8a8475454c859"
+  },
+  "correction_prompt": {
+    "path": "parallel/phase4-three-agents-20261117/prompts/agent-2-display-brightness-corrections.md",
+    "bytes": 13166,
+    "sha256": "ec492d435e02d64621e92a7f585976571e74c8acfcaaa27c94d326b758aab51a"
+  },
+  "evidence": {
+    "capture": {
+      "path": "evidence/phase-4/display-agent2-review/20261117T145649075937Z/CAPTURE.json",
+      "bytes": 104356,
+      "sha256": "f4dd9ed54f0965840fb2dced8a213c42806db55fb4893d59209ab647996f3125"
+    },
+    "native": {
+      "result": "evidence/phase-4/display-agent2-review/20261117T145649075937Z/reproduction/RESULT.json",
+      "bytes": 43647,
+      "sha256": "26f4dddceb2df7b72e607763608b9358981848e487c036f9c2b2ba17e216b5a1",
+      "execution_target": "x86_64-pc-linux-gnu",
+      "cases": 237,
+      "checks": 341090,
+      "freestanding_objects": 4
+    },
+    "characterization": {
+      "result": "evidence/phase-4/display-agent2-review-supplement/20261117T151755Z/RESULT.json",
+      "bytes": 30518,
+      "sha256": "5b1efbefae8fee41e4837b43555d468662ceb216285392dccb8179a089c36d6b",
+      "observations": 38,
+      "defect_observations": 27,
+      "controls": 11,
+      "exit_zero_meaning": "predicted_defects_reproduced_not_acceptance"
+    },
+    "packaging": {
+      "result": "evidence/phase-4/display-agent2-packaging-supplement/20261117T152059Z/RESULT.json",
+      "bytes": 9449,
+      "sha256": "f4f6e0eb89979c095e7e62ba05753a64f2ad54986acfe336101aa5eb2f10c3f2",
+      "proposal_only": true,
+      "entire_work_tree_reconstructed": false,
+      "supplemental_patch": {
+        "bytes": 6679,
+        "sha256": "2d635b298f47775b20e8a62df104ddfac48c46770c18774a5ae9316dbbd87c54"
+      },
+      "private_helper_omissions": [
+        "scripts/generate_evidence_and_manifest.py",
+        "scripts/generate_patches.py",
+        "scripts/generate_round_patches.py",
+        "scripts/run_tests.sh"
+      ]
+    },
+    "evidence_indexes": [
+      {
+        "path": "evidence/phase-4/display-agent2-review/20261117T145649075937Z/reproduction/MANIFEST.json",
+        "bytes": 19410,
+        "sha256": "bec99c53d037251f4c302d2d8cef03993423661fb98845af0c438d95b4121a24",
+        "files_checked": 144
+      },
+      {
+        "path": "evidence/phase-4/display-agent2-review-supplement/20261117T151755Z/MANIFEST.json",
+        "bytes": 12571,
+        "sha256": "9b0ec23e65d444d233de7366a4a3605fe90c76e120d2a8517a3028f957c4abbf",
+        "files_checked": 96
+      },
+      {
+        "path": "evidence/phase-4/display-agent2-packaging-supplement/20261117T152059Z/MANIFEST.json",
+        "bytes": 26869,
+        "sha256": "3d92eaa6f50641569fbd9773b92aaa0d7e23141b97c4a55539106b47028bb542",
+        "files_checked": 169
+      }
+    ]
+  },
+  "findings": [
+    {
+      "id": "D1-R1",
+      "priority": "P1",
+      "title": "Caller-declared framebuffer authority",
+      "evidence_class": "source_review"
+    },
+    {
+      "id": "D1-R2",
+      "priority": "P1",
+      "title": "Unchecked complete DMA spans",
+      "evidence_class": "source_review_and_native_characterization"
+    },
+    {
+      "id": "D1-R3",
+      "priority": "P1",
+      "title": "Display writes before or without readiness",
+      "evidence_class": "cpp_native_characterization_and_c_production_source_review"
+    },
+    {
+      "id": "D1-R4",
+      "priority": "P1",
+      "title": "C mapping lifecycle loses live associations",
+      "evidence_class": "native_characterization_and_production_source_review"
+    },
+    {
+      "id": "D1-R5",
+      "priority": "P1",
+      "title": "DSIM CRC/ECC errors ignored",
+      "evidence_class": "source_backed_native_w1c_fifo_characterization"
+    },
+    {
+      "id": "D1-R6",
+      "priority": "P1",
+      "title": "Invalid diagnostic evidence accepted and incompletely exported",
+      "evidence_class": "actual_inline_validator_characterization_and_source_review"
+    },
+    {
+      "id": "D1-R7",
+      "priority": "P2",
+      "title": "Incomplete delivery packaging",
+      "evidence_class": "exact_reconstruction_and_reverse_verification"
+    },
+    {
+      "id": "D1-R8",
+      "priority": "P2",
+      "title": "Unsupported target, QEMU and recovery claims",
+      "evidence_class": "retained_command_artifact_and_document_review"
+    }
+  ],
+  "submitted_work_manifest": {
+    "bytes": 9692,
+    "sha256": "e073eb986a2eafc239daf63290f984fccb72fac4b0003dc596eddac2531e3dd7"
+  },
+  "roles": {
+    "agent-1-storage-recovery": {
+      "revision": "rev-20261117-s1-final",
+      "declared_status": "ready_for_review",
+      "independent_status": "unreviewed",
+      "status_authority": "worker_declaration_unreviewed"
+    },
+    "agent-2-display-brightness": {
+      "revision": "phase4-round-d1-candidate-20261117",
+      "declared_status": "ready_for_review",
+      "independent_status": "changes_required",
+      "status_authority": "codex_independent_review_of_frozen_pins"
+    },
+    "agent-3-touch-keys": {
+      "revision": "Revision 8 (P4-I1)",
+      "declared_status": "ready_for_review",
+      "independent_status": "unreviewed",
+      "status_authority": "worker_declaration_unreviewed"
+    }
+  },
+  "document_pins": {
+    "docs/PHASE-4-DISPLAY-AGENT2-REVIEW.md": {
+      "bytes": 21246,
+      "sha256": "505b703e0db5da3b1529c800171736e3de65162262499603f6d8a8475454c859"
+    },
+    "parallel/phase4-three-agents-20261117/prompts/agent-2-display-brightness-corrections.md": {
+      "bytes": 13166,
+      "sha256": "ec492d435e02d64621e92a7f585976571e74c8acfcaaa27c94d326b758aab51a"
+    },
+    "docs/STATE.md": {
+      "bytes": 4349,
+      "sha256": "84c8c6cbeeec5a5fede083daa94b494100f2c0cd8b7c44c0af2799210bd558c5"
+    },
+    "parallel/phase4-three-agents-20261117/codex-integration/REGISTRY.json": {
+      "bytes": 11747,
+      "sha256": "312fe9a767517f8e727dd6435255f3d13ab00f9fb18f36ee7a45327c73e0ac8d"
+    },
+    "README.md": {
+      "bytes": 16803,
+      "sha256": "d65d38e9d721634b351b2128d567f8dfb0f037ae55b74b8feee8979ee96c8aa5"
+    },
+    "docs/INDEX.md": {
+      "bytes": 22869,
+      "sha256": "4d79c0331e3f6ca4029921bd40cad3100f887a1a20d0cb0c77fa7b2d8cb8721b"
+    },
+    "docs/PHASE-4-THREE-AGENT-WORKFLOW.md": {
+      "bytes": 4975,
+      "sha256": "8c2efd9148e333b14304b2fd3d509be31d6d807998b8a7c04ff24adf4bdbe8aa"
+    },
+    "parallel/phase4-three-agents-20261117/WORKFLOW.md": {
+      "bytes": 11371,
+      "sha256": "d2845417edf2edb8df70fafe3d11b1c1a3f0d7cb3dbf40883c4fa60f2e067675"
+    },
+    "parallel/phase4-three-agents-20261117/README.md": {
+      "bytes": 7471,
+      "sha256": "8ef842810bc1f74fdcb8dfc29b440400ea803d213b0df27fd5e06fc641f59bc8"
+    },
+    "state.json": {
+      "bytes": 161538,
+      "sha256": "a7ba2a4d862b272764e1f66d26fd553d0d88812af7da1a20cce8ae072bc6081f"
+    },
+    "docs/IMPLEMENTATION-LOG.md": {
+      "bytes": 613652,
+      "sha256": "a9b35d547ceb0d17dd463107cee559c01423edab3f355b7f86f097d719d7e58d"
+    }
+  },
+  "historical_preparation_manifest": {
+    "path": "manifests/phase4-three-agent-workflow.json",
+    "bytes": 5995,
+    "sha256": "038685fad5544205aa1592a5da8bb1c26b0d9af1f5f077bcbece2c2b247841da"
+  },
+  "coordinator_scripts": {
+    "display_d1_probe.c": {
+      "bytes": 6968,
+      "sha256": "6ac11820cd0361c572851a06a70294eb6ae2ae30be57e708946320d65f2fb636"
+    },
+    "display_d1_probe.cpp": {
+      "bytes": 7464,
+      "sha256": "774b6baa571ec43a559b73920d331ea56cd4acfc8dc27813b6cb727eee2a7d90"
+    },
+    "package_display_d1.py": {
+      "bytes": 7889,
+      "sha256": "ff45bd2b75e9307b761357173efed341e1546190d764dd24d930c881456d9adc"
+    },
+    "probe_display_d1.py": {
+      "bytes": 11196,
+      "sha256": "f2d4df4cb6d281ef3040110aa6111cf3550438f75f4bce5b9146a9f4bad77c2c"
+    },
+    "publish_display_d1_review.py": {
+      "bytes": 45732,
+      "sha256": "460f09f51bbc7171db1404a5431821b5eaa31d2ed55a0ae3972cbf121b0b107d"
+    },
+    "reproduce_display_d1.py": {
+      "bytes": 10562,
+      "sha256": "aa6b3e09f6cebd054dc98d3cc597108361513effc6975adbaa2ed2d8d5eba7f3"
+    },
+    "review_display_d1.py": {
+      "bytes": 14543,
+      "sha256": "5d7c07f7aca29b6297d80b31e5e5cb952094403bf7015c632626ce06b41498c8"
+    },
+    "run.py": {
+      "bytes": 3341,
+      "sha256": "0ac5abf12fe973703adf1901715fef0fe053fa3ac7044f86e722c81f989c280d"
+    }
+  },
+  "device_operations": 0,
+  "full_xnu_builds": 0,
+  "qemu_executions": 0,
+  "main_driver_changes": false,
+  "phase_4_complete": false,
+  "physical_gate_passed": false
+}

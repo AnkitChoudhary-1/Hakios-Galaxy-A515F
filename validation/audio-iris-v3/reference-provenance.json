@@ -1,0 +1,16 @@
+[
+  {
+    "url": "https://raw.githubusercontent.com/LineageOS/android_kernel_samsung_exynos9820/4bcfb0263b21b553760a3bdce542452db3184820/sound/soc/samsung/abox/abox.h",
+    "commit": "4bcfb0263b21b553760a3bdce542452db3184820",
+    "bytes": 17998,
+    "sha256": "6173915f547134a66aff5827afa91930ea6ef6c09a344c7bad9d39a3a3a01d15",
+    "prior_matches": true
+  },
+  {
+    "url": "https://raw.githubusercontent.com/LineageOS/android_kernel_samsung_exynos9820/4bcfb0263b21b553760a3bdce542452db3184820/sound/soc/samsung/abox/abox_rdma.c",
+    "commit": "4bcfb0263b21b553760a3bdce542452db3184820",
+    "bytes": 69435,
+    "sha256": "3f758deb56f22622a8e577a0e7b8b5fb8e0c6d77ac1248f6db7ab2343e4811c5",
+    "prior_matches": true
+  }
+]

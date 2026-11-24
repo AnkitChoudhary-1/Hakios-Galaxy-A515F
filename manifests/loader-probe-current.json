@@ -1,0 +1,6 @@
+{
+  "phase_2_device_gate_passed": false,
+  "result": "evidence/phase-2/loader-probe/20261111T105317947466Z/result.json",
+  "scope": "native_host_tests_and_qemu_virt_probe_only",
+  "sha256": "d34df32b8ec8f95d62453dec4021a6f59577e72ddefb7fc2bdac4b8bb16b8351"
+}

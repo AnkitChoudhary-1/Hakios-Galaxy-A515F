@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "result": "evidence/phase-2/layout/20261111T033104768751Z/result.json",
+  "sha256": "4cc79e0d7750ed47ad172fb75fc5f78fe54dc498452e60aaff57ec1a4a43a199",
+  "counts": {
+    "cases": 21,
+    "accepted": 0,
+    "rejected": 21,
+    "declared_banks": 3,
+    "fixed_exclusions": 15,
+    "dynamic_reservations": 3
+  },
+  "operation": "demonstrate_retained_a51",
+  "host_check_completed": true,
+  "expected_checks_passed": true,
+  "safe_for_loader_placement": false,
+  "phase_2_device_gate_passed": false,
+  "phone_writes": false
+}

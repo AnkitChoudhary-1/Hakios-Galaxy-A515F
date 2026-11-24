@@ -1,0 +1,121 @@
+{
+  "packet": "evidence/phase-3/entry-probe-build/20261114T045610587686Z",
+  "nonce": "1a3b0f7e0c384effa0fc7f96522328f9",
+  "work": "/opt/a51-hakios/experimental/phase3-entry-probe/20261114T045610587686Z",
+  "scope": "Pre-Linux entry/pstore diagnostic, original Linux continues; no XNU gate claim",
+  "original_result": {
+    "bytes": 8838,
+    "sha256": "7d6b8807721a6de14998615c4d9f590da1197c7ede6b6ed960309d422b25c856"
+  },
+  "original_image": {
+    "bytes": 36334080,
+    "sha256": "3054cfe40d06c17963575d6e067ced0c38f8e532bb490e49f828ae66b0e5c420"
+  },
+  "image": {
+    "bytes": 36334080,
+    "sha256": "4231f8d2f5ee712eb455de436fbb49839369d3837d18b08c3d5bac51c11fc8d1"
+  },
+  "source": {
+    "bytes": 2307,
+    "sha256": "c0405ae0bf4f4b3627cd16c00beea2584a6dcc05fce138e8a55c061ef02d088b"
+  },
+  "helper_pins": {
+    "phase3_entry_probe.py": {
+      "bytes": 936,
+      "sha256": "e977ed757a1b99ae1d4ecc65f5a328af0bfbcb1cfe2e43a058d90eb6032eab37"
+    },
+    "phase3-device-entry-probe.py": {
+      "bytes": 14341,
+      "sha256": "0e5b6ea595930fdf62830c6c32f618f8d4f1629995516bbc1252b24386212f4b"
+    },
+    "samsung_boot_dry_run.py": {
+      "bytes": 15509,
+      "sha256": "f52d272fcc211f23c9f4ddb37a71d9cd00007fbb0b919503a68077787693f107"
+    },
+    "phase3-package-loader.py": {
+      "bytes": 3424,
+      "sha256": "8146653fbc14ee422497b0be24bea6f13b9355f8717abe7754cd3acfa16c8f28"
+    }
+  },
+  "symbols": {
+    "probe_entry": 2148008000,
+    "probe_record": 2148008288,
+    "probe_end": 2148008448,
+    "__continue": 2162783016
+  },
+  "stext_offset": 20643840,
+  "continuation_offset": 14775080,
+  "probe_bytes": 448,
+  "changed_spans": [
+    [
+      64,
+      512
+    ],
+    [
+      20643840,
+      20643844
+    ]
+  ],
+  "qemu": [
+    {
+      "base": 2148007936,
+      "fields": {
+        "magic": 3553430628039215944,
+        "nonce_hi": 1890121502657367807,
+        "nonce_lo": 11600287023799412985,
+        "entry_el": 4,
+        "daif": 960,
+        "sctlr": 12912696,
+        "cntfrq": 62500000,
+        "midr": 1091555380,
+        "mpidr": 2147483648,
+        "pc": 2148008000,
+        "sp": 0,
+        "x0": 2316304384,
+        "x1": 2147483648,
+        "x2": 2588672,
+        "x3": 2148007936,
+        "nzcv": 0,
+        "continuation": 2162783016,
+        "bytes": 160,
+        "crc32": 423793173,
+        "footer": 3555667008770034504
+      },
+      "passed": true
+    },
+    {
+      "base": 2150072320,
+      "fields": {
+        "magic": 3553430628039215944,
+        "nonce_hi": 1890121502657367807,
+        "nonce_lo": 11600287023799412985,
+        "entry_el": 4,
+        "daif": 960,
+        "sctlr": 12912696,
+        "cntfrq": 62500000,
+        "midr": 1091555380,
+        "mpidr": 2147483648,
+        "pc": 2150072384,
+        "sp": 0,
+        "x0": 2316304384,
+        "x1": 2147483648,
+        "x2": 2588672,
+        "x3": 2150072320,
+        "nzcv": 0,
+        "continuation": 2164847400,
+        "bytes": 160,
+        "crc32": 2948354398,
+        "footer": 3555667008770034504
+      },
+      "passed": true
+    }
+  ],
+  "passed": true,
+  "device_operations": false,
+  "phase_3_device_gate_passed": false,
+  "candidate": {
+    "path": "artifacts/phase-3/entry-probe/20261114T045610587686Z/boot.img",
+    "bytes": 61865984,
+    "sha256": "2a1922d4ad6dc5fddc8319f00546f6126dab6203aa20765bdfbde1f53357c9cc"
+  }
+}

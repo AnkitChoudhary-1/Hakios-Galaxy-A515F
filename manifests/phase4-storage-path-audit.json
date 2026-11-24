@@ -1,0 +1,54 @@
+{
+  "packet": "evidence/phase-4/storage-path-audit/20261117T002742491892Z",
+  "passed": true,
+  "device_reads": true,
+  "device_writes": false,
+  "reboots": 0,
+  "source_references": {
+    "fs/pstore/ram.c": {
+      "bytes": 25583,
+      "sha256": "a3cf2764709471380b4fe20a12d1a4e777a98a5d2e0763d64d22a087c39a7fd3"
+    },
+    "fs/pstore/ram_core.c": {
+      "bytes": 14675,
+      "sha256": "6adabb7863d437ea5a2290492c930056dffdd13699ef533c419d406993045c37"
+    },
+    "include/linux/pstore_ram.h": {
+      "bytes": 3027,
+      "sha256": "a5dd1368aac2de011943adbafc3c4503b94536f5cfc4956d6901366f2ab7ff1d"
+    },
+    "drivers/scsi/ufs/ufs-exynos.c": {
+      "bytes": 35680,
+      "sha256": "46315329f74244bd9f7936d943b05d739c57e029a7e879ddd460ae6f225b29a8"
+    },
+    "drivers/scsi/ufs/ufs-exynos.h": {
+      "bytes": 18113,
+      "sha256": "aac15501b624133c91f779edf6826c5d80874cf9448e83bfa08bff8bbf9f35cb"
+    },
+    "drivers/scsi/ufs/ufshcd.c": {
+      "bytes": 278983,
+      "sha256": "97796f29456cfa9f2b01a0b530ff62c2046982ff73904c2d05ec39e43ccc06fc"
+    },
+    "drivers/scsi/ufs/ufshci.h": {
+      "bytes": 15443,
+      "sha256": "9a2553fd257ec5b352174431633f03fe415582751945b76ff26cdf5cda4c6938"
+    },
+    "arch/arm64/boot/dts/exynos/exynos9610.dts": {
+      "bytes": 96781,
+      "sha256": "2685b745e80e288a8fb6086652d2b80a3c7fb7a337dbd07f4386025cde317bae"
+    }
+  },
+  "parameters": {
+    "mem_address": "4191223808",
+    "mem_size": "2097152",
+    "record_size": "524288",
+    "console_size": "524288",
+    "ftrace_size": "524288",
+    "pmsg_size": "524288",
+    "ecc": "0",
+    "mem_type": "0"
+  },
+  "nodes": {},
+  "boot_id_before": "6de12c58-cf68-4888-97aa-4a64d6208c03",
+  "boot_id_after": "6de12c58-cf68-4888-97aa-4a64d6208c03"
+}

@@ -1,0 +1,175 @@
+{
+  "schema_version": 1,
+  "scope": "bounded_read_only_historical_record_reader_host_build",
+  "packet": "evidence/phase-3/log-reader-build/20261114T014214364024Z",
+  "build": "/opt/a51-hakios/diagnostics/phase3-log-reader/20261114T014214364024Z",
+  "commands": [
+    {
+      "name": "compiler",
+      "argv": [
+        "clang",
+        "--version"
+      ],
+      "exit_code": 0,
+      "started_utc": "2026-11-14T01:42:28.349186+00:00",
+      "finished_utc": "2026-11-14T01:42:28.655065+00:00"
+    },
+    {
+      "name": "copy-isolated-source",
+      "argv": [
+        "cp",
+        "-a",
+        "--reflink=auto",
+        "/opt/a51-hakios/diagnostics/page-probe/20261111T124258280383Z/src",
+        "/opt/a51-hakios/diagnostics/phase3-log-reader/20261114T014214364024Z/src"
+      ],
+      "exit_code": 0,
+      "started_utc": "2026-11-14T01:42:28.655263+00:00",
+      "finished_utc": "2026-11-14T01:43:01.299819+00:00"
+    },
+    {
+      "name": "copy-include",
+      "argv": [
+        "cp",
+        "-a",
+        "--reflink=auto",
+        "/opt/a51-hakios/diagnostics/page-probe/20261111T124258280383Z/out/include",
+        "/opt/a51-hakios/diagnostics/phase3-log-reader/20261114T014214364024Z/out/include"
+      ],
+      "exit_code": 0,
+      "started_utc": "2026-11-14T01:43:01.300825+00:00",
+      "finished_utc": "2026-11-14T01:43:02.908602+00:00"
+    },
+    {
+      "name": "copy-scripts",
+      "argv": [
+        "cp",
+        "-a",
+        "--reflink=auto",
+        "/opt/a51-hakios/diagnostics/page-probe/20261111T124258280383Z/out/scripts",
+        "/opt/a51-hakios/diagnostics/phase3-log-reader/20261114T014214364024Z/out/scripts"
+      ],
+      "exit_code": 0,
+      "started_utc": "2026-11-14T01:43:02.908841+00:00",
+      "finished_utc": "2026-11-14T01:43:02.977324+00:00"
+    },
+    {
+      "name": "copy-arch-arm64-include-generated",
+      "argv": [
+        "cp",
+        "-a",
+        "--reflink=auto",
+        "/opt/a51-hakios/diagnostics/page-probe/20261111T124258280383Z/out/arch/arm64/include/generated",
+        "/opt/a51-hakios/diagnostics/phase3-log-reader/20261114T014214364024Z/out/arch/arm64/include/generated"
+      ],
+      "exit_code": 0,
+      "started_utc": "2026-11-14T01:43:02.979898+00:00",
+      "finished_utc": "2026-11-14T01:43:03.018571+00:00"
+    },
+    {
+      "name": "build",
+      "argv": [
+        "make",
+        "-C",
+        "/opt/a51-hakios/diagnostics/phase3-log-reader/20261114T014214364024Z/src",
+        "O=/opt/a51-hakios/diagnostics/phase3-log-reader/20261114T014214364024Z/out",
+        "M=/opt/a51-hakios/diagnostics/phase3-log-reader/20261114T014214364024Z/module",
+        "ARCH=arm64",
+        "LLVM=1",
+        "LLVM_IAS=1",
+        "CC=clang",
+        "LD=ld.lld",
+        "AR=llvm-ar",
+        "NM=llvm-nm",
+        "OBJCOPY=llvm-objcopy",
+        "OBJDUMP=llvm-objdump",
+        "READELF=llvm-readelf",
+        "CROSS_COMPILE=aarch64-linux-gnu-",
+        "CROSS_COMPILE_ARM32=arm-linux-gnueabi-",
+        "CLANG_TRIPLE=aarch64-linux-gnu-",
+        "V=1",
+        "-j2",
+        "modules"
+      ],
+      "exit_code": 0,
+      "started_utc": "2026-11-14T01:43:03.056700+00:00",
+      "finished_utc": "2026-11-14T01:43:08.234745+00:00"
+    },
+    {
+      "name": "undefined-symbols",
+      "argv": [
+        "llvm-nm",
+        "--undefined-only",
+        "/opt/a51-hakios/diagnostics/phase3-log-reader/20261114T014214364024Z/module/hakios_p3_capture.ko"
+      ],
+      "exit_code": 0,
+      "started_utc": "2026-11-14T01:43:08.245277+00:00",
+      "finished_utc": "2026-11-14T01:43:08.288488+00:00"
+    }
+  ],
+  "original_input_pins": {
+    ".config": {
+      "bytes": 160992,
+      "sha256": "9862a2b3ca684c08a0423681e77bf8503c2b7c2e18bd182ca3c1370681f8adb1"
+    },
+    "Module.symvers": {
+      "bytes": 530324,
+      "sha256": "fdaef95baeed06a37e9e2b1fa9da8ff8d5ec322f33cba46ebd723b0faf22c2d4"
+    },
+    "include/generated/utsrelease.h": {
+      "bytes": 49,
+      "sha256": "4620eff0ce6b9fbd8e4a4d314cb2fa5fc749b0f85f9beda7c52c6aa6f5350a20"
+    },
+    "include/generated/compile.h": {
+      "bytes": 316,
+      "sha256": "2d3fe118fee48b33e8c5121ec97199197d3502ee9f96fa7dd7f3959acbb8616c"
+    },
+    "include/generated/autoconf.h": {
+      "bytes": 62567,
+      "sha256": "d1ec64cf1146a53d5e2eee43d4cc9aee0c392fd49378d3015c8e583f4d705d1d"
+    },
+    "include/config/auto.conf": {
+      "bytes": 47620,
+      "sha256": "d51349865f432afe6378dc79cead316a47a174e3e92d4078c3e81d65d5bada4d"
+    },
+    "include/config/kernel.release": {
+      "bytes": 27,
+      "sha256": "598ec305d61b5f153ee4b8d81a8bcd142121f5ddd71bbb8e17ffea8461d581ed"
+    },
+    "arch/arm64/boot/Image": {
+      "bytes": 36333584,
+      "sha256": "f9ccca797b1114600f935f7398fa14425c09a21c639951f7d94a376bd57bf57d"
+    },
+    "vmlinux": {
+      "bytes": 267051200,
+      "sha256": "fb0d029e2cdbed7f9d87320a218f08d7a6084ce19295e3bb8a4dffeb8895dc59"
+    },
+    "System.map": {
+      "bytes": 4414628,
+      "sha256": "d3327f491c06f65a71e484cc58dc8f542429a75e6b694cbde36b6a3778941904"
+    }
+  },
+  "original_unchanged": true,
+  "vermagic": "4.14.357-Everline-KSUN-A51 SMP preempt mod_unload modversions aarch64",
+  "imports": {
+    "module_layout": "0x90ff6c0e",
+    "default_llseek": "0x51f50058",
+    "simple_read_from_buffer": "0x619cb7dd",
+    "remove_proc_entry": "0x7bdc82a4",
+    "__stack_chk_fail": "0xf0fdf6cb",
+    "vfree": "0x999e8297",
+    "printk": "0x985558a1",
+    "proc_create": "0xfa34439b",
+    "__iounmap": "0x45a55ec8",
+    "__memcpy_fromio": "0x5d112304",
+    "ioremap_cache": "0xd4e7aa3d",
+    "vzalloc": "0x40a9b349",
+    "__stack_chk_guard": "0x8f678b07"
+  },
+  "module": {
+    "bytes": 153816,
+    "sha256": "b318275f575550acb4bf9c963db91e94cfa3df37c1a2d9d63d2de163a69f7d7a"
+  },
+  "module_path": "evidence/phase-3/log-reader-build/20261114T014214364024Z/hakios_p3_capture.ko",
+  "device_operations": false
+}

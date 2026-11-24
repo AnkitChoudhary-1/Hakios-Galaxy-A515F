@@ -1,0 +1,92 @@
+{
+  "built": true,
+  "device_operations": false,
+  "phase_4_gate_passed": false,
+  "packet": "evidence/phase-4/log-reader-build/20261114T164944759209Z",
+  "work": "/opt/a51-hakios/diagnostics/phase4-log-reader/20261114T164944759209Z",
+  "original_unchanged": true,
+  "original_input_pins": {
+    ".config": {
+      "bytes": 160992,
+      "sha256": "9862a2b3ca684c08a0423681e77bf8503c2b7c2e18bd182ca3c1370681f8adb1"
+    },
+    "Module.symvers": {
+      "bytes": 530324,
+      "sha256": "fdaef95baeed06a37e9e2b1fa9da8ff8d5ec322f33cba46ebd723b0faf22c2d4"
+    },
+    "include/generated/utsrelease.h": {
+      "bytes": 49,
+      "sha256": "4620eff0ce6b9fbd8e4a4d314cb2fa5fc749b0f85f9beda7c52c6aa6f5350a20"
+    },
+    "include/generated/compile.h": {
+      "bytes": 316,
+      "sha256": "2d3fe118fee48b33e8c5121ec97199197d3502ee9f96fa7dd7f3959acbb8616c"
+    },
+    "include/generated/autoconf.h": {
+      "bytes": 62567,
+      "sha256": "d1ec64cf1146a53d5e2eee43d4cc9aee0c392fd49378d3015c8e583f4d705d1d"
+    },
+    "include/config/auto.conf": {
+      "bytes": 47620,
+      "sha256": "d51349865f432afe6378dc79cead316a47a174e3e92d4078c3e81d65d5bada4d"
+    },
+    "include/config/kernel.release": {
+      "bytes": 27,
+      "sha256": "598ec305d61b5f153ee4b8d81a8bcd142121f5ddd71bbb8e17ffea8461d581ed"
+    },
+    "arch/arm64/boot/Image": {
+      "bytes": 36333584,
+      "sha256": "f9ccca797b1114600f935f7398fa14425c09a21c639951f7d94a376bd57bf57d"
+    },
+    "vmlinux": {
+      "bytes": 267051200,
+      "sha256": "fb0d029e2cdbed7f9d87320a218f08d7a6084ce19295e3bb8a4dffeb8895dc59"
+    },
+    "System.map": {
+      "bytes": 4414628,
+      "sha256": "d3327f491c06f65a71e484cc58dc8f542429a75e6b694cbde36b6a3778941904"
+    }
+  },
+  "vermagic": "4.14.357-Everline-KSUN-A51 SMP preempt mod_unload modversions aarch64",
+  "imports": {
+    "module_layout": "0x90ff6c0e",
+    "default_llseek": "0x51f50058",
+    "param_ops_ullong": "0x5a1b2567",
+    "simple_read_from_buffer": "0x619cb7dd",
+    "remove_proc_entry": "0x7bdc82a4",
+    "__stack_chk_fail": "0xf0fdf6cb",
+    "vfree": "0x999e8297",
+    "printk": "0x985558a1",
+    "proc_create": "0xfa34439b",
+    "memset": "0xdcb764ad",
+    "bcmp": "0x263c3152",
+    "__iounmap": "0x45a55ec8",
+    "__memcpy_fromio": "0x5d112304",
+    "ioremap_cache": "0xd4e7aa3d",
+    "vzalloc": "0x40a9b349",
+    "__stack_chk_guard": "0x8f678b07"
+  },
+  "module": {
+    "bytes": 159576,
+    "sha256": "b1a8af2d56f852fdbdf285260b338fa83b0564f4f36c7c3337dfc51cd995b36a",
+    "path": "evidence/phase-4/log-reader-build/20261114T164944759209Z/hakios_p4_capture.ko"
+  },
+  "sources": {
+    "capture_contract.h": {
+      "bytes": 2199,
+      "sha256": "2669b0353144ace6a27d20715d506e354e2184684ee89570ee92c82b78d47cec"
+    },
+    "hakios_p4_capture.c": {
+      "bytes": 5061,
+      "sha256": "bcd8788a7948ea371a1110e760bc65eb2a88161450a706e13a24b0a5ccff42de"
+    },
+    "Makefile": {
+      "bytes": 29,
+      "sha256": "b634de8cfce9fdd3106d72663f790ffc86f826f6b67be36917572649863d01b6"
+    },
+    "test_contract.c": {
+      "bytes": 2319,
+      "sha256": "fffecf7c36e1f04dc1e86858b4ce808253a6cb882b92048cce46244ae8cc8d8a"
+    }
+  }
+}

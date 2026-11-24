@@ -1,0 +1,17 @@
+{
+  "packet": "evidence/phase-4/complete-loader-qemu-review/20261120T185931911754Z",
+  "passed": false,
+  "suite_complete": false,
+  "results": [
+    {
+      "case": "full",
+      "placement": 2148007936,
+      "passed": false,
+      "result": "evidence/phase-4/complete-loader-qemu/20261120T185916710293Z/result.json",
+      "bytes": 5193,
+      "sha256": "a60bb4fe01d2bb515d9366bf31000ec3e62c9e4a03a20bba1493d855c6ec1973"
+    }
+  ],
+  "device_operations": false,
+  "phase_4_gate_passed": false
+}

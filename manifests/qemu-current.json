@@ -1,0 +1,87 @@
+{
+  "schema_version": 1,
+  "started_utc": "20261110T194844042212Z",
+  "command": [
+    "bash",
+    "/opt/a51-hakios/src/hakios-xnu-kernel/qemu/run.sh",
+    "180"
+  ],
+  "environment": {
+    "QEMU_MEM": "6G",
+    "QEMU_SMP": "1",
+    "QEMU_TB_MB": "384",
+    "QEMU_EFI": "/usr/share/AAVMF/AAVMF_CODE.fd",
+    "QEMU_VARS": "/usr/share/AAVMF/AAVMF_VARS.fd"
+  },
+  "runner_exit_code": 0,
+  "markers": {
+    "hello": true,
+    "process_1_root": true,
+    "kernel_version": true,
+    "normal_init_exit": true,
+    "user_program_before_panic": true
+  },
+  "panic_lines": [
+    "panic(cpu 0 caller 0xfffffff0078388b8): initproc failed to start -- no exit reason available -- (signal 0, exit status 0 )",
+    "panic(cpu 0 caller 0xfffffff0078388b8): initproc failed to start -- no exit reason available -- (signal 0, exit status 0 )"
+  ],
+  "expected_init_exit_panic": true,
+  "passed": true,
+  "artifacts": [
+    {
+      "path": "/opt/a51-hakios/src/hakios-xnu-kernel/hakios-kernel",
+      "size": 15790992,
+      "sha256": "6d40f498875ea131e355fdfa151822b9d5672572b2e1368d6e78d0960ea014b2",
+      "file": {
+        "command": [
+          "file",
+          "/opt/a51-hakios/src/hakios-xnu-kernel/hakios-kernel"
+        ],
+        "exit_code": 0,
+        "output": "/opt/a51-hakios/src/hakios-xnu-kernel/hakios-kernel: Mach-O 64-bit arm64 executable, flags:<NOUNDEFS|PIE>\n"
+      }
+    },
+    {
+      "path": "/opt/a51-hakios/src/hakios-xnu-kernel/xnuloader/loader.efi",
+      "size": 66048,
+      "sha256": "8ec3499140108bab3fbf963cd54ad40f7253b036c762d701ffadaca34b7f6f64",
+      "file": {
+        "command": [
+          "file",
+          "/opt/a51-hakios/src/hakios-xnu-kernel/xnuloader/loader.efi"
+        ],
+        "exit_code": 0,
+        "output": "/opt/a51-hakios/src/hakios-xnu-kernel/xnuloader/loader.efi: PE32+ executable (EFI application) Aarch64, for MS Windows, 4 sections\n"
+      }
+    },
+    {
+      "path": "/opt/a51-hakios/src/hakios-xnu-kernel/userland/hello",
+      "size": 16528,
+      "sha256": "16ff0b05dd5ea107523d73640e9b3592944ec57f768e7ba74d923dcb47c77fd4",
+      "file": {
+        "command": [
+          "file",
+          "/opt/a51-hakios/src/hakios-xnu-kernel/userland/hello"
+        ],
+        "exit_code": 0,
+        "output": "/opt/a51-hakios/src/hakios-xnu-kernel/userland/hello: Mach-O 64-bit arm64 executable, flags:<NOUNDEFS>\n"
+      }
+    },
+    {
+      "path": "/opt/a51-hakios/src/hakios-xnu-kernel/qemu/payload.bin",
+      "size": 15807712,
+      "sha256": "8a8782dd529bfb0430b601445c35933b550b9a6d10dac45e8fdbd998e26eadb1",
+      "file": {
+        "command": [
+          "file",
+          "/opt/a51-hakios/src/hakios-xnu-kernel/qemu/payload.bin"
+        ],
+        "exit_code": 0,
+        "output": "/opt/a51-hakios/src/hakios-xnu-kernel/qemu/payload.bin: data\n"
+      }
+    }
+  ],
+  "build_snapshot": "/mnt/c/Users/Ankit/Desktop/A51/hakios-a51/evidence/build-snapshots/20261110T163349179842Z",
+  "serial_log": "/mnt/c/Users/Ankit/Desktop/A51/hakios-a51/evidence/qemu/20261110T194844042212Z/serial.log",
+  "scope": "QEMU virt/TCG only; no A51 execution or Darwin interface validation"
+}

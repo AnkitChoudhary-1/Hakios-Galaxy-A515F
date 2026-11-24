@@ -1,0 +1,65 @@
+{
+  "packet": "evidence/phase-4/device-cycle/20261114T224503780422Z",
+  "case": "watchdog",
+  "passed": false,
+  "host_prerequisites_passed": true,
+  "device_operations": true,
+  "phase_4_gate_passed": false,
+  "nonce": "e5cc3b00abd341028bf2e4cc54017d70",
+  "schema_version": 2,
+  "serial": "A51_SERIAL_HERE",
+  "candidate": {
+    "path": "artifacts/phase-4/device-candidate/20261114T175713980557Z/A51-HakiOS-P4-watchdog-boot.img",
+    "bytes": 61865984,
+    "sha256": "8bf12833258dc8b66e68a6cc686a198924809c5f2a3d95b901e49795bcc1d97a"
+  },
+  "checks": {
+    "recovery_reconnected": true,
+    "baseline_boot_root_and_unchanged_recovery_dtbo": true,
+    "all_staging_absent": true
+  },
+  "baseline_restored": true,
+  "baseline_verified": true,
+  "operations": {
+    "file_writes": 2,
+    "boot_writes": 2,
+    "reboots": 2,
+    "file_removals": 3
+  },
+  "operation_counts_are_attempts": true,
+  "candidate_write_attempted": true,
+  "scope": "Loader/persistence/watchdog/XNU trial; peripheral Phase 4 gates remain separate",
+  "boot_id_before": "b365efde-5604-4032-bc39-c79a743883c8",
+  "staging_paths": [
+    "/data/local/tmp/hakios-p4-e5cc3b00abd341028bf2e4cc54017d70.img",
+    "/tmp/hakios-p4-baseline-e5cc3b00abd341028bf2e4cc54017d70-0.img"
+  ],
+  "return_seconds": 55.719,
+  "recovery_boot_id": "3b9a06bf-7f17-4011-828a-60200f171cd8",
+  "capture_banks": {
+    "console": {
+      "valid": false,
+      "error": "capture-original-console: command failed, exit 1",
+      "original": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    "pmsg": {
+      "valid": false,
+      "error": "Pstore does not begin with the original Phase 4 envelope",
+      "original": {
+        "bytes": 252,
+        "sha256": "7c0f41ddfbca293cb6bffad2dd8684747b3e2d37defb2c145a0634e27ef504de"
+      }
+    }
+  },
+  "error": "No valid attributable pstore bank: console: capture-original-console: command failed, exit 1; pmsg: Pstore does not begin with the original Phase 4 envelope",
+  "restoration_attempts": [
+    {
+      "attempt": 0,
+      "readback_verified": true
+    }
+  ],
+  "boot_id_after": "1e8256ad-99af-4884-9669-e64ae465f32c"
+}

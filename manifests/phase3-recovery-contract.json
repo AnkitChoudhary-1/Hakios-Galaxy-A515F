@@ -1,0 +1,11 @@
+{
+  "packet": "evidence/phase-3/recovery-contract/20261114T032016675126Z",
+  "passed": true,
+  "baseline_restored": true,
+  "recovery_layout_verified": true,
+  "operations": {
+    "device_reads": true,
+    "device_writes": false,
+    "reboots": 2
+  }
+}

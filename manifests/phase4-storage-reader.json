@@ -1,0 +1,42 @@
+{
+  "packet": "evidence/phase-4/storage-reader-build/20261115T193011419378Z",
+  "passed": true,
+  "device_operations": false,
+  "module_load_verified": false,
+  "build_directory": "/opt/a51-hakios/diagnostics/storage-reader/20261115T193011419378Z",
+  "module": {
+    "path": "evidence/phase-4/storage-reader-build/20261115T193011419378Z/hakios_storage_reader.ko",
+    "bytes": 159088,
+    "sha256": "7ef31f5c0420834d9eb7ca2f13476cb5ce4fcd06279b7dcaa2dee14a97dad3ae"
+  },
+  "source_pins": {
+    "Makefile": {
+      "bytes": 33,
+      "sha256": "ff83fa6685850a19d6a18160214ebf75282e527ab3b277060ba2ad74b1dc9481"
+    },
+    "hakios_storage_reader.c": {
+      "bytes": 4320,
+      "sha256": "1e02b04ba83080c5b87df93e9b1a530b88293586cb48f40374ba628918c0ed08"
+    }
+  },
+  "abi_parent": {
+    "path": "evidence/phase-2/page-probe-build/20261111T124258280383Z/result.json",
+    "bytes": 5443,
+    "sha256": "da3297edbc51d97225ffda9859b40970c8522b1606aa0834826479b10e61f551"
+  },
+  "vermagic": "4.14.357-Everline-KSUN-A51 SMP preempt mod_unload modversions aarch64",
+  "imported_crcs": {
+    "module_layout": "0x90ff6c0e",
+    "param_ops_charp": "0xebf248ac",
+    "param_ops_ulong": "0x3b9da65b",
+    "__stack_chk_fail": "0xf0fdf6cb",
+    "__iounmap": "0x45a55ec8",
+    "printk": "0x985558a1",
+    "__memcpy_fromio": "0x5d112304",
+    "ioremap_cache": "0xd4e7aa3d",
+    "strlen": "0x98cf60b3",
+    "__stack_chk_guard": "0x8f678b07"
+  },
+  "preserved_source_and_abi_unchanged": true,
+  "mapping_contract": "fixed reserved GNSS 0xfb000000..0xfb0201ff; header 0xfb0001e0; data 0xfb000200; source pointer metadata only; <=128KiB with explicit printable prefix/binary tail"
+}

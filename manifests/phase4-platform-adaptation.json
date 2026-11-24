@@ -1,0 +1,288 @@
+{
+  "root": "/opt/a51-hakios/experimental/phase4-port/20261114T150320411427Z",
+  "packet": "evidence/phase-4/platform-adaptation/20261114T154338406253Z",
+  "applied": true,
+  "build_verified": false,
+  "device_operations": false,
+  "phase_4_gate_passed": false,
+  "source_pins": {
+    "hello.c": {
+      "bytes": 15302,
+      "sha256": "9299456e9b2a3687a2d41c3f0fac647f25cc6ffdb8d572cfe3c8adc721c25a50"
+    },
+    "hakios.a51.h": {
+      "bytes": 6650,
+      "sha256": "a1af295eca6cdbfa85fb941865d02ded4e73db82d77ff084320109664db08127"
+    },
+    "gic_v2_irq.c": {
+      "bytes": 12563,
+      "sha256": "1285d05af4a7805c30b5524af3849354e2898c7bb5f9f1cfac0ebb18fc78cae0"
+    },
+    "hakios.a51.c": {
+      "bytes": 25096,
+      "sha256": "6c5921a389c1131e83cd19a626693b5a081530d6e9d4289cbdeed913d4f6fc49"
+    },
+    "a51_ufs_readonly.h": {
+      "bytes": 21740,
+      "sha256": "73e6b390831606f3d4a60d2cf0a7b89a91d3a9b0661c0a35eb0cb668f86fb71f"
+    },
+    "a51_input.h": {
+      "bytes": 10174,
+      "sha256": "e0cc1151d48bf5c691c4b8980e8a88a051151daebc26253204e8e753b220b8c1"
+    }
+  },
+  "changes": [
+    {
+      "tree": "native",
+      "path": "osfmk/arm64/gic_v2_irq.c",
+      "before_exists": true,
+      "before": {
+        "bytes": 7207,
+        "sha256": "d7c2c15b62fad97fa8280c0582a5b3425416b8d4b9eba09f60292e8816deb84c"
+      },
+      "after": {
+        "bytes": 12563,
+        "sha256": "1285d05af4a7805c30b5524af3849354e2898c7bb5f9f1cfac0ebb18fc78cae0"
+      }
+    },
+    {
+      "tree": "common",
+      "path": "drivers/core/hakios.a51.c",
+      "before_exists": false,
+      "before": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "after": {
+        "bytes": 25096,
+        "sha256": "6c5921a389c1131e83cd19a626693b5a081530d6e9d4289cbdeed913d4f6fc49"
+      }
+    },
+    {
+      "tree": "native",
+      "path": "bsd/dev/hakios.a51.c",
+      "before_exists": false,
+      "before": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "after": {
+        "bytes": 25096,
+        "sha256": "6c5921a389c1131e83cd19a626693b5a081530d6e9d4289cbdeed913d4f6fc49"
+      }
+    },
+    {
+      "tree": "common",
+      "path": "drivers/core/hakios.a51.h",
+      "before_exists": false,
+      "before": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "after": {
+        "bytes": 6650,
+        "sha256": "a1af295eca6cdbfa85fb941865d02ded4e73db82d77ff084320109664db08127"
+      }
+    },
+    {
+      "tree": "native",
+      "path": "bsd/dev/hakios.a51.h",
+      "before_exists": false,
+      "before": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "after": {
+        "bytes": 6650,
+        "sha256": "a1af295eca6cdbfa85fb941865d02ded4e73db82d77ff084320109664db08127"
+      }
+    },
+    {
+      "tree": "common",
+      "path": "userland/src/hello.c",
+      "before_exists": true,
+      "before": {
+        "bytes": 6994,
+        "sha256": "2b1c7624bb6f5445014375922da512b393e27432756b76bc5278958723a4813d"
+      },
+      "after": {
+        "bytes": 15302,
+        "sha256": "9299456e9b2a3687a2d41c3f0fac647f25cc6ffdb8d572cfe3c8adc721c25a50"
+      }
+    },
+    {
+      "tree": "common",
+      "path": "userland/src/hakios.a51.h",
+      "before_exists": false,
+      "before": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "after": {
+        "bytes": 6650,
+        "sha256": "a1af295eca6cdbfa85fb941865d02ded4e73db82d77ff084320109664db08127"
+      }
+    },
+    {
+      "tree": "common",
+      "path": "drivers/core/conf",
+      "before_exists": true,
+      "before": {
+        "bytes": 1152,
+        "sha256": "6e8967fa338f8b77d2e7f2b3d0a6cfe3efcd570bd7cad222848b47a7f4829cb7"
+      },
+      "after": {
+        "bytes": 1273,
+        "sha256": "e453c151a6136d73671859c18d7829c6d0ebbe928ef81e6912dfedc37f553283"
+      }
+    },
+    {
+      "tree": "common",
+      "path": "drivers/map",
+      "before_exists": true,
+      "before": {
+        "bytes": 2214,
+        "sha256": "6fe1665cb4fe518b628f2898f89bfacd86bf9a0505dd37ffe12a7232b6089702"
+      },
+      "after": {
+        "bytes": 2273,
+        "sha256": "d19cbed13cea3d55e619b5860812ab9e4163bd8e97f83e4cee45e36fce3f21eb"
+      }
+    },
+    {
+      "tree": "common",
+      "path": "devices/a51/configs/a51_defconfig",
+      "before_exists": true,
+      "before": {
+        "bytes": 977,
+        "sha256": "a5b5f66fd048b4129b5e3169647101337ab69c971dbaf57e93dbad021b8147ae"
+      },
+      "after": {
+        "bytes": 1078,
+        "sha256": "5e606746595689b9949b02809968a5db42098d43162114d00159b4946a31cc3c"
+      }
+    },
+    {
+      "tree": "common",
+      "path": ".config",
+      "before_exists": true,
+      "before": {
+        "bytes": 11858,
+        "sha256": "a8776ce374ca9ce8ff0e5dc20e426129477ae29cc9e502d30669a8c396843b50"
+      },
+      "after": {
+        "bytes": 11878,
+        "sha256": "3a364a97d6a922cd7fea0859b51392032daa94bfe3219a0cd0859f91588dcf9f"
+      }
+    },
+    {
+      "tree": "common",
+      "path": "drivers/core/a51_ufs_readonly.h",
+      "before_exists": false,
+      "before": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "after": {
+        "bytes": 21740,
+        "sha256": "73e6b390831606f3d4a60d2cf0a7b89a91d3a9b0661c0a35eb0cb668f86fb71f"
+      }
+    },
+    {
+      "tree": "native",
+      "path": "bsd/dev/a51_ufs_readonly.h",
+      "before_exists": false,
+      "before": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "after": {
+        "bytes": 21740,
+        "sha256": "73e6b390831606f3d4a60d2cf0a7b89a91d3a9b0661c0a35eb0cb668f86fb71f"
+      }
+    },
+    {
+      "tree": "common",
+      "path": "drivers/core/a51_input.h",
+      "before_exists": false,
+      "before": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "after": {
+        "bytes": 10174,
+        "sha256": "e0cc1151d48bf5c691c4b8980e8a88a051151daebc26253204e8e753b220b8c1"
+      }
+    },
+    {
+      "tree": "native",
+      "path": "bsd/dev/a51_input.h",
+      "before_exists": false,
+      "before": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "after": {
+        "bytes": 10174,
+        "sha256": "e0cc1151d48bf5c691c4b8980e8a88a051151daebc26253204e8e753b220b8c1"
+      }
+    },
+    {
+      "tree": "common",
+      "path": "userland/src/a51_input.h",
+      "before_exists": false,
+      "before": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "after": {
+        "bytes": 10174,
+        "sha256": "e0cc1151d48bf5c691c4b8980e8a88a051151daebc26253204e8e753b220b8c1"
+      }
+    }
+  ],
+  "parent_unchanged": true,
+  "revision_packets": [
+    "evidence/phase-4/probe-build-correction/20261114T155443230088Z",
+    "evidence/phase-4/spi-correction/20261114T160314417746Z",
+    "evidence/phase-4/readonly-platform-revision/20261115T132749001666Z",
+    "evidence/phase-4/readonly-platform-revision/20261115T135924082043Z",
+    "evidence/phase-4/readonly-platform-revision/20261115T143701141937Z",
+    "evidence/phase-4/readonly-platform-revision/20261115T144851224285Z",
+    "evidence/phase-4/readonly-platform-revision/20261115T151459864313Z",
+    "evidence/phase-4/readonly-platform-revision/20261115T152301859261Z",
+    "evidence/phase-4/readonly-platform-revision/20261115T154218462210Z",
+    "evidence/phase-4/readonly-platform-revision/20261115T155953282052Z",
+    "evidence/phase-4/readonly-platform-revision/20261115T160909730277Z",
+    "evidence/phase-4/readonly-platform-revision/20261115T162729618324Z",
+    "evidence/phase-4/readonly-platform-revision/20261115T170839094971Z",
+    "evidence/phase-4/readonly-platform-revision/20261115T171633781285Z",
+    "evidence/phase-4/readonly-platform-revision/20261115T180457749898Z",
+    "evidence/phase-4/readonly-platform-revision/20261115T192417863578Z",
+    "evidence/phase-4/readonly-platform-revision/20261115T213418804741Z",
+    "evidence/phase-4/readonly-platform-revision/20261116T015921266007Z",
+    "evidence/phase-4/readonly-platform-revision/20261116T021324689226Z",
+    "evidence/phase-4/readonly-platform-revision/20261116T025641918187Z",
+    "evidence/phase-4/readonly-platform-revision/20261116T034828437840Z",
+    "evidence/phase-4/readonly-platform-revision/20261116T105347403480Z",
+    "evidence/phase-4/readonly-platform-revision/20261116T110734586131Z",
+    "evidence/phase-4/readonly-platform-revision/20261116T110848469901Z",
+    "evidence/phase-4/readonly-platform-revision/20261116T113457982736Z",
+    "evidence/phase-4/readonly-platform-revision/20261116T124047594642Z",
+    "evidence/phase-4/readonly-platform-revision/20261116T132222559255Z",
+    "evidence/phase-4/readonly-platform-revision/20261116T133410120689Z",
+    "evidence/phase-4/readonly-platform-revision/20261116T144056129070Z",
+    "evidence/phase-4/readonly-platform-revision/20261116T152517026190Z",
+    "evidence/phase-4/readonly-platform-revision/20261116T163741193643Z",
+    "evidence/phase-4/readonly-platform-revision/20261119T105953963871Z",
+    "evidence/phase-4/readonly-platform-revision/20261119T110434966498Z"
+  ],
+  "captured_unrecorded_revision": {
+    "packet": "evidence/phase-4/readonly-source-capture/20261119T110416255585Z",
+    "result_pin": {
+      "bytes": 7899,
+      "sha256": "d3a0b1c86eec7243e0dcea66c07ff0eb3337d9c8515a9d73f7bad8e3091cafd6"
+    },
+    "historical_artifacts_not_revalidated": true
+  }
+}

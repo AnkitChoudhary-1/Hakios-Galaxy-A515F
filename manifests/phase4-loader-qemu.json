@@ -1,0 +1,630 @@
+{
+  "schema_version": 2,
+  "built": true,
+  "kind": "full",
+  "mode": "qemu",
+  "packet": "evidence/phase-4/device-path-build/20261114T233655340453Z",
+  "work": "/opt/a51-hakios/experimental/phase4-loader/20261114T233655340453Z",
+  "device_operations": false,
+  "phase_4_gate_passed": false,
+  "entry_style": "accepted-carrier",
+  "provenance": "Adapted Phase 3 C loader (full QEMU and phone entry diagnostic); historical full Phase 3 phone runs used the older assembly loader.",
+  "rollback_pins": {
+    "template": {
+      "path": "everline-ksu/artifacts/A51-PixelOS-Everline-KernelSU-Next-boot.img",
+      "bytes": 61865984,
+      "sha256": "eb30609a62999e3282ac81e0a5e56411ef12ec1a39c107171bf3e01209c7cb67"
+    },
+    "original_boot": {
+      "path": "everline-ksu/backups/a51-pixelos-original-boot.img",
+      "bytes": 61865984,
+      "sha256": "89600eb7f3bb73a26d6d8b38aa46c7cb27a5b942da84e0a3c77626ea21642e52"
+    },
+    "recovery": {
+      "path": "everline-ksu/backups/a51-twrp-original-recovery.img",
+      "bytes": 71106560,
+      "sha256": "12412e2008d950260cda627ac7a6b8eac954b49ef9db5573a297f67e4fc85999"
+    },
+    "dtbo": {
+      "path": "everline-ksu/backups/a51-pixelos-original-dtbo.img",
+      "bytes": 8388608,
+      "sha256": "41662c61ff3158448935025477a4e29d445823dab2cddafb18ea649c8ea925d6"
+    }
+  },
+  "source_provenance": {
+    "result": {
+      "bytes": 2393360,
+      "sha256": "91d9b1d4cd41f9e69c674467993feb92e474b2efe0e3329c043bfaae640bca79"
+    },
+    "heads": {
+      "common": {
+        "head": "63fc2b4633bac3af8e57dadab9f5a8d4cb940438",
+        "path": "evidence/phase-4/source-preservation/20261114T150320411427Z/common-head.stdout.bin",
+        "bytes": 41,
+        "sha256": "5773a17b7054acc1d71105f0253d9d7ae96fb5f61cf9876cd5cb4d08b4832ec5"
+      },
+      "native": {
+        "head": "c54f35ca767986246321eb901baf8f5ff7923f6a",
+        "path": "evidence/phase-4/source-preservation/20261114T150320411427Z/native-head.stdout.bin",
+        "bytes": 41,
+        "sha256": "2553587294d0f4047aa5ccc1b5770af7c16273cde9c0a15d32ec05ae2f1defbc"
+      }
+    }
+  },
+  "sources": {
+    "a51_loader.ld": {
+      "bytes": 835,
+      "sha256": "b32f8dd8f0fa37f10a4850bc626910cfe5540a0b5faa8002950ef1afc2836c58"
+    },
+    "a51_loader.S": {
+      "bytes": 7690,
+      "sha256": "6c3945958eac37732f945a7157de5a55e507df6ca642acf42b6a418ff139986e"
+    },
+    "entry.S": {
+      "bytes": 5215,
+      "sha256": "27b4f9e0d34c2e73ec1a0e1efb653e0ed7d92a9ffc6d2ff165716f425462baee"
+    },
+    "fdt_guard.c": {
+      "bytes": 5968,
+      "sha256": "1c69d7208a56ad65787c525b2c5081efb5385608d0eb841e347b0517e0e23a1a"
+    },
+    "fdt_guard.h": {
+      "bytes": 486,
+      "sha256": "3839900d0c00117d4baea9524fd98b33d19bd9d87e7e7f6fd6077a2f913948c6"
+    },
+    "loader.c": {
+      "bytes": 10522,
+      "sha256": "74095a4e41609d49c0f62fc2810a79e2b18c14c0ccc28e955db276eab6c199dc"
+    },
+    "loader.h": {
+      "bytes": 2728,
+      "sha256": "f2b76e0143138743fd105413170ec37b1951e1ffc8a806e0eb7ee52e2d2375e5"
+    },
+    "loader.ld": {
+      "bytes": 676,
+      "sha256": "ce5f94ec7356f49f97fba19f969b9f8fca5494cebf13650dda84a941b57be1bb"
+    },
+    "pack_phase4_payload.py": {
+      "bytes": 11882,
+      "sha256": "2ecc49985ba0c54ee97dabe3db37f408097c03d2f4b4b27003e5d26e9b18cbc2"
+    },
+    "qemu_firmware.S": {
+      "bytes": 1214,
+      "sha256": "c25a8b261b491bfe606c4ebfe6fa4c18b8e12e65785c96ad90e7d9d0849c1127"
+    },
+    "recovery.S": {
+      "bytes": 3954,
+      "sha256": "bdf91833b4037c2d747dba8725905cb1eaec2acb061dd9a8d80598f930826dbc"
+    },
+    "return.S": {
+      "bytes": 2362,
+      "sha256": "5ecb52b9119c397183ffe4ce5ba7f885ac43e5232cd4fc8f7c7d5497e0d6897c"
+    },
+    "test_validate.c": {
+      "bytes": 9473,
+      "sha256": "d49a86f0d27a9a8649eba325ccbcfc71da494050af9b4025eba2756374d28ac6"
+    },
+    "validate.c": {
+      "bytes": 4419,
+      "sha256": "3b777a965e4668f19d3491afee7f05b13d89e73af1413689b44f90871802e304"
+    },
+    "validate.h": {
+      "bytes": 726,
+      "sha256": "f42126309fe49972190d68c89995a2f85d7252b9efa38f65f96ebdaeed5b0126"
+    },
+    "xnu_trampoline.h": {
+      "bytes": 2511,
+      "sha256": "c04b97707216a0bcb8941bbb7996b3dcdf691486db9e0efe1cbe704e04848e36"
+    },
+    "xnu_trampoline.S": {
+      "bytes": 4497,
+      "sha256": "58e74d820314314075c0760e4184e381332b3e3affcd6a7cffaa9087ac8b2c40"
+    }
+  },
+  "platform_build": {
+    "path": "manifests/phase4-platform-build.json",
+    "bytes": 912,
+    "sha256": "ac34c980fb4e1bb9d21860e982b9286dd7aa1257580a721916a6f0b41dec746a"
+  },
+  "layout": {
+    "entry_pa": 2202211496,
+    "stub_slot_pa": 2202216616,
+    "segments": [
+      {
+        "name": "__TEXT",
+        "pa": 2197831680,
+        "va": 18446744005107531776,
+        "vmsize": 1425408,
+        "fileoff": 0,
+        "filesize": 1425408,
+        "initprot": 1,
+        "maxprot": 1,
+        "flags": 0
+      },
+      {
+        "name": "__DATA_CONST",
+        "pa": 2199257088,
+        "va": 18446744005108957184,
+        "vmsize": 950272,
+        "fileoff": 1425408,
+        "filesize": 950272,
+        "initprot": 1,
+        "maxprot": 1,
+        "flags": 0
+      },
+      {
+        "name": "__TEXT_EXEC",
+        "pa": 2200207360,
+        "va": 18446744005109907456,
+        "vmsize": 8749056,
+        "fileoff": 2375680,
+        "filesize": 8749056,
+        "initprot": 5,
+        "maxprot": 5,
+        "flags": 0
+      },
+      {
+        "name": "__KLD",
+        "pa": 2208956416,
+        "va": 18446744005118656512,
+        "vmsize": 16384,
+        "fileoff": 11124736,
+        "filesize": 16384,
+        "initprot": 5,
+        "maxprot": 5,
+        "flags": 0
+      },
+      {
+        "name": "__LASTDATA_CONST",
+        "pa": 2208972800,
+        "va": 18446744005118672896,
+        "vmsize": 16384,
+        "fileoff": 11141120,
+        "filesize": 16384,
+        "initprot": 1,
+        "maxprot": 1,
+        "flags": 0
+      },
+      {
+        "name": "__KLDDATA",
+        "pa": 2208989184,
+        "va": 18446744005118689280,
+        "vmsize": 16384,
+        "fileoff": 11157504,
+        "filesize": 16384,
+        "initprot": 3,
+        "maxprot": 3,
+        "flags": 0
+      },
+      {
+        "name": "__DATA",
+        "pa": 2209005568,
+        "va": 18446744005118705664,
+        "vmsize": 4014080,
+        "fileoff": 11173888,
+        "filesize": 278528,
+        "initprot": 3,
+        "maxprot": 3,
+        "flags": 0
+      },
+      {
+        "name": "__BOOTDATA",
+        "pa": 2213019648,
+        "va": 18446744005122719744,
+        "vmsize": 311296,
+        "fileoff": 11452416,
+        "filesize": 311296,
+        "initprot": 3,
+        "maxprot": 3,
+        "flags": 0
+      },
+      {
+        "name": "__LINKINFO",
+        "pa": 2213330944,
+        "va": 18446744005123031040,
+        "vmsize": 589824,
+        "fileoff": 11763712,
+        "filesize": 589824,
+        "initprot": 1,
+        "maxprot": 1,
+        "flags": 4
+      },
+      {
+        "name": "__LINKEDIT",
+        "pa": 2213920768,
+        "va": 18446744005123620864,
+        "vmsize": 2847368,
+        "fileoff": 12353536,
+        "filesize": 2847368,
+        "initprot": 1,
+        "maxprot": 1,
+        "flags": 0
+      }
+    ],
+    "boot_args_pa": 2216951808,
+    "device_tree_pa": 2217017344,
+    "ramdisk_pa": 2216886272,
+    "pram_pa": 2217082880,
+    "pram_bytes": 524288,
+    "arena_base": 2197815296,
+    "arena_limit": 2222915584,
+    "kernel_base": 2197831680,
+    "kernel_limit": 2216768136,
+    "log_pa": 2209614272,
+    "log_len_pa": 2211187136,
+    "top_of_kernel_data": 2217607168,
+    "initial_memory_budget_bytes": 117440512,
+    "payload_bytes": 15231992,
+    "payload_sha256": "2546f37f160dd7ef8596ce45e82af5a63eb74db987989310a9e14e3625be0350",
+    "toc": [
+      {
+        "source": 0,
+        "destination": 2216951808,
+        "copy": 736,
+        "zero": 0,
+        "crc": 241124839,
+        "reserved": 0
+      },
+      {
+        "source": 736,
+        "destination": 2217017344,
+        "copy": 13704,
+        "zero": 0,
+        "crc": 3389171221,
+        "reserved": 0
+      },
+      {
+        "source": 14448,
+        "destination": 2216886272,
+        "copy": 16632,
+        "zero": 3848,
+        "crc": 4283266895,
+        "reserved": 0
+      },
+      {
+        "source": 31088,
+        "destination": 2217082880,
+        "copy": 0,
+        "zero": 524288,
+        "crc": 0,
+        "reserved": 0
+      },
+      {
+        "source": 31088,
+        "destination": 2197831680,
+        "copy": 1425408,
+        "zero": 0,
+        "crc": 1269845636,
+        "reserved": 0
+      },
+      {
+        "source": 1456496,
+        "destination": 2199257088,
+        "copy": 950272,
+        "zero": 0,
+        "crc": 28732388,
+        "reserved": 0
+      },
+      {
+        "source": 2406768,
+        "destination": 2200207360,
+        "copy": 8749056,
+        "zero": 0,
+        "crc": 1714829444,
+        "reserved": 0
+      },
+      {
+        "source": 11155824,
+        "destination": 2208956416,
+        "copy": 16384,
+        "zero": 0,
+        "crc": 112454654,
+        "reserved": 0
+      },
+      {
+        "source": 11172208,
+        "destination": 2208972800,
+        "copy": 16384,
+        "zero": 0,
+        "crc": 2285641658,
+        "reserved": 0
+      },
+      {
+        "source": 11188592,
+        "destination": 2208989184,
+        "copy": 16384,
+        "zero": 0,
+        "crc": 3530422190,
+        "reserved": 0
+      },
+      {
+        "source": 11204976,
+        "destination": 2209005568,
+        "copy": 278528,
+        "zero": 3735552,
+        "crc": 245377144,
+        "reserved": 0
+      },
+      {
+        "source": 11483504,
+        "destination": 2213019648,
+        "copy": 311296,
+        "zero": 0,
+        "crc": 3581293187,
+        "reserved": 0
+      },
+      {
+        "source": 11794800,
+        "destination": 2213330944,
+        "copy": 589824,
+        "zero": 0,
+        "crc": 2351499257,
+        "reserved": 0
+      },
+      {
+        "source": 12384624,
+        "destination": 2213920768,
+        "copy": 2847368,
+        "zero": 0,
+        "crc": 3441828943,
+        "reserved": 0
+      }
+    ],
+    "config": [
+      3766219109084777288,
+      1,
+      14,
+      15231992,
+      2197815296,
+      2222915584,
+      2202211496,
+      2216951808,
+      2202216616,
+      70799851520,
+      0,
+      0,
+      2197831680,
+      2216768136,
+      2209614272,
+      1572864,
+      2211187136,
+      32768,
+      7741267884266766914,
+      9823193688154520339
+    ],
+    "nonce": "6b6e822030dc42428852fe9d264f3b13",
+    "cmdline": "rd=md0 -v cpus=1 serial=3 debug=0x8 hello_wait=3 loader_return_after=20 hakios_run_nonce=6b6e822030dc42428852fe9d264f3b13 hakios_kver=p4-a51-guarded hakios_a51_diag=1 hakios_a51_mmio=1 hakios_a51_probe=1 hakios_qemu_spi=1",
+    "diagnostic": 0,
+    "watchdog_count": 32768,
+    "mode": "qemu",
+    "video": "unavailable_zero_bootvideo"
+  },
+  "nonce": "6b6e822030dc42428852fe9d264f3b13",
+  "cmdline": "rd=md0 -v cpus=1 serial=3 debug=0x8 hello_wait=3 loader_return_after=20 hakios_run_nonce=6b6e822030dc42428852fe9d264f3b13 hakios_kver=p4-a51-guarded hakios_a51_diag=1 hakios_a51_mmio=1 hakios_a51_probe=1 hakios_qemu_spi=1",
+  "config": [
+    3766219109084777288,
+    1,
+    14,
+    15231992,
+    2197815296,
+    2222915584,
+    2202211496,
+    2216951808,
+    2202216616,
+    70799851520,
+    0,
+    0,
+    2197831680,
+    2216768136,
+    2209614272,
+    1572864,
+    2211187136,
+    32768,
+    7741267884266766914,
+    9823193688154520339
+  ],
+  "toc": [
+    {
+      "source": 0,
+      "destination": 2216951808,
+      "copy": 736,
+      "zero": 0,
+      "crc": 241124839,
+      "reserved": 0
+    },
+    {
+      "source": 736,
+      "destination": 2217017344,
+      "copy": 13704,
+      "zero": 0,
+      "crc": 3389171221,
+      "reserved": 0
+    },
+    {
+      "source": 14448,
+      "destination": 2216886272,
+      "copy": 16632,
+      "zero": 3848,
+      "crc": 4283266895,
+      "reserved": 0
+    },
+    {
+      "source": 31088,
+      "destination": 2217082880,
+      "copy": 0,
+      "zero": 524288,
+      "crc": 0,
+      "reserved": 0
+    },
+    {
+      "source": 31088,
+      "destination": 2197831680,
+      "copy": 1425408,
+      "zero": 0,
+      "crc": 1269845636,
+      "reserved": 0
+    },
+    {
+      "source": 1456496,
+      "destination": 2199257088,
+      "copy": 950272,
+      "zero": 0,
+      "crc": 28732388,
+      "reserved": 0
+    },
+    {
+      "source": 2406768,
+      "destination": 2200207360,
+      "copy": 8749056,
+      "zero": 0,
+      "crc": 1714829444,
+      "reserved": 0
+    },
+    {
+      "source": 11155824,
+      "destination": 2208956416,
+      "copy": 16384,
+      "zero": 0,
+      "crc": 112454654,
+      "reserved": 0
+    },
+    {
+      "source": 11172208,
+      "destination": 2208972800,
+      "copy": 16384,
+      "zero": 0,
+      "crc": 2285641658,
+      "reserved": 0
+    },
+    {
+      "source": 11188592,
+      "destination": 2208989184,
+      "copy": 16384,
+      "zero": 0,
+      "crc": 3530422190,
+      "reserved": 0
+    },
+    {
+      "source": 11204976,
+      "destination": 2209005568,
+      "copy": 278528,
+      "zero": 3735552,
+      "crc": 245377144,
+      "reserved": 0
+    },
+    {
+      "source": 11483504,
+      "destination": 2213019648,
+      "copy": 311296,
+      "zero": 0,
+      "crc": 3581293187,
+      "reserved": 0
+    },
+    {
+      "source": 11794800,
+      "destination": 2213330944,
+      "copy": 589824,
+      "zero": 0,
+      "crc": 2351499257,
+      "reserved": 0
+    },
+    {
+      "source": 12384624,
+      "destination": 2213920768,
+      "copy": 2847368,
+      "zero": 0,
+      "crc": 3441828943,
+      "reserved": 0
+    }
+  ],
+  "diagnostic": 0,
+  "carrier": {
+    "original_image": {
+      "bytes": 36334080,
+      "sha256": "3054cfe40d06c17963575d6e067ced0c38f8e532bb490e49f828ae66b0e5c420"
+    },
+    "original_result": {
+      "bytes": 8838,
+      "sha256": "7d6b8807721a6de14998615c4d9f590da1197c7ede6b6ed960309d422b25c856"
+    },
+    "helper_pin": {
+      "bytes": 1991,
+      "sha256": "c7ee18723c8251144275036ef9b5403f820a71ad63171799ac5c70d1b4f28247"
+    },
+    "header_hex": "00c04e1400000000000008000000000000b0d202000000000a000000000000000000000000000000efecefec00000000000000000000000041524d6400000000",
+    "stext_offset": 20643840,
+    "loader_entry_offset": 64,
+    "changed_spans": [
+      [
+        64,
+        15322104
+      ],
+      [
+        20643840,
+        20643844
+      ]
+    ],
+    "scope": "Accepted Samsung envelope. Embedded C loader still needs full phone execution evidence."
+  },
+  "symbols": {
+    "__bss_end": 2148093888,
+    "__bss_start": 2148060480,
+    "__image_end": 2163330040,
+    "_start": 2148007936,
+    "backing": 2148050896,
+    "be64": 2148060128,
+    "covered": 2148050992,
+    "envelope": 2148013120,
+    "fail": 2148047488,
+    "loader_bad_entry": 2148008184,
+    "loader_branch": 2148008196,
+    "loader_cache_transition": 2148008152,
+    "loader_context": 2148060480,
+    "loader_entry": 2148008000,
+    "loader_fault": 2148012032,
+    "loader_fault_frame": 2148060736,
+    "loader_fault_main": 2148047616,
+    "loader_main": 2148012208,
+    "loader_return_main": 2148047552,
+    "loader_return_stub": 2148008228,
+    "loader_stack_top": 2148093824,
+    "loader_vectors": 2148009984,
+    "nonce": 2148047712,
+    "payload_base": 2148098048,
+    "payload_config": 2148093952,
+    "payload_end": 2163330040,
+    "payload_toc": 2148094112,
+    "payload_toc_end": 2148094784,
+    "phase4_crc32": 2148049072,
+    "phase4_fdt_guard": 2148051104,
+    "phase4_overlap": 2148049552,
+    "phase4_span": 2148049520,
+    "phase4_validate": 2148049616,
+    "publishing": 2148093824,
+    "used": 2148093828
+  },
+  "initial_memory_budget_bytes": 117440512,
+  "outputs": {
+    "loader.elf": {
+      "bytes": 15390152,
+      "sha256": "b2b262cda80a8522507ceed5803f08257f341f533e13db6013bb9002646f0fb4"
+    },
+    "loader.Image": {
+      "bytes": 36334080,
+      "sha256": "07d415ba7c055368b97805eff5fba857013a15a79101c0e040e4b0e2ac43f25e"
+    },
+    "loader.bin": {
+      "bytes": 15322104,
+      "sha256": "da3c9c119717b52874fa5f139897f891d3b217da188816c4290455c9ba0e68d3"
+    },
+    "payload.S": {
+      "bytes": 1255,
+      "sha256": "35de350ed387a270bf82271d1132c3dc098757d68292cbb8dea54cfa9b77b629"
+    },
+    "payload.bin": {
+      "bytes": 15231992,
+      "sha256": "2546f37f160dd7ef8596ce45e82af5a63eb74db987989310a9e14e3625be0350"
+    }
+  },
+  "passed": true
+}

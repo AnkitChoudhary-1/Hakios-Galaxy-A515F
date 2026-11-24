@@ -1,0 +1,15 @@
+/runs/
+/evidence/
+/artifacts/
+/publication/
+**/__pycache__/
+/apps/**/build/
+*.pyc
+*.img
+*.apfs
+*.dylib
+*.efi
+*.o
+*.a
+*.zip
+*.ipa

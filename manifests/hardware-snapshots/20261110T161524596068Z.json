@@ -1,0 +1,671 @@
+{
+  "schema_version": 1,
+  "captured_utc": "2026-11-10T16:15:22.782665+00:00",
+  "phone_writes": false,
+  "linux_reference_groups": {
+    "board": {
+      "patterns": [
+        "arch/arm64/boot/dts/samsung/exynos9611-a51*",
+        "arch/arm64/boot/dts/samsung/exynos9610.dtsi",
+        "arch/arm64/boot/dts/samsung/exynos9610-gpu.dtsi"
+      ],
+      "files": [
+        {
+          "path": "C:\\Users\\Ankit\\Desktop\\A51\\kernel-work\\source\\arch\\arm64\\boot\\dts\\samsung\\exynos9611-a51_camera.dtsi",
+          "exists": true,
+          "size": 30127,
+          "sha256": "b84d0edc3acc70b16923844f268a67c6bb2301b107fe519accfcc5f8954fedd5"
+        },
+        {
+          "path": "C:\\Users\\Ankit\\Desktop\\A51\\kernel-work\\source\\arch\\arm64\\boot\\dts\\samsung\\exynos9611-a51_can_single_00.dts",
+          "exists": true,
+          "size": 3674,
+          "sha256": "3218d05593e9e0faa9bdcdfd120114de2848b328e8161d9a62339a8a184a6388"
+        },
+        {
+          "path": "C:\\Users\\Ankit\\Desktop\\A51\\kernel-work\\source\\arch\\arm64\\boot\\dts\\samsung\\exynos9611-a51_can_single_gpio_00.dtsi",
+          "exists": true,
+          "size": 4375,
+          "sha256": "54c46ae9e014b6c56e7c3699eba9c626039c4b14a35db27a5d49bdf145c468ef"
+        },
+        {
+          "path": "C:\\Users\\Ankit\\Desktop\\A51\\kernel-work\\source\\arch\\arm64\\boot\\dts\\samsung\\exynos9611-a51_common.dtsi",
+          "exists": true,
+          "size": 32630,
+          "sha256": "14a1911c212f20fe9d2fd15c936899cdde9d1ac686fc42e282b8793d4d2d7115"
+        },
+        {
+          "path": "C:\\Users\\Ankit\\Desktop\\A51\\kernel-work\\source\\arch\\arm64\\boot\\dts\\samsung\\exynos9611-a51_eur_open_00.dts",
+          "exists": true,
+          "size": 4576,
+          "sha256": "f5892e49ae37b3736929e7e68e6a9fe3e5695b1065e2fa9b304a4df35595b50b"
+        },
+        {
+          "path": "C:\\Users\\Ankit\\Desktop\\A51\\kernel-work\\source\\arch\\arm64\\boot\\dts\\samsung\\exynos9611-a51_eur_open_01.dts",
+          "exists": true,
+          "size": 3384,
+          "sha256": "7cff7ed87794f72d478a38b613a79945a77631ff6a291ed886643e8f4a6f1d23"
+        },
+        {
+          "path": "C:\\Users\\Ankit\\Desktop\\A51\\kernel-work\\source\\arch\\arm64\\boot\\dts\\samsung\\exynos9611-a51_eur_open_03.dts",
+          "exists": true,
+          "size": 3386,
+          "sha256": "508e1af81ccc452db506fba7bb09833a7dbff6216b95ff5aa5dd9d26726dda8f"
+        },
+        {
+          "path": "C:\\Users\\Ankit\\Desktop\\A51\\kernel-work\\source\\arch\\arm64\\boot\\dts\\samsung\\exynos9611-a51_eur_open_07.dts",
+          "exists": true,
+          "size": 5161,
+          "sha256": "6d80feaa7583fd7e623ea8dfd6c87cae8c136f6da849b52ec0cb861b1dc2bbdf"
+        },
+        {
+          "path": "C:\\Users\\Ankit\\Desktop\\A51\\kernel-work\\source\\arch\\arm64\\boot\\dts\\samsung\\exynos9611-a51_eur_open_gpio_00.dtsi",
+          "exists": true,
+          "size": 4270,
+          "sha256": "f96e16126c56c5b43b1320a8c6874ede84150a0b669d447a83a403658a9793e6"
+        },
+        {
+          "path": "C:\\Users\\Ankit\\Desktop\\A51\\kernel-work\\source\\arch\\arm64\\boot\\dts\\samsung\\exynos9611-a51_eur_open_gpio_01.dtsi",
+          "exists": true,
+          "size": 4323,
+          "sha256": "e250f30d7b7556c783da89cd82834b609bbc282fa8698f61826a4df9df180fe7"
+        },
+        {
+          "path": "C:\\Users\\Ankit\\Desktop\\A51\\kernel-work\\source\\arch\\arm64\\boot\\dts\\samsung\\exynos9611-a51_eur_open_gpio_03.dtsi",
+          "exists": true,
+          "size": 4322,
+          "sha256": "ca0f53a961a4bf57400e4797530b94a4e09149262057c2f3b11bee297bd0c90c"
+        },
+        {
+          "path": "C:\\Users\\Ankit\\Desktop\\A51\\kernel-work\\source\\arch\\arm64\\boot\\dts\\samsung\\exynos9611-a51_eur_open_gpio_07.dtsi",
+          "exists": true,
+          "size": 4289,
+          "sha256": "c08c8a96fb445aa3605efa34d41adc1e9bc40cab454e6364721fd28273cc72f0"
+        },
+        {
+          "path": "C:\\Users\\Ankit\\Desktop\\A51\\kernel-work\\source\\arch\\arm64\\boot\\dts\\samsung\\exynos9611-a51_fingerprint_00.dtsi",
+          "exists": true,
+          "size": 2467,
+          "sha256": "51a5fc91fc15b62c64761b08a39740db39824c699eec2bdd6f966cc98e5e6944"
+        },
+        {
+          "path": "C:\\Users\\Ankit\\Desktop\\A51\\kernel-work\\source\\arch\\arm64\\boot\\dts\\samsung\\exynos9611-a51_ltn_dtv-isdbt_00.dtsi",
+          "exists": true,
+          "size": 2965,
+          "sha256": "8b9326311d9af5b9b031842760507d0c769c0cdaabd3c6c84e5f26869d42e2c7"
+        },
+        {
+          "path": "C:\\Users\\Ankit\\Desktop\\A51\\kernel-work\\source\\arch\\arm64\\boot\\dts\\samsung\\exynos9611-a51_ltn_dtv_00.dts",
+          "exists": true,
+          "size": 4374,
+          "sha256": "ce0ba44b3d0e79e330b01dd297e8c6ae6569b576e72b79c127704e394eec0d57"
+        },
+        {
+          "path": "C:\\Users\\Ankit\\Desktop\\A51\\kernel-work\\source\\arch\\arm64\\boot\\dts\\samsung\\exynos9611-a51_ltn_dtv_01.dts",
+          "exists": true,
+          "size": 3182,
+          "sha256": "4255d3ad54e28b1a0c0acd6a10837a4eb631360fe99c92dd24abc11cbd03ee86"
+        },
+        {
+          "path": "C:\\Users\\Ankit\\Desktop\\A51\\kernel-work\\source\\arch\\arm64\\boot\\dts\\samsung\\exynos9611-a51_ltn_dtv_03.dts",
+          "exists": true,
+          "size": 3186,
+          "sha256": "474aabff2d402c16ff354ea324b6cdccd6e5c815baaf9ddab4f2cef295fb80e8"
+        },
+        {
+          "path": "C:\\Users\\Ankit\\Desktop\\A51\\kernel-work\\source\\arch\\arm64\\boot\\dts\\samsung\\exynos9611-a51_ltn_dtv_gpio_00.dtsi",
+          "exists": true,
+          "size": 4269,
+          "sha256": "f179fe1d2d51d248bce045a9cfdb38d7c5aee40404f196167122225a8259f657"
+        },
+        {
+          "path": "C:\\Users\\Ankit\\Desktop\\A51\\kernel-work\\source\\arch\\arm64\\boot\\dts\\samsung\\exynos9611-a51_ltn_dtv_gpio_01.dtsi",
+          "exists": true,
+          "size": 4322,
+          "sha256": "01151e71027ae3d02d1afd73a36f9a563b69dd695cfb7d4a8c4201eeb4e103f5"
+        },
+        {
+          "path": "C:\\Users\\Ankit\\Desktop\\A51\\kernel-work\\source\\arch\\arm64\\boot\\dts\\samsung\\exynos9611-a51_ltn_dtv_gpio_03.dtsi",
+          "exists": true,
+          "size": 4321,
+          "sha256": "66a68c5fd94edc1dc39961b88b338e975f7c5dc41938f703fd103f559a0d9ce3"
+        },
+        {
+          "path": "C:\\Users\\Ankit\\Desktop\\A51\\kernel-work\\source\\arch\\arm64\\boot\\dts\\samsung\\exynos9611-a51_nfc_00.dtsi",
+          "exists": true,
+          "size": 2931,
+          "sha256": "b743314e5e30eb0185bb64158a95651781397712dd1a7b6a1d00f2e8160903b2"
+        },
+        {
+          "path": "C:\\Users\\Ankit\\Desktop\\A51\\kernel-work\\source\\arch\\arm64\\boot\\dts\\samsung\\exynos9611-a51_nfc_01.dtsi",
+          "exists": true,
+          "size": 2931,
+          "sha256": "28568786bc0dc7469b9b5110f27116614b8f601e4b7ab228712cfe3a0e9e568d"
+        },
+        {
+          "path": "C:\\Users\\Ankit\\Desktop\\A51\\kernel-work\\source\\arch\\arm64\\boot\\dts\\samsung\\exynos9611-a51_nfc_ese_00.dtsi",
+          "exists": true,
+          "size": 3782,
+          "sha256": "819e53a1f930a40815f4034ced67b6b3e9c4f3a9aa9b42d814025076704dd244"
+        },
+        {
+          "path": "C:\\Users\\Ankit\\Desktop\\A51\\kernel-work\\source\\arch\\arm64\\boot\\dts\\samsung\\exynos9611-a51_nfc_ese_01.dtsi",
+          "exists": true,
+          "size": 3782,
+          "sha256": "07ca21635669c0c516f75c3fa028ed7a670c3a468341d8c4088894d3471f54b6"
+        },
+        {
+          "path": "C:\\Users\\Ankit\\Desktop\\A51\\kernel-work\\source\\arch\\arm64\\boot\\dts\\samsung\\exynos9611-a51_nfc_ese_03.dtsi",
+          "exists": true,
+          "size": 4090,
+          "sha256": "946b9aea9c87789180596b744e778541f99fd3d2d68a73e0c6520cef02cac3cd"
+        },
+        {
+          "path": "C:\\Users\\Ankit\\Desktop\\A51\\kernel-work\\source\\arch\\arm64\\boot\\dts\\samsung\\exynos9611-a51_sensorhub_00.dtsi",
+          "exists": true,
+          "size": 1211,
+          "sha256": "966ec23fc0bc2ceea3e10dee95487e00837bd1823adbd88f437be5438f583dc2"
+        },
+        {
+          "path": "C:\\Users\\Ankit\\Desktop\\A51\\kernel-work\\source\\arch\\arm64\\boot\\dts\\samsung\\exynos9611-a51_sensorhub_01.dtsi",
+          "exists": true,
+          "size": 1218,
+          "sha256": "d10805ff798bbb58ef8f56a4bbac3df221fb2f7a2e590a81b22b1fa4f8cc07f1"
+        },
+        {
+          "path": "C:\\Users\\Ankit\\Desktop\\A51\\kernel-work\\source\\arch\\arm64\\boot\\dts\\samsung\\exynos9611-a51_sensorhub_03.dtsi",
+          "exists": true,
+          "size": 1389,
+          "sha256": "8ef4cacdf6e38ff40aeca07d4448d0b984ccf4a6db73ee7d46c61ace93708c5a"
+        }
+      ],
+      "status": "source references only; fitted hardware and firmware compatibility require device evidence"
+    },
+    "display": {
+      "patterns": [
+        "drivers/video/fbdev/exynos/dpu20/decon_core.c",
+        "drivers/video/fbdev/exynos/dpu20/dsim_drv.c",
+        "drivers/video/fbdev/exynos/dpu20/panels/*a51*lcd_ctrl.c"
+      ],
+      "files": [
+        {
+          "path": "C:\\Users\\Ankit\\Desktop\\A51\\kernel-work\\source\\drivers\\video\\fbdev\\exynos\\dpu20\\decon_core.c",
+          "exists": true,
+          "size": 118894,
+          "sha256": "ceaf6eaf6e7ed9b1eb456bd5273790888f489bf975ef5b1db0ab0d55c2ec71e4"
+        },
+        {
+          "path": "C:\\Users\\Ankit\\Desktop\\A51\\kernel-work\\source\\drivers\\video\\fbdev\\exynos\\dpu20\\dsim_drv.c",
+          "exists": true,
+          "size": 53880,
+          "sha256": "983fe850bbf02e0ad1999a44d6c1363e664acdddb412743536d07d06df64c2df"
+        },
+        {
+          "path": "C:\\Users\\Ankit\\Desktop\\A51\\kernel-work\\source\\drivers\\video\\fbdev\\exynos\\dpu20\\panels\\ea8076_a51_lcd_ctrl.c",
+          "exists": true,
+          "size": 61118,
+          "sha256": "b697c725fa07f97d22b135d422c3371dcf2b8888519b24b76d91fb7a1e7be283"
+        },
+        {
+          "path": "C:\\Users\\Ankit\\Desktop\\A51\\kernel-work\\source\\drivers\\video\\fbdev\\exynos\\dpu20\\panels\\s6e3fa9_a51_lcd_ctrl.c",
+          "exists": true,
+          "size": 58095,
+          "sha256": "443286f04a0f4521ae72bdd4d276bf7a0c2fb6cd4aefd4e867aaa350ed379da0"
+        }
+      ],
+      "status": "source references only; fitted hardware and firmware compatibility require device evidence"
+    },
+    "touch": {
+      "patterns": [
+        "drivers/input/touchscreen/melfas/mss100/melfas_mss100.c"
+      ],
+      "files": [
+        {
+          "path": "C:\\Users\\Ankit\\Desktop\\A51\\kernel-work\\source\\drivers\\input\\touchscreen\\melfas\\mss100\\melfas_mss100.c",
+          "exists": true,
+          "size": 52749,
+          "sha256": "f9f6575e1f590f5e2018ab0724d7151a229e73205e5a97a58b51b1f0dc1486f5"
+        }
+      ],
+      "status": "source references only; fitted hardware and firmware compatibility require device evidence"
+    },
+    "gpu": {
+      "patterns": [
+        "drivers/gpu/arm/exynos/Kbuild",
+        "drivers/gpu/arm/exynos/mali_exynos_kbase_entrypoint.c",
+        "drivers/gpu/arm/exynos/frontend/gpex_clock.c",
+        "drivers/gpu/arm/exynos/frontend/gpex_pm.c",
+        "drivers/gpu/arm/exynos/frontend/gpex_dvfs.c",
+        "drivers/gpu/arm/exynos/backend/gpexbe_clock*.c",
+        "drivers/gpu/arm/bv_r38p1/mali_kbase_core_linux.c"
+      ],
+      "files": [
+        {
+          "path": "C:\\Users\\Ankit\\Desktop\\A51\\kernel-work\\source\\drivers\\gpu\\arm\\bv_r38p1\\mali_kbase_core_linux.c",
+          "exists": true,
+          "size": 165001,
+          "sha256": "0424890d8ce122d286c04e1fbc26e7635dfa7c5f15cfc8d6f923f5780cd419d0"
+        },
+        {
+          "path": "C:\\Users\\Ankit\\Desktop\\A51\\kernel-work\\source\\drivers\\gpu\\arm\\exynos\\backend\\gpexbe_clock.c",
+          "exists": true,
+          "size": 2652,
+          "sha256": "7a0c4e2e1d93ed0ee0fa68e9696f0797a8f39f06c01c0c15b917cfdec95f6044"
+        },
+        {
+          "path": "C:\\Users\\Ankit\\Desktop\\A51\\kernel-work\\source\\drivers\\gpu\\arm\\exynos\\frontend\\gpex_clock.c",
+          "exists": true,
+          "size": 14949,
+          "sha256": "716b36b6d68b8020f2969f368615db3036522925761bb1d158c91159e3bb5e7b"
+        },
+        {
+          "path": "C:\\Users\\Ankit\\Desktop\\A51\\kernel-work\\source\\drivers\\gpu\\arm\\exynos\\frontend\\gpex_dvfs.c",
+          "exists": true,
+          "size": 8501,
+          "sha256": "1c198885fd3df0e801674fb664b12cf5c6123703f69679f3585f5b5840dd5c04"
+        },
+        {
+          "path": "C:\\Users\\Ankit\\Desktop\\A51\\kernel-work\\source\\drivers\\gpu\\arm\\exynos\\frontend\\gpex_pm.c",
+          "exists": true,
+          "size": 9540,
+          "sha256": "aa1bdfde27f5f45ee3eff5d7aa760c14d4386db7130508b991eb957939da0bd9"
+        },
+        {
+          "path": "C:\\Users\\Ankit\\Desktop\\A51\\kernel-work\\source\\drivers\\gpu\\arm\\exynos\\Kbuild",
+          "exists": true,
+          "size": 9551,
+          "sha256": "aa1e019fa4c35155440f623eee0686b2741a6d53a844048a0822eb31cdd32985"
+        },
+        {
+          "path": "C:\\Users\\Ankit\\Desktop\\A51\\kernel-work\\source\\drivers\\gpu\\arm\\exynos\\mali_exynos_kbase_entrypoint.c",
+          "exists": true,
+          "size": 14048,
+          "sha256": "c0b1fdb12e31df8f131596d12f26cc0446cee36b16cb01fcacd76183dbf07b59"
+        }
+      ],
+      "status": "source references only; fitted hardware and firmware compatibility require device evidence"
+    },
+    "wifi_bluetooth": {
+      "patterns": [
+        "drivers/misc/samsung/scsc/platform_mif.c",
+        "drivers/misc/samsung/scsc/scsc_mx_impl.c",
+        "drivers/misc/samsung/scsc/platform_mif_9610.c",
+        "drivers/misc/samsung/scsc/fw*.c",
+        "drivers/net/wireless/scsc/dev.c",
+        "drivers/net/wireless/scsc/hip4.c",
+        "drivers/net/wireless/scsc/mlme.c",
+        "drivers/net/wireless/scsc/cfg80211_ops.c",
+        "drivers/net/wireless/scsc/fapi.h",
+        "drivers/misc/samsung/scsc_bt/*.c"
+      ],
+      "files": [
+        {
+          "path": "C:\\Users\\Ankit\\Desktop\\A51\\kernel-work\\source\\drivers\\misc\\samsung\\scsc\\fw_panic_record.c",
+          "exists": true,
+          "size": 9666,
+          "sha256": "f6d205f3170b391155184728653c69f0a5d875c073cd6cad52b5633f7774fe1a"
+        },
+        {
+          "path": "C:\\Users\\Ankit\\Desktop\\A51\\kernel-work\\source\\drivers\\misc\\samsung\\scsc\\fwhdr.c",
+          "exists": true,
+          "size": 4694,
+          "sha256": "4497b61415c636c05359a7ae53f5a6ab07116c51567d1784aad19a0b679394d5"
+        },
+        {
+          "path": "C:\\Users\\Ankit\\Desktop\\A51\\kernel-work\\source\\drivers\\misc\\samsung\\scsc\\fwimage.c",
+          "exists": true,
+          "size": 2028,
+          "sha256": "7ddd136e0b2569844f94a6eaada9cef49a56cba61e5c88b05b5693921f15b3bf"
+        },
+        {
+          "path": "C:\\Users\\Ankit\\Desktop\\A51\\kernel-work\\source\\drivers\\misc\\samsung\\scsc\\platform_mif.c",
+          "exists": true,
+          "size": 84476,
+          "sha256": "150756ac78ac2fb85369031fabad3006f300d12ce1061e56a4d8085ea8d4435b"
+        },
+        {
+          "path": "C:\\Users\\Ankit\\Desktop\\A51\\kernel-work\\source\\drivers\\misc\\samsung\\scsc\\platform_mif_9610.c",
+          "exists": true,
+          "size": 66122,
+          "sha256": "692eda34b301842cd08c4184a96d7ea7ec2c831f5b011c2ba374d9f786ca99e4"
+        },
+        {
+          "path": "C:\\Users\\Ankit\\Desktop\\A51\\kernel-work\\source\\drivers\\misc\\samsung\\scsc\\scsc_mx_impl.c",
+          "exists": true,
+          "size": 6048,
+          "sha256": "9d01c03a4b41a2158de4a5c33c756de110a490b5e8cd961097333dea7e7272be"
+        },
+        {
+          "path": "C:\\Users\\Ankit\\Desktop\\A51\\kernel-work\\source\\drivers\\misc\\samsung\\scsc_bt\\scsc_ant.c",
+          "exists": true,
+          "size": 24393,
+          "sha256": "40d396b9de873a2a9af58f67b9c82a43a0b23fe7ae6e953e0943ed57d7c917f5"
+        },
+        {
+          "path": "C:\\Users\\Ankit\\Desktop\\A51\\kernel-work\\source\\drivers\\misc\\samsung\\scsc_bt\\scsc_avdtp_detect.c",
+          "exists": true,
+          "size": 31448,
+          "sha256": "a00feb5779baec202cb4e3bb706b6cc6e4b4476bf5c7c0718ee9c5d454c92ed8"
+        },
+        {
+          "path": "C:\\Users\\Ankit\\Desktop\\A51\\kernel-work\\source\\drivers\\misc\\samsung\\scsc_bt\\scsc_bluez.c",
+          "exists": true,
+          "size": 7292,
+          "sha256": "070cb7234ff5477b8c3a02de7f406319cb946a740c1415d42dc8be738119fce7"
+        },
+        {
+          "path": "C:\\Users\\Ankit\\Desktop\\A51\\kernel-work\\source\\drivers\\misc\\samsung\\scsc_bt\\scsc_bt_module.c",
+          "exists": true,
+          "size": 76971,
+          "sha256": "3c64d2baf80a2188fb4ce1ba75079995083a3d75796a195570c9f6ade220ecc7"
+        },
+        {
+          "path": "C:\\Users\\Ankit\\Desktop\\A51\\kernel-work\\source\\drivers\\misc\\samsung\\scsc_bt\\scsc_bt_qos.c",
+          "exists": true,
+          "size": 7316,
+          "sha256": "8ff787aca74bb9acf3101af11b326065e3647ac68c74f3bfdcc2c8432a8fe101"
+        },
+        {
+          "path": "C:\\Users\\Ankit\\Desktop\\A51\\kernel-work\\source\\drivers\\misc\\samsung\\scsc_bt\\scsc_shm.c",
+          "exists": true,
+          "size": 67139,
+          "sha256": "d4248fff7841d8626d7142f992a3263a69e468ad57e5d381d5d9fb43b9b3514a"
+        },
+        {
+          "path": "C:\\Users\\Ankit\\Desktop\\A51\\kernel-work\\source\\drivers\\net\\wireless\\scsc\\cfg80211_ops.c",
+          "exists": true,
+          "size": 142415,
+          "sha256": "907773c3259d8146ac13ce5bd7a0e73135461faced5c6bef3eab57f45c392b2a"
+        },
+        {
+          "path": "C:\\Users\\Ankit\\Desktop\\A51\\kernel-work\\source\\drivers\\net\\wireless\\scsc\\dev.c",
+          "exists": true,
+          "size": 22152,
+          "sha256": "c83f377f60c803c70caeac94815bae49c61a512a53be5708f0a5f2bf1f156bee"
+        },
+        {
+          "path": "C:\\Users\\Ankit\\Desktop\\A51\\kernel-work\\source\\drivers\\net\\wireless\\scsc\\fapi.h",
+          "exists": true,
+          "size": 168044,
+          "sha256": "6f85aa58e24d3fa95b543bb07c93e2ce71517f1855f9da0fd89d9d9b171fc0bb"
+        },
+        {
+          "path": "C:\\Users\\Ankit\\Desktop\\A51\\kernel-work\\source\\drivers\\net\\wireless\\scsc\\hip4.c",
+          "exists": true,
+          "size": 105312,
+          "sha256": "947052994f25ec4bb419cb45e0d3369f62d1ac87f6a103b2086e963859fab4b2"
+        },
+        {
+          "path": "C:\\Users\\Ankit\\Desktop\\A51\\kernel-work\\source\\drivers\\net\\wireless\\scsc\\mlme.c",
+          "exists": true,
+          "size": 174894,
+          "sha256": "bd3b403004d9fc9fde1cba21683dbe79d3185bc431be193843c7d629c4be9c7b"
+        }
+      ],
+      "status": "source references only; fitted hardware and firmware compatibility require device evidence"
+    },
+    "audio": {
+      "patterns": [
+        "sound/soc/samsung/abox/abox.c",
+        "sound/soc/samsung/exynos9610-rt5665.c",
+        "sound/soc/codecs/rt5665.c",
+        "sound/soc/codecs/rt5510.c"
+      ],
+      "files": [
+        {
+          "path": "C:\\Users\\Ankit\\Desktop\\A51\\kernel-work\\source\\sound\\soc\\codecs\\rt5510.c",
+          "exists": true,
+          "size": 25095,
+          "sha256": "ea5ff2b0d64cd4fe67f5f6f4e39b1592130474c26842b6edfb11d99959484e5a"
+        },
+        {
+          "path": "C:\\Users\\Ankit\\Desktop\\A51\\kernel-work\\source\\sound\\soc\\codecs\\rt5665.c",
+          "exists": true,
+          "size": 205760,
+          "sha256": "3653a3d3cd54c0b07c0a05fd8ba553020f232b6a305cc5ca7ad3d981fde772b1"
+        },
+        {
+          "path": "C:\\Users\\Ankit\\Desktop\\A51\\kernel-work\\source\\sound\\soc\\samsung\\abox\\abox.c",
+          "exists": true,
+          "size": 184232,
+          "sha256": "d4fe90128e1a11ebcbb6dd3364518fca905bb9c3668d8744456588cb33300338"
+        },
+        {
+          "path": "C:\\Users\\Ankit\\Desktop\\A51\\kernel-work\\source\\sound\\soc\\samsung\\exynos9610-rt5665.c",
+          "exists": true,
+          "size": 21531,
+          "sha256": "d358b97b045d397bccf699e6627da74656fde8ee9edf4f916ea62ee373e75964"
+        }
+      ],
+      "status": "source references only; fitted hardware and firmware compatibility require device evidence"
+    },
+    "charging": {
+      "patterns": [
+        "drivers/battery_v2/sm5713*.c",
+        "arch/arm64/boot/dts/samsung/exynos9611-if-pmic-sm5713.dtsi"
+      ],
+      "files": [
+        {
+          "path": "C:\\Users\\Ankit\\Desktop\\A51\\kernel-work\\source\\arch\\arm64\\boot\\dts\\samsung\\exynos9611-if-pmic-sm5713.dtsi",
+          "exists": true,
+          "size": 1376,
+          "sha256": "6f4ecb90dad70f20196fed2d8296ff37ab57d2da736c2f0b3a7f6b71238efdde"
+        },
+        {
+          "path": "C:\\Users\\Ankit\\Desktop\\A51\\kernel-work\\source\\drivers\\battery_v2\\sm5713_charger.c",
+          "exists": true,
+          "size": 36770,
+          "sha256": "3480e345945d8936e50d9c7e4e1f6c87f20ce079c0801797705c70e03a03ab82"
+        },
+        {
+          "path": "C:\\Users\\Ankit\\Desktop\\A51\\kernel-work\\source\\drivers\\battery_v2\\sm5713_charger_oper.c",
+          "exists": true,
+          "size": 13767,
+          "sha256": "dc37c738eaed8b372b5324fdcf6575aab573ff56e0e23a8c70fc9108795d8276"
+        },
+        {
+          "path": "C:\\Users\\Ankit\\Desktop\\A51\\kernel-work\\source\\drivers\\battery_v2\\sm5713_fuelgauge.c",
+          "exists": true,
+          "size": 124592,
+          "sha256": "574d62f2d0f3d54aeb0562f3887feb5e2fc53565b15fbec6f56c463be5722426"
+        }
+      ],
+      "status": "source references only; fitted hardware and firmware compatibility require device evidence"
+    },
+    "ufs": {
+      "patterns": [
+        "drivers/scsi/ufs/ufs-exynos*.c",
+        "drivers/phy/samsung/phy-exynos-ufs*.c"
+      ],
+      "files": [
+        {
+          "path": "C:\\Users\\Ankit\\Desktop\\A51\\kernel-work\\source\\drivers\\scsi\\ufs\\ufs-exynos-dbg.c",
+          "exists": true,
+          "size": 29803,
+          "sha256": "e6bc2008b0ac3318136ac02694e40751f8b5958640c025135181b039a233a70c"
+        },
+        {
+          "path": "C:\\Users\\Ankit\\Desktop\\A51\\kernel-work\\source\\drivers\\scsi\\ufs\\ufs-exynos-fmp.c",
+          "exists": true,
+          "size": 6290,
+          "sha256": "8bfcb90b58d0d3bc23e19ae9c7e67f588962ccd6ef94eff9f094f34e888e1425"
+        },
+        {
+          "path": "C:\\Users\\Ankit\\Desktop\\A51\\kernel-work\\source\\drivers\\scsi\\ufs\\ufs-exynos.c",
+          "exists": true,
+          "size": 35680,
+          "sha256": "46315329f74244bd9f7936d943b05d739c57e029a7e879ddd460ae6f225b29a8"
+        }
+      ],
+      "status": "source references only; fitted hardware and firmware compatibility require device evidence"
+    }
+  },
+  "boot_images": [
+    {
+      "path": "C:\\Users\\Ankit\\Desktop\\A51\\everline-ksu\\backups\\a51-pixelos-original-boot.img",
+      "exists": true,
+      "size": 61865984,
+      "sha256": "89600eb7f3bb73a26d6d8b38aa46c7cb27a5b942da84e0a3c77626ea21642e52",
+      "header": {
+        "kernel_size": 36313128,
+        "kernel_addr": 268468224,
+        "ramdisk_size": 1325644,
+        "ramdisk_addr": 285212672,
+        "second_size": 0,
+        "second_addr": 0,
+        "tags_addr": 268435712,
+        "page_size": 2048,
+        "header_version": 2,
+        "os_version": 536871334,
+        "name": "",
+        "cmdline": "loop.max_part=7",
+        "recovery_dtbo_size": 0,
+        "recovery_dtbo_offset": 0,
+        "header_size": 1660,
+        "dtb_size": 135168,
+        "dtb_addr": 268435456
+      }
+    },
+    {
+      "path": "C:\\Users\\Ankit\\Desktop\\A51\\everline-ksu\\backups\\a51-twrp-original-recovery.img",
+      "exists": true,
+      "size": 71106560,
+      "sha256": "12412e2008d950260cda627ac7a6b8eac954b49ef9db5573a297f67e4fc85999",
+      "header": {
+        "kernel_size": 43745292,
+        "kernel_addr": 268468224,
+        "ramdisk_size": 13532879,
+        "ramdisk_addr": 285212672,
+        "second_size": 0,
+        "second_addr": 0,
+        "tags_addr": 268435712,
+        "page_size": 2048,
+        "header_version": 2,
+        "os_version": 402653540,
+        "name": "SRPSG30B004RU",
+        "cmdline": "androidboot.hardware=exynos9611 buildvariant=eng",
+        "recovery_dtbo_size": 476800,
+        "recovery_dtbo_offset": 57282560,
+        "header_size": 1660,
+        "dtb_size": 135216,
+        "dtb_addr": 300941312
+      }
+    }
+  ],
+  "device_queries": [
+    {
+      "argv": [
+        "C:\\Android\\platform-tools\\adb.EXE",
+        "-s",
+        "A51_SERIAL_HERE",
+        "shell",
+        "cat",
+        "/sys/class/block/sda12/size"
+      ],
+      "exit_code": 1,
+      "output": "cat: /sys/class/block/sda12/size: Permission denied\r\n"
+    },
+    {
+      "argv": [
+        "C:\\Android\\platform-tools\\adb.EXE",
+        "-s",
+        "A51_SERIAL_HERE",
+        "shell",
+        "cat",
+        "/sys/class/block/sda10/size"
+      ],
+      "exit_code": 1,
+      "output": "cat: /sys/class/block/sda10/size: Permission denied\r\n"
+    },
+    {
+      "argv": [
+        "C:\\Android\\platform-tools\\adb.EXE",
+        "-s",
+        "A51_SERIAL_HERE",
+        "shell",
+        "cat",
+        "/sys/class/block/sda13/size"
+      ],
+      "exit_code": 1,
+      "output": "cat: /sys/class/block/sda13/size: Permission denied\r\n"
+    },
+    {
+      "argv": [
+        "C:\\Android\\platform-tools\\adb.EXE",
+        "-s",
+        "A51_SERIAL_HERE",
+        "shell",
+        "cat",
+        "/proc/iomem"
+      ],
+      "exit_code": 1,
+      "output": "cat: /proc/iomem: Permission denied\r\n"
+    },
+    {
+      "argv": [
+        "C:\\Android\\platform-tools\\adb.EXE",
+        "-s",
+        "A51_SERIAL_HERE",
+        "shell",
+        "cat",
+        "/sys/firmware/devicetree/base/model"
+      ],
+      "exit_code": 1,
+      "output": "cat: /sys/firmware/devicetree/base/model: Permission denied\r\n"
+    },
+    {
+      "argv": [
+        "C:\\Android\\platform-tools\\adb.EXE",
+        "-s",
+        "A51_SERIAL_HERE",
+        "shell",
+        "cat",
+        "/sys/firmware/devicetree/base/compatible"
+      ],
+      "exit_code": 1,
+      "output": "cat: /sys/firmware/devicetree/base/compatible: Permission denied\r\n"
+    },
+    {
+      "argv": [
+        "C:\\Android\\platform-tools\\adb.EXE",
+        "-s",
+        "A51_SERIAL_HERE",
+        "shell",
+        "find",
+        "/vendor/firmware",
+        "/vendor/etc/wifi",
+        "/vendor/etc/bluetooth",
+        "-type",
+        "f"
+      ],
+      "exit_code": 1,
+      "output": "find: '/vendor/firmware': Permission denied\r\n/vendor/etc/wifi/hydra_config.sdb\r\n/vendor/etc/wifi/indoorchannel.info\r\n/vendor/etc/wifi/mx140.bin\r\n/vendor/etc/wifi/mx140_bt.hcf\r\n/vendor/etc/wifi/mx140_t.bin\r\n/vendor/etc/wifi/mx140_t_wlan.hcf\r\n/vendor/etc/wifi/mx140_t_wlan_sw.hcf\r\n/vendor/etc/wifi/mx140_t_wlan_t.hcf\r\n/vendor/etc/wifi/mx140_t_wlan_t_sw.hcf\r\n/vendor/etc/wifi/mx140_wlan.hcf\r\n/vendor/etc/wifi/mx140_wlan_sw.hcf\r\n/vendor/etc/wifi/mx140_wlan_t.hcf\r\n/vendor/etc/wifi/mx140_wlan_t_sw.hcf\r\n/vendor/etc/wifi/p2p_supplicant_overlay.conf\r\n/vendor/etc/wifi/platform.txt\r\n/vendor/etc/wifi/slsi_reg_database.bin\r\n/vendor/etc/wifi/wpa_supplicant.conf\r\n/vendor/etc/wifi/wpa_supplicant_overlay.conf\r\n/vendor/etc/bluetooth/bt_did.conf\r\n/vendor/etc/bluetooth/bt_vendor.conf\r\n"
+    },
+    {
+      "argv": [
+        "C:\\Android\\platform-tools\\adb.EXE",
+        "-s",
+        "A51_SERIAL_HERE",
+        "shell",
+        "ls",
+        "-l",
+        "/sys/bus/i2c/devices"
+      ],
+      "exit_code": 0,
+      "output": "total 0\r\nlrwxrwxrwx 1 root root 0 2026-11-10 21:35 0-0033 -> ../../../devices/platform/13830000.i2c/i2c-0/0-0033\r\nlrwxrwxrwx 1 root root 0 2026-11-10 21:35 1-0025 -> ../../../devices/platform/13840000.i2c/i2c-1/1-0025\r\nlrwxrwxrwx 1 root root 0 2026-11-10 21:35 1-0049 -> ../../../devices/platform/13840000.i2c/i2c-1/1-0049\r\nlrwxrwxrwx 1 root root 0 2026-11-10 21:35 1-0071 -> ../../../devices/platform/13840000.i2c/i2c-1/1-0071\r\nlrwxrwxrwx 1 root root 0 2026-11-10 21:35 10-001a -> ../../../devices/platform/138b0000.hsi2c/i2c-10/10-001a\r\nlrwxrwxrwx 1 root root 0 2026-11-10 21:35 11-0037 -> ../../../devices/platform/138c0000.hsi2c/i2c-11/11-0037\r\nlrwxrwxrwx 1 root root 0 2026-11-10 21:35 12-0021 -> ../../../devices/platform/138d0000.hsi2c/i2c-12/12-0021\r\nlrwxrwxrwx 1 root root 0 2026-11-10 21:35 12-003f -> ../../../devices/platform/138d0000.hsi2c/i2c-12/12-003f\r\nlrwxrwxrwx 1 root root 0 2026-11-10 21:35 13-0052 -> ../../../devices/platform/13920000.hsi2c/i2c-13/13-0052\r\nlrwxrwxrwx 1 root root 0 2026-11-10 21:35 13-0054 -> ../../../devices/platform/13920000.hsi2c/i2c-13/13-0054\r\nlrwxrwxrwx 1 root root 0 2026-11-10 21:35 14-000c -> ../../../devices/platform/13930000.hsi2c/i2c-14/14-000c\r\nlrwxrwxrwx 1 root root 0 2026-11-10 21:35 14-0051 -> ../../../devices/platform/13930000.hsi2c/i2c-14/14-0051\r\nlrwxrwxrwx 1 root root 0 2026-11-10 21:35 14-0058 -> ../../../devices/platform/13930000.hsi2c/i2c-14/14-0058\r\nlrwxrwxrwx 1 root root 0 2026-11-10 21:35 15-0000 -> ../../../devices/platform/11a10000.speedy/i2c-15/15-0000\r\nlrwxrwxrwx 1 root root 0 2026-11-10 21:35 15-0001 -> ../../../devices/platform/11a10000.speedy/i2c-15/15-0001\r\nlrwxrwxrwx 1 root root 0 2026-11-10 21:35 15-0002 -> ../../../devices/platform/11a10000.speedy/i2c-15/15-0002\r\nlrwxrwxrwx 1 root root 0 2026-11-10 21:35 16-0020 -> ../../../devices/platform/i2c@20/i2c-16/16-0020\r\nlrwxrwxrwx 1 root root 0 2026-11-10 21:35 16-0021 -> ../../../devices/platform/i2c@20/i2c-16/16-0021\r\nlrwxrwxrwx 1 root root 0 2026-11-10 21:35 3-0056 -> ../../../devices/platform/13860000.i2c/i2c-3/3-0056\r\nlrwxrwxrwx 1 root root 0 2026-11-10 21:35 4-0048 -> ../../../devices/platform/13870000.i2c/i2c-4/4-0048\r\nlrwxrwxrwx 1 root root 0 2026-11-10 21:35 6-001b -> ../../../devices/platform/13890000.i2c/i2c-6/6-001b\r\nlrwxrwxrwx 1 root root 0 2026-11-10 21:35 7-004c -> ../../../devices/platform/11d10000.hsi2c/i2c-7/7-004c\r\nlrwxrwxrwx 1 root root 0 2026-11-10 21:35 8-002b -> ../../../devices/platform/11d40000.hsi2c/i2c-8/8-002b\r\nlrwxrwxrwx 1 root root 0 2026-11-10 21:35 9-001a -> ../../../devices/platform/138a0000.hsi2c/i2c-9/9-001a\r\nlrwxrwxrwx 1 root root 0 2026-11-10 21:35 i2c-0 -> ../../../devices/platform/13830000.i2c/i2c-0\r\nlrwxrwxrwx 1 root root 0 2026-11-10 21:35 i2c-1 -> ../../../devices/platform/13840000.i2c/i2c-1\r\nlrwxrwxrwx 1 root root 0 2026-11-10 21:35 i2c-10 -> ../../../devices/platform/138b0000.hsi2c/i2c-10\r\nlrwxrwxrwx 1 root root 0 2026-11-10 21:35 i2c-11 -> ../../../devices/platform/138c0000.hsi2c/i2c-11\r\nlrwxrwxrwx 1 root root 0 2026-11-10 21:35 i2c-12 -> ../../../devices/platform/138d0000.hsi2c/i2c-12\r\nlrwxrwxrwx 1 root root 0 2026-11-10 21:35 i2c-13 -> ../../../devices/platform/13920000.hsi2c/i2c-13\r\nlrwxrwxrwx 1 root root 0 2026-11-10 21:35 i2c-14 -> ../../../devices/platform/13930000.hsi2c/i2c-14\r\nlrwxrwxrwx 1 root root 0 2026-11-10 21:35 i2c-15 -> ../../../devices/platform/11a10000.speedy/i2c-15\r\nlrwxrwxrwx 1 root root 0 2026-11-10 21:35 i2c-16 -> ../../../devices/platform/i2c@20/i2c-16\r\nlrwxrwxrwx 1 root root 0 2026-11-10 21:35 i2c-3 -> ../../../devices/platform/13860000.i2c/i2c-3\r\nlrwxrwxrwx 1 root root 0 2026-11-10 21:35 i2c-4 -> ../../../devices/platform/13870000.i2c/i2c-4\r\nlrwxrwxrwx 1 root root 0 2026-11-10 21:35 i2c-6 -> ../../../devices/platform/13890000.i2c/i2c-6\r\nlrwxrwxrwx 1 root root 0 2026-11-10 21:35 i2c-7 -> ../../../devices/platform/11d10000.hsi2c/i2c-7\r\nlrwxrwxrwx 1 root root 0 2026-11-10 21:35 i2c-8 -> ../../../devices/platform/11d40000.hsi2c/i2c-8\r\nlrwxrwxrwx 1 root root 0 2026-11-10 21:35 i2c-9 -> ../../../devices/platform/138a0000.hsi2c/i2c-9\r\n"
+    },
+    {
+      "argv": [
+        "C:\\Android\\platform-tools\\adb.EXE",
+        "-s",
+        "A51_SERIAL_HERE",
+        "shell",
+        "ls",
+        "-l",
+        "/sys/class/graphics/fb0/device/driver"
+      ],
+      "exit_code": 0,
+      "output": "lrwxrwxrwx 1 root root 0 2026-11-10 21:35 /sys/class/graphics/fb0/device/driver -> ../../../bus/platform/drivers/exynos-decon\r\n"
+    }
+  ]
+}

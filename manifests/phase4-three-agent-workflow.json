@@ -1,0 +1,117 @@
+{
+  "schema_version": 1,
+  "status": "prepared_not_started",
+  "round": "phase4-three-agents-20261117",
+  "guide": "docs/PHASE-4-THREE-AGENT-WORKFLOW.md",
+  "packet": "evidence/phase-4/three-agent-preparation/20261117T113518260720Z",
+  "baseline": "parallel/phase4-three-agents-20261117/BASELINE.json",
+  "snapshot": "parallel/snapshots/20261117T113518260720Z-three-agent-seeds",
+  "snapshot_manifest": {
+    "bytes": 80016,
+    "sha256": "b3b772e5acfd0dffd926a0c6913892e655795d8ef3f1f76473b28f9c6edcb260"
+  },
+  "roles": {
+    "agent-1-storage-recovery": {
+      "task": "Read-only UFS initialization, genuine larger reads and recovery persistence",
+      "seed": "base",
+      "owned": [
+        "drivers/storage/*",
+        "prototype/phase4-platform/a51_ufs_readonly.h",
+        "prototype/phase4-platform/tests/ufs_model.c",
+        "prototype/phase4-platform/tests/storage_recovery/*",
+        "prototype/xnu-loader/a51_recovery_export.S",
+        "scripts/phase4_envelope.py",
+        "scripts/phase4_pstore.py",
+        "scripts/phase4_storage.py",
+        "scripts/phase4_capture.py"
+      ],
+      "windows_root": "C:/Users/Ankit/Desktop/A51/hakios-a51/parallel/phase4-three-agents-20261117/agent-1-storage-recovery",
+      "wsl_alias": "/mnt/c/Users/Ankit/Desktop/A51/hakios-a51/parallel/phase4-three-agents-20261117/agent-1-storage-recovery",
+      "wsl_root": "/opt/a51-hakios/parallel/phase4-three-agents-20261117/agent-1-storage-recovery",
+      "status": "prepared_not_started",
+      "seed_manifest": {
+        "path": "parallel/phase4-three-agents-20261117/agent-1-storage-recovery/SEED-MANIFEST.json",
+        "bytes": 15676,
+        "sha256": "2e5be288fb60f10ee518efdb4f90734721f7a3c17595c95c686bb2acf1027b11"
+      }
+    },
+    "agent-2-display-brightness": {
+      "task": "Framebuffer ownership, DECON/DSIM/panel control and brightness",
+      "seed": "display-brightness",
+      "owned": [
+        "drivers/display/*",
+        "prototype/phase4-platform/a51_display.h",
+        "prototype/phase4-platform/tests/display_model.c",
+        "prototype/phase4-platform/tests/display/*"
+      ],
+      "windows_root": "C:/Users/Ankit/Desktop/A51/hakios-a51/parallel/phase4-three-agents-20261117/agent-2-display-brightness",
+      "wsl_alias": "/mnt/c/Users/Ankit/Desktop/A51/hakios-a51/parallel/phase4-three-agents-20261117/agent-2-display-brightness",
+      "wsl_root": "/opt/a51-hakios/parallel/phase4-three-agents-20261117/agent-2-display-brightness",
+      "status": "prepared_not_started",
+      "seed_manifest": {
+        "path": "parallel/phase4-three-agents-20261117/agent-2-display-brightness/SEED-MANIFEST.json",
+        "bytes": 16507,
+        "sha256": "4664e8458d54a590dfb5a3039220d2c954ce3e102990ecc7750eb8dc7209b29c"
+      }
+    },
+    "agent-3-touch-keys": {
+      "task": "Melfas touch, power/volume keys and event delivery",
+      "seed": "touch-keys",
+      "owned": [
+        "drivers/input/*",
+        "prototype/phase4-platform/a51_input.h",
+        "prototype/phase4-platform/tests/input_model.c",
+        "prototype/phase4-platform/tests/input/*"
+      ],
+      "windows_root": "C:/Users/Ankit/Desktop/A51/hakios-a51/parallel/phase4-three-agents-20261117/agent-3-touch-keys",
+      "wsl_alias": "/mnt/c/Users/Ankit/Desktop/A51/hakios-a51/parallel/phase4-three-agents-20261117/agent-3-touch-keys",
+      "wsl_root": "/opt/a51-hakios/parallel/phase4-three-agents-20261117/agent-3-touch-keys",
+      "status": "prepared_not_started",
+      "seed_manifest": {
+        "path": "parallel/phase4-three-agents-20261117/agent-3-touch-keys/SEED-MANIFEST.json",
+        "bytes": 16211,
+        "sha256": "6107386a36ce383f2cce46531f3e36ecc796834b3ff155f78f06a676d40bee4c"
+      }
+    }
+  },
+  "latest_candidates": {
+    "display-brightness": {
+      "version": "Sixth Delivery",
+      "status": "unreviewed_saved_candidate",
+      "patch": "patches/unified_antigravity_phase4.patch",
+      "sha256": "aef3f6d2acd6df4b29f88d8df1a106c92e9822f0a5fe861b67865ad604cd2c06",
+      "claimed_host_cases": 233,
+      "claimed_host_checks": 337857,
+      "review": "main/verification/display-fifth/REVIEW-FIFTH.md",
+      "review_manifest": "main/verification/display-fifth/20261117T075600790338Z/REVIEW-MANIFEST.json",
+      "review_manifest_sha256": "878ddacb2c1ddacb428940903262156ba23c8dac2e05d203fa4ac9a17cb7734a"
+    },
+    "touch-keys": {
+      "version": "Revision 7",
+      "status": "unreviewed_saved_candidate",
+      "patch": "patches/phase4_input_root.patch",
+      "sha256": "f0a4677ad49f622afc743ef79ee60b4389ff52088074c34d98fe7c1764d413ed",
+      "claimed_host_checks": 349443,
+      "review": "main/verification/input-rev6/REVIEW-REVISION-6.md",
+      "review_manifest": "main/verification/input-rev6/20261117T082608558933Z/REVIEW-MANIFEST.json",
+      "review_manifest_sha256": "c9a600e705fa8f32ea9492de724233709ff2a62e2872f5f94b8e5d7510dcf3e8"
+    }
+  },
+  "coordinator": {
+    "windows_root": "C:/Users/Ankit/Desktop/A51/hakios-a51/parallel/phase4-three-agents-20261117/codex-integration",
+    "wsl_root": "/opt/a51-hakios/parallel/phase4-three-agents-20261117/codex-integration"
+  },
+  "agents_started": false,
+  "device_operations_this_preparation": 0,
+  "main_driver_changes": false,
+  "wsl_source_changes": false,
+  "physical_gate_passed": false,
+  "previous_workflow_retained": "phase_4_parallel_workflow",
+  "prior_criteria": {
+    "display_scanout_and_dimensions": "unverified_historical_constant_labels_rejected;current_reporting_pending",
+    "dsim_repeatable_brightness": "unverified;production_display_brightness_control_pending",
+    "physical_touch_events_and_coordinates": "unverified;native_input_core_verified_not_integrated",
+    "physical_power_volume_key_events": "unverified;native_key_core_verified_not_integrated",
+    "input_event_interface": "pending;native_core_not_wired_to_production_bus_irq_or_interface"
+  }
+}

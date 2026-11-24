@@ -1,0 +1,45 @@
+{
+  "packet": "evidence/phase-4/recovery-capture-audit/20261115T205453177037Z",
+  "passed": true,
+  "device_operations": true,
+  "partition_writes": 0,
+  "memory_writes": 0,
+  "module_loads": 0,
+  "reboots_attempted": 2,
+  "baseline_verified": true,
+  "boot_id_before": "6e6172db-8dec-48bc-91b7-1550f5f96aa9",
+  "gnss_android": {
+    "start": 4211081216,
+    "end": 4219469823,
+    "name": "gnss_if",
+    "path": "/reserved-memory/gnss_if",
+    "source": "live_linux_exported_fdt",
+    "fdt_sha256": "3edce25e03936677d0a1fddffd3996a84368318111bae5b637e31c5fbb79cb42"
+  },
+  "recovery_kernel": "4.14.113-Grass@242f8e91ca",
+  "recovery_boot_id": "cfd7d7a2-0a91-4cb4-8df8-b3f5be77be57",
+  "ramoops_recovery": {
+    "mem_address": 4191223808,
+    "mem_size": 2097152,
+    "record_size": 524288,
+    "console_size": 524288,
+    "ftrace_size": 524288,
+    "pmsg_size": 524288,
+    "ecc": 0,
+    "mem_type": 0
+  },
+  "gnss_recovery": {
+    "start": 4211081216,
+    "end": 4219469823,
+    "name": "gnss_if",
+    "path": "/reserved-memory/gnss_if",
+    "source": "live_linux_exported_fdt",
+    "fdt_sha256": "9eebc76a7f8dff6d02bd402e9d3078c73c0eba54a1164d7827e6872686ceca20"
+  },
+  "memory-config": "CONFIG_IKCONFIG=y\nCONFIG_IKCONFIG_PROC=y\nCONFIG_MODULES_USE_ELF_RELA=y\nCONFIG_MODULES=y\nCONFIG_MODULES_TREE_LOOKUP=y\n# CONFIG_DEVMEM is not set\nCONFIG_ARCH_HAS_DEVMEM_IS_ALLOWED=y",
+  "memory-devices": "ls: /dev/mem: No such file or directory\nls: /dev/kmem: No such file or directory",
+  "tools": "/system/bin/dd\n/system/bin/devmem\n/system/bin/insmod\n/system/bin/rmmod",
+  "version": "3.7.1_12-Galaxieo",
+  "audit_completed": true,
+  "boot_id_after": "48abbf0d-a033-433c-b45e-53f9faf8734e"
+}

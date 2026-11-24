@@ -1,0 +1,1813 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Iris — Social Media UI Prototype for HakiOS (Galaxy A51)</title>
+<style>
+  :root {
+    --bg-main: #0B0B0D;
+    --bg-secondary: #151518;
+    --bg-card: #1C1C20;
+    --text-primary: #FFFFFF;
+    --text-secondary: #A1A1AA;
+    --text-muted: #71717A;
+    --accent-violet: #8B5CF6;
+    --accent-pink: #EC4899;
+    --accent-gradient: linear-gradient(135deg, #8B5CF6 0%, #EC4899 100%);
+    --success: #22C55E;
+    --error: #EF4444;
+    --divider: rgba(255, 255, 255, 0.08);
+    --glass: rgba(21, 21, 24, 0.85);
+    --glass-border: rgba(255, 255, 255, 0.12);
+    --radius-sm: 8px;
+    --radius-md: 12px;
+    --radius-lg: 18px;
+    --radius-full: 9999px;
+  }
+
+  body.light-mode {
+    --bg-main: #FAFAFA;
+    --bg-secondary: #FFFFFF;
+    --bg-card: #F4F4F5;
+    --text-primary: #18181B;
+    --text-secondary: #71717A;
+    --text-muted: #A1A1AA;
+    --divider: rgba(0, 0, 0, 0.08);
+    --glass: rgba(255, 255, 255, 0.88);
+    --glass-border: rgba(0, 0, 0, 0.08);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+  body {
+    background: #050507;
+    color: var(--text-primary);
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+  }
+
+  /* Host Shell Banner */
+  .host-header {
+    margin-bottom: 16px;
+    text-align: center;
+    color: #A1A1AA;
+    font-size: 13px;
+    letter-spacing: 0.5px;
+  }
+  .host-header strong { color: #FFFFFF; font-weight: 600; }
+  .badge {
+    background: linear-gradient(135deg, #8B5CF6 0%, #EC4899 100%);
+    color: #FFF;
+    padding: 3px 8px;
+    border-radius: 999px;
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-left: 6px;
+    display: inline-block;
+  }
+
+  /* Device Bezel Simulator - Samsung Galaxy A51 (360x800 pt @ 3x = 1080x2400) */
+  .device-frame {
+    width: 360px;
+    height: 800px;
+    background: var(--bg-main);
+    border-radius: 44px;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.85), 0 0 0 12px #202024, 0 0 0 14px #121215;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Galaxy A51 Punch-Hole Camera */
+  .punch-hole {
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 12px;
+    height: 12px;
+    background: #000;
+    border-radius: 50%;
+    z-index: 1000;
+    box-shadow: 0 0 2px rgba(255, 255, 255, 0.2);
+  }
+
+  /* System Status Bar */
+  .status-bar {
+    height: 34px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    padding: 0 24px 6px;
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--text-primary);
+    z-index: 999;
+  }
+
+  /* App Header / Top Nav */
+  .top-nav {
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 16px;
+    background: var(--bg-main);
+    border-bottom: 0.5px solid var(--divider);
+    z-index: 100;
+  }
+  .brand-group {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+  .brand-logo {
+    font-size: 24px;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    background: linear-gradient(135deg, var(--text-primary) 70%, var(--accent-violet) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .brand-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--accent-gradient);
+    margin-top: -6px;
+  }
+  .nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .icon-btn {
+    background: none;
+    border: none;
+    color: var(--text-primary);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    transition: background 0.2s;
+  }
+  .icon-btn:hover { background: var(--bg-card); }
+  .icon-btn svg { width: 20px; height: 20px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+
+  /* Screen View Container */
+  .screen-container {
+    flex: 1;
+    overflow-y: auto;
+    overflow-x: hidden;
+    position: relative;
+    scrollbar-width: none;
+  }
+  .screen-container::-webkit-scrollbar { display: none; }
+
+  .screen-view {
+    display: none;
+    min-height: 100%;
+    padding-bottom: 74px;
+  }
+  .screen-view.active { display: block; }
+
+  /* Stories Row */
+  .stories-section {
+    padding: 10px 0 10px 12px;
+    display: flex;
+    gap: 12px;
+    overflow-x: auto;
+    scrollbar-width: none;
+    border-bottom: 0.5px solid var(--divider);
+  }
+  .stories-section::-webkit-scrollbar { display: none; }
+
+  .story-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    flex-shrink: 0;
+    width: 62px;
+  }
+  .story-ring {
+    width: 58px;
+    height: 58px;
+    border-radius: 50%;
+    padding: 2.5px;
+    background: var(--accent-gradient);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+  .story-ring.viewed { background: var(--divider); }
+  .story-ring.your-story { background: var(--divider); }
+  .story-avatar {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: 2px solid var(--bg-main);
+    object-fit: cover;
+    background: #2a2a30;
+  }
+  .plus-badge {
+    position: absolute;
+    bottom: -1px;
+    right: -1px;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: var(--accent-violet);
+    border: 2px solid var(--bg-main);
+    color: #FFF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    font-weight: 700;
+  }
+  .story-username {
+    font-size: 11px;
+    color: var(--text-secondary);
+    margin-top: 5px;
+    max-width: 58px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    text-align: center;
+  }
+
+  /* Feed Posts */
+  .post-card {
+    border-bottom: 1px solid var(--divider);
+    padding-bottom: 14px;
+    margin-bottom: 8px;
+  }
+  .post-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 14px;
+  }
+  .post-user {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+  }
+  .post-avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    object-fit: cover;
+    background: #333;
+  }
+  .post-user-info { display: flex; flex-direction: column; }
+  .post-username { font-size: 13px; font-weight: 600; color: var(--text-primary); }
+  .post-location { font-size: 11px; color: var(--text-secondary); margin-top: 1px; }
+
+  .post-media-wrap {
+    width: 100%;
+    background: #111;
+    position: relative;
+    cursor: pointer;
+    overflow: hidden;
+  }
+  .post-media {
+    width: 100%;
+    display: block;
+    object-fit: cover;
+    transition: transform 0.25s ease;
+  }
+  .post-media-wrap:hover .post-media { transform: scale(1.01); }
+
+  .post-actions {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 12px 6px;
+  }
+  .actions-left { display: flex; align-items: center; gap: 12px; }
+  .action-btn {
+    background: none;
+    border: none;
+    color: var(--text-primary);
+    cursor: pointer;
+    padding: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.15s ease;
+  }
+  .action-btn:active { transform: scale(1.25); }
+  .action-btn svg { width: 22px; height: 22px; stroke: currentColor; fill: none; stroke-width: 2; }
+  .action-btn.liked { color: var(--error); }
+  .action-btn.liked svg { fill: var(--error); stroke: var(--error); }
+  .action-btn.bookmarked { color: var(--accent-violet); }
+  .action-btn.bookmarked svg { fill: var(--accent-violet); stroke: var(--accent-violet); }
+
+  .post-meta {
+    padding: 0 14px;
+    font-size: 13px;
+  }
+  .post-likes { font-weight: 700; margin-bottom: 4px; color: var(--text-primary); font-size: 13px; }
+  .post-caption { line-height: 1.35; color: var(--text-primary); }
+  .post-caption strong { font-weight: 700; margin-right: 6px; }
+  .post-tags { color: var(--accent-violet); font-size: 12px; font-weight: 500; margin-top: 3px; }
+  .post-comments-link {
+    color: var(--text-secondary);
+    font-size: 12px;
+    margin-top: 4px;
+    cursor: pointer;
+  }
+  .post-time {
+    color: var(--text-muted);
+    font-size: 10px;
+    text-transform: uppercase;
+    margin-top: 4px;
+    letter-spacing: 0.3px;
+  }
+
+  /* Explore Grid */
+  .explore-header {
+    padding: 12px 14px;
+  }
+  .explore-title { font-size: 22px; font-weight: 800; margin-bottom: 8px; }
+  .search-box {
+    background: var(--bg-card);
+    border-radius: var(--radius-md);
+    padding: 8px 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border: 0.5px solid var(--divider);
+  }
+  .search-box svg { width: 16px; height: 16px; stroke: var(--text-muted); fill: none; stroke-width: 2; }
+  .search-input {
+    background: none;
+    border: none;
+    outline: none;
+    color: var(--text-primary);
+    font-size: 13px;
+    width: 100%;
+  }
+  .search-input::placeholder { color: var(--text-muted); }
+
+  .explore-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 6px;
+    padding: 0 10px;
+  }
+  .explore-tile {
+    position: relative;
+    border-radius: var(--radius-sm);
+    overflow: hidden;
+    background: var(--bg-card);
+    cursor: pointer;
+  }
+  .explore-tile.portrait { height: 210px; }
+  .explore-tile.square { height: 160px; }
+  .explore-tile.featured { grid-column: span 2; height: 200px; }
+  .explore-tile img { width: 100%; height: 100%; object-fit: cover; }
+  .tile-badge {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    background: rgba(0, 0, 0, 0.65);
+    border-radius: 50%;
+    width: 22px;
+    height: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #FFF;
+  }
+  .tile-badge svg { width: 12px; height: 12px; fill: #FFF; }
+  .tile-overlay {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    padding: 8px;
+    background: linear-gradient(transparent, rgba(0,0,0,0.85));
+    font-size: 11px;
+    font-weight: 600;
+    color: #FFF;
+  }
+
+  /* Create Screen */
+  .create-section { padding: 14px; }
+  .create-title { font-size: 20px; font-weight: 800; margin-bottom: 14px; }
+  .create-preview {
+    width: 100%;
+    height: 220px;
+    border-radius: var(--radius-md);
+    background: var(--bg-card);
+    overflow: hidden;
+    position: relative;
+    border: 1px dashed var(--divider);
+  }
+  .create-preview img { width: 100%; height: 100%; object-fit: cover; }
+  .create-tools {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    display: flex;
+    gap: 8px;
+  }
+  .tool-btn {
+    background: rgba(0,0,0,0.75);
+    color: #FFF;
+    border: none;
+    border-radius: var(--radius-sm);
+    padding: 6px 12px;
+    font-size: 11px;
+    font-weight: 600;
+    cursor: pointer;
+    backdrop-filter: blur(8px);
+  }
+  .form-group { margin-top: 14px; }
+  .form-label { font-size: 11px; font-weight: 700; color: var(--text-secondary); text-transform: uppercase; margin-bottom: 6px; display: block; }
+  .caption-area {
+    width: 100%;
+    height: 80px;
+    background: var(--bg-card);
+    border: 0.5px solid var(--divider);
+    border-radius: var(--radius-md);
+    padding: 10px;
+    color: var(--text-primary);
+    font-size: 13px;
+    resize: none;
+    outline: none;
+  }
+  .input-field {
+    width: 100%;
+    background: var(--bg-card);
+    border: 0.5px solid var(--divider);
+    border-radius: var(--radius-md);
+    padding: 10px 12px;
+    color: var(--text-primary);
+    font-size: 13px;
+    outline: none;
+  }
+  .audience-pills {
+    display: flex;
+    gap: 8px;
+  }
+  .audience-pill {
+    flex: 1;
+    text-align: center;
+    padding: 8px;
+    font-size: 12px;
+    font-weight: 600;
+    border-radius: var(--radius-sm);
+    background: var(--bg-card);
+    color: var(--text-secondary);
+    border: 0.5px solid var(--divider);
+    cursor: pointer;
+  }
+  .audience-pill.selected {
+    background: var(--accent-violet);
+    color: #FFF;
+    border-color: var(--accent-violet);
+  }
+  .primary-btn {
+    width: 100%;
+    padding: 14px;
+    background: var(--accent-gradient);
+    color: #FFF;
+    border: none;
+    border-radius: var(--radius-md);
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    margin-top: 20px;
+    box-shadow: 0 4px 14px rgba(139, 92, 246, 0.4);
+  }
+
+  /* Activity Screen */
+  .activity-header { padding: 14px 16px; font-size: 22px; font-weight: 800; border-bottom: 0.5px solid var(--divider); }
+  .notif-item {
+    display: flex;
+    align-items: center;
+    padding: 12px 14px;
+    border-bottom: 0.5px solid var(--divider);
+    gap: 12px;
+  }
+  .notif-avatar { width: 44px; height: 44px; border-radius: 50%; object-fit: cover; }
+  .notif-body { flex: 1; font-size: 13px; line-height: 1.3; }
+  .notif-body strong { font-weight: 700; color: var(--text-primary); }
+  .notif-time { font-size: 11px; color: var(--text-muted); margin-top: 2px; }
+  .notif-thumb { width: 44px; height: 44px; border-radius: 6px; object-fit: cover; }
+  .follow-btn {
+    background: var(--accent-violet);
+    color: #FFF;
+    border: none;
+    border-radius: var(--radius-sm);
+    padding: 6px 14px;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+  }
+  .follow-btn.following {
+    background: var(--bg-card);
+    color: var(--text-primary);
+    border: 0.5px solid var(--divider);
+  }
+
+  /* Profile Screen */
+  .profile-header-view { padding: 14px; }
+  .profile-top { display: flex; align-items: center; gap: 18px; margin-bottom: 12px; }
+  .profile-avatar-wrap {
+    width: 76px;
+    height: 76px;
+    border-radius: 50%;
+    padding: 2.5px;
+    background: var(--accent-gradient);
+    flex-shrink: 0;
+  }
+  .profile-avatar { width: 100%; height: 100%; border-radius: 50%; object-fit: cover; border: 2px solid var(--bg-main); }
+  .profile-stats { display: flex; flex: 1; justify-content: space-around; text-align: center; }
+  .stat-val { font-size: 16px; font-weight: 800; color: var(--text-primary); }
+  .stat-lbl { font-size: 11px; color: var(--text-secondary); margin-top: 2px; }
+  .profile-name { font-size: 14px; font-weight: 700; color: var(--text-primary); }
+  .profile-bio { font-size: 12px; color: var(--text-primary); line-height: 1.4; margin-top: 4px; white-space: pre-line; }
+  .profile-link { font-size: 12px; color: var(--accent-violet); margin-top: 4px; font-weight: 500; text-decoration: none; display: inline-block; }
+  .profile-actions-row { display: flex; gap: 8px; margin-top: 12px; }
+  .profile-action-btn {
+    flex: 1;
+    padding: 8px;
+    border-radius: var(--radius-sm);
+    background: var(--bg-card);
+    color: var(--text-primary);
+    font-size: 12px;
+    font-weight: 600;
+    border: 0.5px solid var(--divider);
+    cursor: pointer;
+  }
+
+  .profile-switcher {
+    display: flex;
+    gap: 6px;
+    overflow-x: auto;
+    padding: 8px 14px;
+    border-top: 0.5px solid var(--divider);
+    scrollbar-width: none;
+  }
+  .profile-switcher::-webkit-scrollbar { display: none; }
+  .user-pill {
+    padding: 4px 10px;
+    background: var(--bg-card);
+    border-radius: 999px;
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--text-secondary);
+    border: 0.5px solid var(--divider);
+    cursor: pointer;
+    white-space: nowrap;
+  }
+  .user-pill.active {
+    background: var(--accent-violet);
+    color: #FFF;
+    border-color: var(--accent-violet);
+  }
+
+  .profile-tabs {
+    display: flex;
+    border-top: 0.5px solid var(--divider);
+    border-bottom: 0.5px solid var(--divider);
+  }
+  .profile-tab {
+    flex: 1;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-muted);
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+  }
+  .profile-tab.active { color: var(--text-primary); border-bottom-color: var(--text-primary); }
+  .profile-tab svg { width: 18px; height: 18px; stroke: currentColor; fill: none; stroke-width: 2; }
+
+  .profile-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    padding-top: 2px;
+  }
+  .profile-grid-item {
+    aspect-ratio: 1;
+    background: var(--bg-card);
+    cursor: pointer;
+  }
+  .profile-grid-item img { width: 100%; height: 100%; object-fit: cover; }
+
+  /* Bottom Navigation Bar */
+  .bottom-nav {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 64px;
+    background: var(--glass);
+    backdrop-filter: blur(20px);
+    border-top: 0.5px solid var(--divider);
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 0 10px 10px;
+    z-index: 500;
+  }
+  .tab-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    color: var(--text-muted);
+    transition: color 0.2s;
+    width: 50px;
+    padding-top: 4px;
+  }
+  .tab-item.active { color: var(--text-primary); }
+  .tab-item svg { width: 22px; height: 22px; stroke: currentColor; fill: none; stroke-width: 2; }
+  .tab-item.active svg.fillable { fill: currentColor; }
+  .tab-indicator-dot {
+    width: 14px;
+    height: 3px;
+    border-radius: 2px;
+    background: var(--accent-violet);
+    margin-top: 4px;
+    opacity: 0;
+    transition: opacity 0.2s;
+  }
+  .tab-item.active .tab-indicator-dot { opacity: 1; }
+
+  /* Modals: Story Viewer, Post Viewer, Comments, Settings */
+  .modal-overlay {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0, 0, 0, 0.95);
+    z-index: 2000;
+    display: none;
+    flex-direction: column;
+  }
+  .modal-overlay.open { display: flex; }
+
+  /* Story Viewer */
+  .story-progress-bar {
+    display: flex;
+    gap: 4px;
+    padding: 14px 12px 6px;
+  }
+  .story-progress-segment {
+    flex: 1;
+    height: 2.5px;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 2px;
+    overflow: hidden;
+  }
+  .story-progress-fill { width: 100%; height: 100%; background: #FFF; }
+  .story-modal-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 6px 14px;
+    color: #FFF;
+  }
+  .story-modal-user { display: flex; align-items: center; gap: 8px; }
+  .story-modal-avatar { width: 32px; height: 32px; border-radius: 50%; }
+  .story-modal-content {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    cursor: pointer;
+  }
+  .story-modal-img { max-width: 100%; max-height: 100%; object-fit: contain; }
+
+  /* Comments Bottom Sheet */
+  .sheet-overlay {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 1500;
+    display: none;
+    align-items: flex-end;
+  }
+  .sheet-overlay.open { display: flex; }
+  .sheet-card {
+    width: 100%;
+    height: 72%;
+    background: var(--bg-secondary);
+    border-radius: 24px 24px 0 0;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    animation: slideUp 0.25s ease-out;
+  }
+  @keyframes slideUp { from { transform: translateY(100%); } to { transform: translateY(0); } }
+
+  .sheet-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 18px;
+    border-bottom: 0.5px solid var(--divider);
+    font-weight: 700;
+    font-size: 15px;
+  }
+  .sheet-comments-list {
+    flex: 1;
+    overflow-y: auto;
+    padding: 12px 16px;
+  }
+  .comment-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin-bottom: 14px;
+    font-size: 13px;
+  }
+  .comment-avatar { width: 32px; height: 32px; border-radius: 50%; object-fit: cover; }
+  .comment-body { flex: 1; line-height: 1.35; }
+  .comment-body strong { font-weight: 700; margin-right: 6px; }
+  .comment-time { font-size: 11px; color: var(--text-muted); margin-top: 3px; }
+  .comment-input-bar {
+    padding: 10px 14px 18px;
+    background: var(--bg-card);
+    border-top: 0.5px solid var(--divider);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  /* Fullscreen Post Viewer */
+  .post-viewer-header {
+    padding: 12px 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: #FFF;
+  }
+  .post-viewer-body {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .post-viewer-footer {
+    padding: 14px 16px 24px;
+    background: linear-gradient(transparent, rgba(0,0,0,0.95));
+    color: #FFF;
+  }
+
+  /* Toast */
+  .toast {
+    position: absolute;
+    top: 44px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--accent-gradient);
+    color: #FFF;
+    padding: 8px 16px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 600;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+    z-index: 3000;
+    opacity: 0;
+    transition: opacity 0.3s;
+    pointer-events: none;
+  }
+  .toast.show { opacity: 1; }
+</style>
+</head>
+<body>
+
+<div class="host-header">
+  <strong>Project Iris</strong> • HakiOS (Darwin/XNU for Samsung Galaxy A51)
+  <span class="badge">ARM64 Mach-O & UI Prototype</span>
+</div>
+
+<div class="device-frame">
+  <!-- Punch Hole -->
+  <div class="punch-hole"></div>
+
+  <!-- Status Bar -->
+  <div class="status-bar">
+    <span>9:41</span>
+    <span style="font-size: 10px; font-weight: 500;">HakiOS • 5G</span>
+  </div>
+
+  <!-- Top Navigation Bar -->
+  <div class="top-nav">
+    <div class="brand-group">
+      <span class="brand-logo">Iris</span>
+      <div class="brand-dot"></div>
+    </div>
+    <div class="nav-actions">
+      <button class="icon-btn" id="themeToggleBtn" title="Toggle Dark/Light Mode">
+        <svg viewBox="0 0 24 24"><path d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+      </button>
+      <button class="icon-btn" id="notifIconBtn" title="Activity">
+        <svg viewBox="0 0 24 24"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path><path d="M13.73 21a2 2 0 0 1-3.46 0"></path></svg>
+      </button>
+      <button class="icon-btn" id="messagesIconBtn" title="Messages">
+        <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Screen Container -->
+  <div class="screen-container">
+    
+    <!-- 1. HOME FEED SCREEN -->
+    <div class="screen-view active" id="view-home">
+      <!-- Stories Row -->
+      <div class="stories-section" id="storiesRow"></div>
+
+      <!-- Feed Posts -->
+      <div id="postsFeed"></div>
+    </div>
+
+    <!-- 2. EXPLORE SCREEN -->
+    <div class="screen-view" id="view-explore">
+      <div class="explore-header">
+        <div class="explore-title">Explore</div>
+        <div class="search-box">
+          <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+          <input type="text" class="search-input" id="exploreSearchInput" placeholder="Search creators, captions, #tags...">
+        </div>
+      </div>
+      <div class="explore-grid" id="exploreGrid"></div>
+    </div>
+
+    <!-- 3. CREATE SCREEN -->
+    <div class="screen-view" id="view-create">
+      <div class="create-section">
+        <div class="create-title">New Post</div>
+        <div class="create-preview">
+          <img id="createPreviewImg" src="" alt="Post Preview">
+          <div class="create-tools">
+            <button class="tool-btn" id="btnSelectGallery">🖼️ Gallery</button>
+            <button class="tool-btn" id="btnSelectCamera">📷 Camera</button>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Caption</label>
+          <textarea class="caption-area" id="createCaption" placeholder="Write a thoughtful caption, stories, #tags..."></textarea>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Location</label>
+          <input type="text" class="input-field" id="createLocation" placeholder="Add location (e.g. Kyoto, Japan)">
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Audience</label>
+          <div class="audience-pills">
+            <div class="audience-pill selected" onclick="selectAudience(this, 'Public')">Public</div>
+            <div class="audience-pill" onclick="selectAudience(this, 'Close Friends')">Close Friends</div>
+            <div class="audience-pill" onclick="selectAudience(this, 'Private')">Private</div>
+          </div>
+        </div>
+
+        <button class="primary-btn" id="btnSharePost">Share to Iris Feed ✨</button>
+      </div>
+    </div>
+
+    <!-- 4. ACTIVITY SCREEN -->
+    <div class="screen-view" id="view-activity">
+      <div class="activity-header">Activity</div>
+      <div id="activityList"></div>
+    </div>
+
+    <!-- 5. PROFILE SCREEN -->
+    <div class="screen-view" id="view-profile">
+      <!-- Profile user quick switcher -->
+      <div class="profile-switcher" id="profileSwitcher"></div>
+
+      <div class="profile-header-view">
+        <div class="profile-top">
+          <div class="profile-avatar-wrap">
+            <img class="profile-avatar" id="profAvatar" src="" alt="Avatar">
+          </div>
+          <div class="profile-stats">
+            <div>
+              <div class="stat-val" id="profPostsCount">42</div>
+              <div class="stat-lbl">Posts</div>
+            </div>
+            <div>
+              <div class="stat-val" id="profFollowersCount">14.8k</div>
+              <div class="stat-lbl">Followers</div>
+            </div>
+            <div>
+              <div class="stat-val" id="profFollowingCount">482</div>
+              <div class="stat-lbl">Following</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="profile-name" id="profDisplayName">Alex Mercer</div>
+        <div class="profile-bio" id="profBio">Visual designer & urban photographer 📸</div>
+        <a class="profile-link" id="profWebsite" href="#">🔗 alexmercer.design</a>
+
+        <div class="profile-actions-row">
+          <button class="profile-action-btn" id="profPrimaryBtn" onclick="handleProfilePrimary()">Edit Profile</button>
+          <button class="profile-action-btn" id="profSecondaryBtn" onclick="handleProfileSecondary()">Share Profile</button>
+          <button class="profile-action-btn" style="flex:0; width:40px; padding:0; display:flex; align-items:center; justify-content:center;" onclick="openSettingsModal()">
+            <svg viewBox="0 0 24 24" style="width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:2;"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Profile Tabs -->
+      <div class="profile-tabs">
+        <div class="profile-tab active" onclick="switchProfileTab(0)">
+          <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+        </div>
+        <div class="profile-tab" onclick="switchProfileTab(1)">
+          <svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+        </div>
+        <div class="profile-tab" onclick="switchProfileTab(2)">
+          <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+        </div>
+      </div>
+
+      <!-- 3x3 Grid -->
+      <div class="profile-grid" id="profileGrid"></div>
+    </div>
+
+  </div>
+
+  <!-- Bottom Navigation Bar -->
+  <div class="bottom-nav">
+    <div class="tab-item active" onclick="switchTab(0)">
+      <svg class="fillable" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg>
+      <div class="tab-indicator-dot"></div>
+    </div>
+    <div class="tab-item" onclick="switchTab(1)">
+      <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+      <div class="tab-indicator-dot"></div>
+    </div>
+    <div class="tab-item" onclick="switchTab(2)">
+      <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="12" y1="8" x2="12" y2="16"></line><line x1="8" y1="12" x2="16" y2="12"></line></svg>
+      <div class="tab-indicator-dot"></div>
+    </div>
+    <div class="tab-item" onclick="switchTab(3)">
+      <svg class="fillable" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+      <div class="tab-indicator-dot"></div>
+    </div>
+    <div class="tab-item" onclick="switchTab(4)">
+      <svg class="fillable" viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+      <div class="tab-indicator-dot"></div>
+    </div>
+  </div>
+
+  <!-- Fullscreen Story Viewer Modal -->
+  <div class="modal-overlay" id="storyModal">
+    <div class="story-progress-bar">
+      <div class="story-progress-segment"><div class="story-progress-fill"></div></div>
+    </div>
+    <div class="story-modal-header">
+      <div class="story-modal-user">
+        <img class="story-modal-avatar" id="storyModalAvatar" src="" alt="Story Avatar">
+        <div>
+          <div style="font-size:13px; font-weight:700;" id="storyModalUser">maya</div>
+          <div style="font-size:10px; opacity:0.7;" id="storyModalTime">25m ago</div>
+        </div>
+      </div>
+      <button class="icon-btn" onclick="closeStoryModal()" style="color:#FFF;">✕</button>
+    </div>
+    <div class="story-modal-content" onclick="handleStoryTap(event)">
+      <img class="story-modal-img" id="storyModalImg" src="" alt="Story Media">
+    </div>
+  </div>
+
+  <!-- Fullscreen Post Viewer Modal -->
+  <div class="modal-overlay" id="postModal">
+    <div class="post-viewer-header">
+      <div style="font-weight:700; font-size:14px;" id="pvUsername">@maya</div>
+      <button class="icon-btn" onclick="closePostModal()" style="color:#FFF;">✕</button>
+    </div>
+    <div class="post-viewer-body">
+      <img id="pvImage" src="" style="max-width:100%; max-height:100%; object-fit:contain;" alt="Post Media">
+    </div>
+    <div class="post-viewer-footer">
+      <div style="font-size:12px; font-weight:700; margin-bottom:4px;" id="pvLikes">12,842 likes</div>
+      <div style="font-size:13px; line-height:1.35;" id="pvCaption">Somewhere between the mountains and the sky ✨</div>
+      <div style="display:flex; justify-content:space-between; margin-top:10px;">
+        <div style="display:flex; gap:12px;">
+          <button class="action-btn" id="pvLikeBtn" onclick="togglePvLike()">
+            <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+          </button>
+          <button class="action-btn" onclick="openPvComments()">
+            <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+          </button>
+          <button class="action-btn" onclick="sharePvPost()">
+            <svg viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+          </button>
+        </div>
+        <button class="action-btn" id="pvBookmarkBtn" onclick="togglePvBookmark()">
+          <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Comments Bottom Sheet -->
+  <div class="sheet-overlay" id="commentsSheet" onclick="handleSheetBackdrop(event)">
+    <div class="sheet-card" onclick="event.stopPropagation()">
+      <div class="sheet-header">
+        <span>Comments</span>
+        <button class="icon-btn" onclick="closeCommentsSheet()">✕</button>
+      </div>
+      <div class="sheet-comments-list" id="commentsList"></div>
+      <div class="comment-input-bar">
+        <input type="text" class="input-field" id="newCommentInput" placeholder="Add a comment as alex..." style="border-radius:20px;">
+        <button class="primary-btn" onclick="postNewComment()" style="width:auto; margin:0; padding:8px 16px; border-radius:20px;">Post</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Settings Modal -->
+  <div class="sheet-overlay" id="settingsSheet" onclick="handleSettingsBackdrop(event)">
+    <div class="sheet-card" onclick="event.stopPropagation()" style="height:65%;">
+      <div class="sheet-header">
+        <span>Settings & HakiOS Diagnostics</span>
+        <button class="icon-btn" onclick="closeSettingsSheet()">✕</button>
+      </div>
+      <div style="flex:1; overflow-y:auto; padding:16px;">
+        <div style="font-size:11px; font-weight:700; color:var(--text-secondary); margin-bottom:8px;">APPEARANCE</div>
+        <div style="display:flex; justify-content:space-between; align-items:center; background:var(--bg-card); padding:12px; border-radius:var(--radius-sm); margin-bottom:18px;">
+          <span>Dark Mode</span>
+          <input type="checkbox" id="settingsThemeToggle" checked onchange="toggleThemeFromSettings(this.checked)">
+        </div>
+
+        <div style="font-size:11px; font-weight:700; color:var(--text-secondary); margin-bottom:8px;">HAKIOS RUNTIME & PERFORMANCE</div>
+        <div style="background:var(--bg-card); border-radius:var(--radius-sm); padding:10px 14px; font-size:12px; line-height:1.7; margin-bottom:18px;">
+          <div style="display:flex; justify-content:space-between;"><span>Screen Resolution</span><strong>1080 x 2400 (360x800 @3x)</strong></div>
+          <div style="display:flex; justify-content:space-between;"><span>Target Framerate</span><strong>60 FPS (9.4 ms avg)</strong></div>
+          <div style="display:flex; justify-content:space-between;"><span>Rendering Engine</span><strong>Mali Panfrost / CoreAnimation</strong></div>
+          <div style="display:flex; justify-content:space-between;"><span>Touch Driver</span><strong>Melfas MSS100 (I2C)</strong></div>
+          <div style="display:flex; justify-content:space-between;"><span>Mach-O Binary</span><strong>arm64-apple-ios16.5 PIE</strong></div>
+        </div>
+
+        <div style="font-size:11px; font-weight:700; color:var(--text-secondary); margin-bottom:8px;">ABOUT IRIS</div>
+        <div style="background:var(--bg-card); border-radius:var(--radius-sm); padding:10px 14px; font-size:12px; line-height:1.7;">
+          <div style="display:flex; justify-content:space-between;"><span>Application</span><strong>Iris Social Prototype</strong></div>
+          <div style="display:flex; justify-content:space-between;"><span>Version</span><strong>1.0.0-hakios</strong></div>
+          <div style="display:flex; justify-content:space-between;"><span>Build Target</span><strong>Samsung Galaxy A51 Port</strong></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Notification Toast -->
+  <div class="toast" id="toastMessage">Toast</div>
+
+</div>
+
+<script>
+// Procedural SVG Image Generator for 100% Offline-Safe Photography Artworks
+function generateProceduralArtwork(key, width, height, title, subtitle) {
+  let hash = 0;
+  for (let i = 0; i < key.length; i++) { hash = (hash << 5) - hash + key.charCodeAt(i); hash |= 0; }
+  const h1 = Math.abs(hash % 360);
+  const h2 = (h1 + 45) % 360;
+  
+  const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}" viewBox="0 0 ${width} ${height}">
+    <defs>
+      <linearGradient id="g_${key}" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="hsl(${h1}, 70%, 25%)"/>
+        <stop offset="100%" stop-color="hsl(${h2}, 80%, 15%)"/>
+      </linearGradient>
+      <radialGradient id="r_${key}" cx="50%" cy="45%" r="45%">
+        <stop offset="0%" stop-color="hsl(${h1}, 85%, 65%)" stop-opacity="0.35"/>
+        <stop offset="100%" stop-color="transparent" stop-opacity="0"/>
+      </radialGradient>
+    </defs>
+    <rect width="${width}" height="${height}" fill="url(#g_${key})"/>
+    <circle cx="${width/2}" cy="${height*0.45}" r="${Math.min(width, height)*0.38}" fill="url(#r_${key})"/>
+    <!-- Photographic geometric horizon line -->
+    <line x1="0" y1="${height*0.62}" x2="${width}" y2="${height*0.62}" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
+    <!-- Subtle mountain peak silhouette -->
+    <polygon points="0,${height} ${width*0.35},${height*0.48} ${width*0.7},${height} 0,${height}" fill="rgba(0,0,0,0.25)"/>
+    <polygon points="${width*0.4},${height} ${width*0.75},${height*0.42} ${width},${height*0.75} ${width},${height}" fill="rgba(0,0,0,0.35)"/>
+    ${title ? `<text x="16" y="${height - 32}" fill="rgba(255,255,255,0.92)" font-family="-apple-system, sans-serif" font-weight="600" font-size="${Math.max(12, width*0.045)}">${title}</text>` : ''}
+    ${subtitle ? `<text x="16" y="${height - 16}" fill="rgba(255,255,255,0.65)" font-family="-apple-system, sans-serif" font-weight="400" font-size="${Math.max(10, width*0.032)}">${subtitle}</text>` : ''}
+  </svg>`;
+  return 'data:image/svg+xml;utf8,' + encodeURIComponent(svg);
+}
+
+// Mock Data Store (Synchronized with Objective-C IrisData)
+const IrisStore = {
+  currentUser: 'alex',
+  profiles: {
+    alex: {
+      username: 'alex', displayName: 'Alex Mercer', avatar: 'avatar_alex',
+      bio: 'Visual designer & urban photographer 📸\nCapturing neon nights & architecture 🏙️',
+      website: 'alexmercer.design', postsCount: 42, followersCount: 14850, followingCount: 482, isFollowing: false,
+      images: ['post_arch1', 'post_neon1', 'post_nature1', 'post_street1', 'post_travel1', 'post_coffee1', 'post_mountain1', 'post_portrait1', 'post_minimal1']
+    },
+    maya: {
+      username: 'maya', displayName: 'Maya Sharma', avatar: 'avatar_maya',
+      bio: 'Nomad wanderer & landscape photographer 🌍\nSearching for golden hours across Rajasthan.',
+      website: 'mayasharma.photo', postsCount: 128, followersCount: 38900, followingCount: 612, isFollowing: true,
+      images: ['post_jaipur1', 'post_mountain2', 'post_desert1', 'post_travel2', 'post_palace1', 'post_sunset1', 'post_tea1', 'post_portrait2', 'post_market1']
+    },
+    jordan: {
+      username: 'jordan', displayName: 'Jordan Vance', avatar: 'avatar_jordan',
+      bio: 'Minimalist architecture & brutalist lines.\nBerlin / Tokyo / Seoul.',
+      website: 'jordanvance.co', postsCount: 85, followersCount: 22400, followingCount: 310, isFollowing: false,
+      images: ['post_brutalist1', 'post_arch2', 'post_tokyo1', 'post_stairs1', 'post_museum1', 'post_shadows1', 'post_glass1', 'post_concrete1', 'post_sculpture1']
+    },
+    sara: {
+      username: 'sara', displayName: 'Sara Chen', avatar: 'avatar_sara',
+      bio: 'Culinary explorer & specialty coffee geek ☕\nDocumenting pastries, roasters and flavor profiles.',
+      website: 'saracooksandbrews.com', postsCount: 94, followersCount: 18700, followingCount: 520, isFollowing: true,
+      images: ['post_coffee2', 'post_pastry1', 'post_latteart1', 'post_cafe1', 'post_beans1', 'post_bakery1', 'post_tea2', 'post_matcha1', 'post_dessert1']
+    },
+    dev: {
+      username: 'dev', displayName: 'Dev Patel', avatar: 'avatar_dev',
+      bio: 'Street lifestyle & medium format film 🎞️\nEvery street corner tells a story.',
+      website: 'devfilm.studio', postsCount: 156, followersCount: 45200, followingCount: 390, isFollowing: false,
+      images: ['post_street2', 'post_film1', 'post_vintage1', 'post_neon2', 'post_rain1', 'post_subway1', 'post_night1', 'post_cafe2', 'post_car1']
+    },
+    emily: {
+      username: 'emily', displayName: 'Emily Thorne', avatar: 'avatar_emily',
+      bio: 'Nordic trails, alpine peaks & quiet cabins 🏔️\nChasing mist in the fjords.',
+      website: 'emilythorne.travel', postsCount: 112, followersCount: 29400, followingCount: 415, isFollowing: true,
+      images: ['post_nordic1', 'post_cabin1', 'post_fjord1', 'post_lake1', 'post_forest1', 'post_hike1', 'post_glacier1', 'post_campfire1', 'post_stars1']
+    }
+  },
+  stories: [
+    { id: 's0', username: 'alex', avatar: 'avatar_alex', img: 'story_alex_img', time: 'Just now', viewed: false, isYourStory: true },
+    { id: 's1', username: 'maya', avatar: 'avatar_maya', img: 'story_maya_img', time: '25m ago', viewed: false },
+    { id: 's2', username: 'jordan', avatar: 'avatar_jordan', img: 'story_jordan_img', time: '1h ago', viewed: false },
+    { id: 's3', username: 'sara', avatar: 'avatar_sara', img: 'story_sara_img', time: '2h ago', viewed: false },
+    { id: 's4', username: 'dev', avatar: 'avatar_dev', img: 'story_dev_img', time: '3h ago', viewed: true },
+    { id: 's5', username: 'arjun', avatar: 'avatar_arjun', img: 'story_arjun_img', time: '4h ago', viewed: false },
+    { id: 's6', username: 'emily', avatar: 'avatar_emily', img: 'story_emily_img', time: '5h ago', viewed: false },
+    { id: 's7', username: 'noah', avatar: 'avatar_noah', img: 'story_noah_img', time: '7h ago', viewed: true },
+    { id: 's8', username: 'clara', avatar: 'avatar_clara', img: 'story_clara_img', time: '8h ago', viewed: false },
+    { id: 's9', username: 'liam', avatar: 'avatar_liam', img: 'story_liam_img', time: '10h ago', viewed: true }
+  ],
+  posts: [
+    {
+      id: 'p1', username: 'maya', name: 'Maya Sharma', avatar: 'avatar_maya', loc: 'Jaipur, India',
+      caption: 'Somewhere between the mountains and the sky ✨', tags: '#travel #photography #weekend',
+      likes: 12842, commentsCount: 142, time: '2 hours ago', img: 'post_jaipur1', ratio: 1.25, isLiked: false, isBookmarked: false,
+      comments: [
+        { u: 'alex', a: 'avatar_alex', t: 'Beautiful view!', time: '1h ago', liked: false },
+        { u: 'dev', a: 'avatar_dev', t: 'The lighting in this is magical 🌅', time: '32m ago', liked: true }
+      ]
+    },
+    {
+      id: 'p2', username: 'jordan', name: 'Jordan Vance', avatar: 'avatar_jordan', loc: 'Ginza, Tokyo',
+      caption: 'Minimal geometric harmony. Raw concrete meets amber sunset reflections.', tags: '#brutalism #tokyo #architecture',
+      likes: 8420, commentsCount: 98, time: '3 hours ago', img: 'post_arch2', ratio: 1.0, isLiked: true, isBookmarked: true,
+      comments: [
+        { u: 'maya', a: 'avatar_maya', t: 'Cleanest lines I have ever seen.', time: '2h ago', liked: false }
+      ]
+    },
+    {
+      id: 'p3', username: 'sara', name: 'Sara Chen', avatar: 'avatar_sara', loc: 'Fika Lab, Stockholm',
+      caption: 'Morning dial-in on the washed Ethiopian heirloom. Floral jasmine notes with peach brightness ☕🌸', tags: '#specialtycoffee #pourover #ethiopia',
+      likes: 4315, commentsCount: 64, time: '5 hours ago', img: 'post_coffee2', ratio: 1.2, isLiked: false, isBookmarked: false,
+      comments: [
+        { u: 'alex', a: 'avatar_alex', t: 'Need a cup of that right now!', time: '4h ago', liked: false }
+      ]
+    },
+    {
+      id: 'p4', username: 'dev', name: 'Dev Patel', avatar: 'avatar_dev', loc: 'Shinjuku Nightwalk',
+      caption: 'Neon reflections in the post-midnight rain. 35mm Portra 800.', tags: '#filmphotography #35mm #cinematic',
+      likes: 19280, commentsCount: 312, time: '6 hours ago', img: 'post_neon2', ratio: 1.25, isLiked: true, isBookmarked: false,
+      comments: [
+        { u: 'emily', a: 'avatar_emily', t: 'The tones here are unbeatable.', time: '5h ago', liked: true }
+      ]
+    },
+    {
+      id: 'p5', username: 'emily', name: 'Emily Thorne', avatar: 'avatar_emily', loc: 'Lofoten Islands, Norway',
+      caption: 'Midnight sun grazing the icy peaks. Total silence except for arctic waves.', tags: '#norway #lofoten #nordic',
+      likes: 24600, commentsCount: 408, time: '8 hours ago', img: 'post_nordic1', ratio: 1.0, isLiked: false, isBookmarked: true,
+      comments: [
+        { u: 'alex', a: 'avatar_alex', t: 'Breathtaking scene Emily!', time: '7h ago', liked: false }
+      ]
+    },
+    {
+      id: 'p6', username: 'arjun', name: 'Arjun Mehta', avatar: 'avatar_arjun', loc: 'Leh-Ladakh, Himalayas',
+      caption: 'Highest motorable passes in the world. Cold air, hot chai, and unending valleys.', tags: '#ladakh #himalayas #roadtrip',
+      likes: 15390, commentsCount: 221, time: '11 hours ago', img: 'post_mountain1', ratio: 1.25, isLiked: false, isBookmarked: false,
+      comments: [
+        { u: 'dev', a: 'avatar_dev', t: 'Incredible altitude!', time: '9h ago', liked: false }
+      ]
+    },
+    {
+      id: 'p7', username: 'noah', name: 'Noah Williams', avatar: 'avatar_noah', loc: 'Dolomites, Italy',
+      caption: 'Alpenglow igniting Tre Cime di Lavaredo at dusk.', tags: '#dolomites #alps #italy',
+      likes: 18100, commentsCount: 195, time: '14 hours ago', img: 'post_mountain2', ratio: 1.0, isLiked: true, isBookmarked: true,
+      comments: [
+        { u: 'emily', a: 'avatar_emily', t: 'That pink gradient on the rocks is pure magic.', time: '12h ago', liked: true }
+      ]
+    },
+    {
+      id: 'p8', username: 'clara', name: 'Clara Dupont', avatar: 'avatar_clara', loc: 'Montmartre, Paris',
+      caption: 'Morning light spilling through the atelier windows. Fresh croissants on table.', tags: '#paris #montmartre #lifestyle',
+      likes: 9230, commentsCount: 87, time: '18 hours ago', img: 'post_cafe1', ratio: 1.25, isLiked: false, isBookmarked: false,
+      comments: [
+        { u: 'sara', a: 'avatar_sara', t: 'Save a croissant for me!', time: '15h ago', liked: false }
+      ]
+    },
+    {
+      id: 'p9', username: 'liam', name: 'Liam Gallagher', avatar: 'avatar_liam', loc: 'Isle of Skye, Scotland',
+      caption: 'Moody mist wrapping around the Old Man of Storr. Unpredictable Scottish weather.', tags: '#scotland #highlands #skye',
+      likes: 11450, commentsCount: 130, time: '1 day ago', img: 'post_scotland1', ratio: 1.0, isLiked: false, isBookmarked: false,
+      comments: [
+        { u: 'noah', a: 'avatar_noah', t: 'Nothing beats Scottish atmosphere.', time: '20h ago', liked: false }
+      ]
+    },
+    {
+      id: 'p10', username: 'zara', name: 'Zara Al-Mansoor', avatar: 'avatar_zara', loc: 'Muscat, Oman',
+      caption: 'Intricate geometric Islamic arches glowing under the midday sun.', tags: '#oman #architecture #symmetry',
+      likes: 13740, commentsCount: 168, time: '1 day ago', img: 'post_arch1', ratio: 1.25, isLiked: true, isBookmarked: false,
+      comments: [
+        { u: 'jordan', a: 'avatar_jordan', t: 'The precision of those arches is unreal.', time: '22h ago', liked: true }
+      ]
+    }
+  ],
+  notifications: [
+    { id: 'n1', u: 'maya', a: 'avatar_maya', type: 'like', msg: 'liked your post.', time: '12m ago', img: 'post_arch1' },
+    { id: 'n2', u: 'dev', a: 'avatar_dev', type: 'follow', msg: 'started following you.', time: '45m ago', f: false },
+    { id: 'n3', u: 'sara', a: 'avatar_sara', type: 'comment', msg: 'commented: "Need a cup of that right now!"', time: '2h ago', img: 'post_coffee1' },
+    { id: 'n4', u: 'jordan', a: 'avatar_jordan', type: 'mention', msg: 'mentioned you in a caption: "@alex on architectural study"', time: '4h ago', img: 'post_arch2' },
+    { id: 'n5', u: 'emily', a: 'avatar_emily', type: 'like', msg: 'liked your photo.', time: '6h ago', img: 'post_nature1' },
+    { id: 'n6', u: 'noah', a: 'avatar_noah', type: 'follow', msg: 'started following you.', time: '1d ago', f: true },
+    { id: 'n7', u: 'arjun', a: 'avatar_arjun', type: 'comment', msg: 'commented: "Superb framing!"', time: '1d ago', img: 'post_neon1' }
+  ]
+};
+
+// UI State
+let activeTabIndex = 0;
+let activeProfileUsername = 'alex';
+let activeStoryIndex = 0;
+let activePostIdForModal = null;
+let activePostIdForComments = null;
+
+// Initialize
+function initApp() {
+  renderStories();
+  renderFeed();
+  renderExploreGrid(IrisStore.posts);
+  renderActivity();
+  renderProfileSwitcher();
+  loadProfile('alex');
+  setupCreatePreview();
+}
+
+// 1. Stories Row
+function renderStories() {
+  const container = document.getElementById('storiesRow');
+  container.innerHTML = '';
+  IrisStore.stories.forEach((s, idx) => {
+    const item = document.createElement('div');
+    item.className = 'story-item';
+    item.onclick = () => openStoryModal(idx);
+
+    const ringClass = s.isYourStory ? 'your-story' : (s.viewed ? 'viewed' : '');
+    const avatarUrl = generateProceduralArtwork(s.avatar, 54, 54, s.username.toUpperCase(), '');
+
+    item.innerHTML = `
+      <div class="story-ring ${ringClass}">
+        <img class="story-avatar" src="${avatarUrl}" alt="${s.username}">
+        ${s.isYourStory ? '<div class="plus-badge">+</div>' : ''}
+      </div>
+      <div class="story-username">${s.isYourStory ? 'Your Story' : s.username}</div>
+    `;
+    container.appendChild(item);
+  });
+}
+
+// 2. Feed Posts
+function renderFeed() {
+  const container = document.getElementById('postsFeed');
+  container.innerHTML = '';
+  IrisStore.posts.forEach(p => {
+    const card = document.createElement('div');
+    card.className = 'post-card';
+    card.id = `post_card_${p.id}`;
+
+    const avatarUrl = generateProceduralArtwork(p.avatar, 36, 36, p.username.toUpperCase(), '');
+    const mediaHeight = Math.round(360 / (p.ratio || 1));
+    const mediaUrl = generateProceduralArtwork(p.img, 360, mediaHeight, p.loc, p.username);
+
+    card.innerHTML = `
+      <div class="post-header">
+        <div class="post-user" onclick="viewUserProfile('${p.username}')">
+          <img class="post-avatar" src="${avatarUrl}" alt="${p.username}">
+          <div class="post-user-info">
+            <span class="post-username">${p.username}</span>
+            ${p.loc ? `<span class="post-location">${p.loc}</span>` : ''}
+          </div>
+        </div>
+        <button class="icon-btn" onclick="openPostMenu('${p.id}')">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="1"></circle><circle cx="19" cy="12" r="1"></circle><circle cx="5" cy="12" r="1"></circle></svg>
+        </button>
+      </div>
+
+      <div class="post-media-wrap" onclick="openPostViewerModal('${p.id}')">
+        <img class="post-media" src="${mediaUrl}" alt="Post image" style="height:${mediaHeight}px;">
+      </div>
+
+      <div class="post-actions">
+        <div class="actions-left">
+          <button class="action-btn ${p.isLiked ? 'liked' : ''}" id="like_btn_${p.id}" onclick="toggleLike('${p.id}')">
+            <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+          </button>
+          <button class="action-btn" onclick="openCommentsSheet('${p.id}')">
+            <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+          </button>
+          <button class="action-btn" onclick="sharePost('${p.id}')">
+            <svg viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+          </button>
+        </div>
+        <button class="action-btn ${p.isBookmarked ? 'bookmarked' : ''}" id="bookmark_btn_${p.id}" onclick="toggleBookmark('${p.id}')">
+          <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
+        </button>
+      </div>
+
+      <div class="post-meta">
+        <div class="post-likes" id="likes_count_${p.id}">${p.likes.toLocaleString()} likes</div>
+        <div class="post-caption">
+          <strong>${p.username}</strong>${p.caption}
+        </div>
+        ${p.tags ? `<div class="post-tags">${p.tags}</div>` : ''}
+        <div class="post-comments-link" onclick="openCommentsSheet('${p.id}')">View all ${p.commentsCount} comments</div>
+        <div class="post-time">${p.time}</div>
+      </div>
+    `;
+    container.appendChild(card);
+  });
+}
+
+// Like toggle
+function toggleLike(id) {
+  const post = IrisStore.posts.find(p => p.id === id);
+  if (!post) return;
+  post.isLiked = !post.isLiked;
+  post.likes += post.isLiked ? 1 : -1;
+  
+  const btn = document.getElementById(`like_btn_${id}`);
+  const count = document.getElementById(`likes_count_${id}`);
+  if (btn) btn.className = `action-btn ${post.isLiked ? 'liked' : ''}`;
+  if (count) count.innerText = `${post.likes.toLocaleString()} likes`;
+
+  if (activePostIdForModal === id) {
+    const pvBtn = document.getElementById('pvLikeBtn');
+    const pvCount = document.getElementById('pvLikes');
+    if (pvBtn) pvBtn.className = `action-btn ${post.isLiked ? 'liked' : ''}`;
+    if (pvCount) pvCount.innerText = `${post.likes.toLocaleString()} likes`;
+  }
+}
+
+// Bookmark toggle
+function toggleBookmark(id) {
+  const post = IrisStore.posts.find(p => p.id === id);
+  if (!post) return;
+  post.isBookmarked = !post.isBookmarked;
+  const btn = document.getElementById(`bookmark_btn_${id}`);
+  if (btn) btn.className = `action-btn ${post.isBookmarked ? 'bookmarked' : ''}`;
+  showToast(post.isBookmarked ? 'Post saved to bookmarks' : 'Removed from bookmarks');
+}
+
+// Share
+function sharePost(id) {
+  showToast('Link copied to clipboard: iris.social/p/' + id);
+}
+
+function openPostMenu(id) {
+  alert('Post Options:\n• Copy Link\n• Share via Direct\n• Mute User\n• Report Inappropriate');
+}
+
+// 3. Explore
+function renderExploreGrid(posts) {
+  const grid = document.getElementById('exploreGrid');
+  grid.innerHTML = '';
+  posts.forEach((p, idx) => {
+    const tile = document.createElement('div');
+    const isFeatured = (idx % 5 === 0);
+    const isVideo = (idx % 3 === 0);
+    tile.className = `explore-tile ${isFeatured ? 'featured' : (idx % 2 === 0 ? 'portrait' : 'square')}`;
+    tile.onclick = () => openPostViewerModal(p.id);
+
+    const w = isFeatured ? 340 : 166;
+    const h = isFeatured ? 200 : (idx % 2 === 0 ? 210 : 160);
+    const imgUrl = generateProceduralArtwork(p.img, w, h, isFeatured ? p.loc : '', isFeatured ? p.username : '');
+
+    tile.innerHTML = `
+      <img src="${imgUrl}" alt="${p.caption}">
+      ${isVideo ? '<div class="tile-badge"><svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg></div>' : ''}
+      <div class="tile-overlay">@${p.username}</div>
+    `;
+    grid.appendChild(tile);
+  });
+}
+
+document.getElementById('exploreSearchInput').addEventListener('input', (e) => {
+  const q = e.target.value.toLowerCase().trim();
+  if (!q) {
+    renderExploreGrid(IrisStore.posts);
+    return;
+  }
+  const filtered = IrisStore.posts.filter(p =>
+    p.username.toLowerCase().includes(q) ||
+    p.caption.toLowerCase().includes(q) ||
+    (p.tags && p.tags.toLowerCase().includes(q)) ||
+    (p.loc && p.loc.toLowerCase().includes(q))
+  );
+  renderExploreGrid(filtered);
+});
+
+// 4. Create Post
+let currentCreateImgKey = 'post_arch1';
+function setupCreatePreview() {
+  const img = document.getElementById('createPreviewImg');
+  img.src = generateProceduralArtwork(currentCreateImgKey, 330, 220, 'Shibuya Twilight', 'Iris High-Dynamic Capture');
+}
+
+document.getElementById('btnSelectGallery').onclick = () => {
+  const keys = ['post_arch2', 'post_neon2', 'post_mountain2', 'post_coffee2', 'post_tokyo1'];
+  currentCreateImgKey = keys[Math.floor(Math.random() * keys.length)];
+  setupCreatePreview();
+  showToast('Imported photo from gallery');
+};
+
+document.getElementById('btnSelectCamera').onclick = () => {
+  currentCreateImgKey = 'post_camera_capture';
+  setupCreatePreview();
+  showToast('Simulated camera capture (HakiOS fixture)');
+};
+
+function selectAudience(elem, aud) {
+  document.querySelectorAll('.audience-pill').forEach(p => p.classList.remove('selected'));
+  elem.classList.add('selected');
+}
+
+document.getElementById('btnSharePost').onclick = () => {
+  const caption = document.getElementById('createCaption').value.trim() || 'Captured with Iris on HakiOS ✨';
+  const location = document.getElementById('createLocation').value.trim() || 'Tokyo, Japan';
+
+  const newPost = {
+    id: 'p_new_' + (IrisStore.posts.length + 1),
+    username: IrisStore.currentUser,
+    name: IrisStore.profiles[IrisStore.currentUser].displayName,
+    avatar: IrisStore.profiles[IrisStore.currentUser].avatar,
+    loc: location,
+    caption: caption,
+    tags: '#iris #hakios #minimal #photography',
+    likes: 1,
+    commentsCount: 0,
+    time: 'Just now',
+    img: currentCreateImgKey,
+    ratio: 1.0,
+    isLiked: true,
+    isBookmarked: false,
+    comments: []
+  };
+
+  IrisStore.posts.unshift(newPost);
+  IrisStore.profiles[IrisStore.currentUser].postsCount++;
+
+  // Reset fields
+  document.getElementById('createCaption').value = '';
+  document.getElementById('createLocation').value = '';
+
+  renderFeed();
+  switchTab(0); // Go to Home feed
+  showToast('Post shared to Iris Feed! 🎉');
+};
+
+// 5. Activity
+function renderActivity() {
+  const list = document.getElementById('activityList');
+  list.innerHTML = '';
+  IrisStore.notifications.forEach(n => {
+    const item = document.createElement('div');
+    item.className = 'notif-item';
+    const avatarUrl = generateProceduralArtwork(n.a, 44, 44, n.u.toUpperCase(), '');
+
+    let actionHtml = '';
+    if (n.type === 'follow') {
+      actionHtml = `<button class="follow-btn ${n.f ? 'following' : ''}" onclick="toggleNotifFollow(this, '${n.u}')">${n.f ? 'Following' : 'Follow'}</button>`;
+    } else if (n.img) {
+      const thumbUrl = generateProceduralArtwork(n.img, 44, 44, '', '');
+      actionHtml = `<img class="notif-thumb" src="${thumbUrl}" alt="Post">`;
+    }
+
+    item.innerHTML = `
+      <img class="notif-avatar" src="${avatarUrl}" alt="${n.u}" onclick="viewUserProfile('${n.u}')" style="cursor:pointer;">
+      <div class="notif-body">
+        <span onclick="viewUserProfile('${n.u}')" style="cursor:pointer;"><strong>${n.u}</strong> ${n.msg}</span>
+        <div class="notif-time">${n.time}</div>
+      </div>
+      ${actionHtml}
+    `;
+    list.appendChild(item);
+  });
+}
+
+function toggleNotifFollow(btn, username) {
+  const prof = IrisStore.profiles[username];
+  if (prof) {
+    prof.isFollowing = !prof.isFollowing;
+    prof.followersCount += prof.isFollowing ? 1 : -1;
+    btn.className = `follow-btn ${prof.isFollowing ? 'following' : ''}`;
+    btn.innerText = prof.isFollowing ? 'Following' : 'Follow';
+    showToast(prof.isFollowing ? `Now following @${username}` : `Unfollowed @${username}`);
+  }
+}
+
+// 6. Profile
+function renderProfileSwitcher() {
+  const switcher = document.getElementById('profileSwitcher');
+  switcher.innerHTML = '';
+  Object.keys(IrisStore.profiles).forEach(u => {
+    const pill = document.createElement('div');
+    pill.className = `user-pill ${u === activeProfileUsername ? 'active' : ''}`;
+    pill.innerText = '@' + u;
+    pill.onclick = () => loadProfile(u);
+    switcher.appendChild(pill);
+  });
+}
+
+function loadProfile(username) {
+  activeProfileUsername = username;
+  renderProfileSwitcher();
+  const prof = IrisStore.profiles[username] || IrisStore.profiles.alex;
+
+  document.getElementById('profAvatar').src = generateProceduralArtwork(prof.avatar, 76, 76, prof.username.toUpperCase(), '');
+  document.getElementById('profDisplayName').innerText = prof.displayName;
+  document.getElementById('profBio').innerText = prof.bio;
+  document.getElementById('profWebsite').innerText = '🔗 ' + prof.website;
+  document.getElementById('profPostsCount').innerText = prof.postsCount;
+  document.getElementById('profFollowersCount').innerText = prof.followersCount >= 1000 ? (prof.followersCount/1000).toFixed(1) + 'k' : prof.followersCount;
+  document.getElementById('profFollowingCount').innerText = prof.followingCount;
+
+  const isCurrent = (username === IrisStore.currentUser);
+  const pBtn = document.getElementById('profPrimaryBtn');
+  const sBtn = document.getElementById('profSecondaryBtn');
+
+  if (isCurrent) {
+    pBtn.innerText = 'Edit Profile';
+    sBtn.innerText = 'Share Profile';
+  } else {
+    pBtn.innerText = prof.isFollowing ? 'Following' : 'Follow';
+    pBtn.style.background = prof.isFollowing ? 'var(--bg-card)' : 'var(--accent-violet)';
+    pBtn.style.color = prof.isFollowing ? 'var(--text-primary)' : '#FFF';
+    sBtn.innerText = 'Message';
+  }
+
+  // Render 3x3 Grid
+  const grid = document.getElementById('profileGrid');
+  grid.innerHTML = '';
+  prof.images.forEach((imgKey, idx) => {
+    const item = document.createElement('div');
+    item.className = 'profile-grid-item';
+    const post = IrisStore.posts[idx % IrisStore.posts.length];
+    item.onclick = () => openPostViewerModal(post.id);
+
+    const imgUrl = generateProceduralArtwork(imgKey, 120, 120, '', '');
+    item.innerHTML = `<img src="${imgUrl}" alt="Profile post">`;
+    grid.appendChild(item);
+  });
+}
+
+function handleProfilePrimary() {
+  const isCurrent = (activeProfileUsername === IrisStore.currentUser);
+  if (isCurrent) {
+    const newName = prompt('Enter new display name:', IrisStore.profiles.alex.displayName);
+    if (newName) {
+      IrisStore.profiles.alex.displayName = newName;
+      document.getElementById('profDisplayName').innerText = newName;
+      showToast('Profile updated');
+    }
+  } else {
+    const prof = IrisStore.profiles[activeProfileUsername];
+    prof.isFollowing = !prof.isFollowing;
+    prof.followersCount += prof.isFollowing ? 1 : -1;
+    loadProfile(activeProfileUsername);
+    showToast(prof.isFollowing ? `Now following @${activeProfileUsername}` : `Unfollowed @${activeProfileUsername}`);
+  }
+}
+
+function handleProfileSecondary() {
+  const isCurrent = (activeProfileUsername === IrisStore.currentUser);
+  if (isCurrent) {
+    showToast('Profile link copied: iris.social/@' + activeProfileUsername);
+  } else {
+    alert(`Direct Message with @${activeProfileUsername} will be available in Phase 2.`);
+  }
+}
+
+function viewUserProfile(username) {
+  switchTab(4);
+  loadProfile(username);
+}
+
+function switchProfileTab(idx) {
+  document.querySelectorAll('.profile-tab').forEach((t, i) => {
+    t.classList.toggle('active', i === idx);
+  });
+}
+
+// Navigation Tab Switch
+function switchTab(index) {
+  activeTabIndex = index;
+  const views = ['view-home', 'view-explore', 'view-create', 'view-activity', 'view-profile'];
+  document.querySelectorAll('.screen-view').forEach((v, idx) => {
+    v.classList.toggle('active', idx === index);
+  });
+  document.querySelectorAll('.tab-item').forEach((t, idx) => {
+    t.classList.toggle('active', idx === index);
+  });
+  document.querySelector('.screen-container').scrollTop = 0;
+}
+
+// Story Viewer Modal
+function openStoryModal(index) {
+  activeStoryIndex = index;
+  const story = IrisStore.stories[index];
+  story.viewed = true;
+  renderStories();
+
+  document.getElementById('storyModalUser').innerText = story.username;
+  document.getElementById('storyModalTime').innerText = story.time;
+  document.getElementById('storyModalAvatar').src = generateProceduralArtwork(story.avatar, 32, 32, story.username.toUpperCase(), '');
+  document.getElementById('storyModalImg').src = generateProceduralArtwork(story.img, 360, 600, story.username, 'Iris Story');
+  document.getElementById('storyModal').classList.add('open');
+}
+
+function closeStoryModal() {
+  document.getElementById('storyModal').classList.remove('open');
+}
+
+function handleStoryTap(e) {
+  const rect = e.currentTarget.getBoundingClientRect();
+  const clickX = e.clientX - rect.left;
+  if (clickX < rect.width * 0.35) {
+    if (activeStoryIndex > 0) openStoryModal(activeStoryIndex - 1);
+  } else {
+    if (activeStoryIndex < IrisStore.stories.length - 1) openStoryModal(activeStoryIndex + 1);
+    else closeStoryModal();
+  }
+}
+
+// Fullscreen Post Viewer Modal
+function openPostViewerModal(id) {
+  activePostIdForModal = id;
+  const post = IrisStore.posts.find(p => p.id === id);
+  if (!post) return;
+
+  document.getElementById('pvUsername').innerText = '@' + post.username;
+  document.getElementById('pvLikes').innerText = `${post.likes.toLocaleString()} likes`;
+  document.getElementById('pvCaption').innerText = post.caption;
+  document.getElementById('pvImage').src = generateProceduralArtwork(post.img, 360, 480, post.loc, post.username);
+
+  const pvBtn = document.getElementById('pvLikeBtn');
+  pvBtn.className = `action-btn ${post.isLiked ? 'liked' : ''}`;
+  const pvBookBtn = document.getElementById('pvBookmarkBtn');
+  pvBookBtn.className = `action-btn ${post.isBookmarked ? 'bookmarked' : ''}`;
+
+  document.getElementById('postModal').classList.add('open');
+}
+
+function closePostModal() {
+  document.getElementById('postModal').classList.remove('open');
+}
+
+function togglePvLike() {
+  if (activePostIdForModal) toggleLike(activePostIdForModal);
+}
+function togglePvBookmark() {
+  if (activePostIdForModal) toggleBookmark(activePostIdForModal);
+}
+function sharePvPost() {
+  if (activePostIdForModal) sharePost(activePostIdForModal);
+}
+function openPvComments() {
+  if (activePostIdForModal) openCommentsSheet(activePostIdForModal);
+}
+
+// Comments Sheet
+function openCommentsSheet(id) {
+  activePostIdForComments = id;
+  const post = IrisStore.posts.find(p => p.id === id);
+  if (!post) return;
+
+  const list = document.getElementById('commentsList');
+  list.innerHTML = '';
+  post.comments.forEach(c => {
+    const item = document.createElement('div');
+    item.className = 'comment-item';
+    const av = generateProceduralArtwork(c.a, 32, 32, c.u.toUpperCase(), '');
+    item.innerHTML = `
+      <img class="comment-avatar" src="${av}" alt="${c.u}">
+      <div class="comment-body">
+        <strong>${c.u}</strong>${c.t}
+        <div class="comment-time">${c.time}</div>
+      </div>
+    `;
+    list.appendChild(item);
+  });
+
+  document.getElementById('commentsSheet').classList.add('open');
+}
+
+function closeCommentsSheet() {
+  document.getElementById('commentsSheet').classList.remove('open');
+}
+
+function handleSheetBackdrop(e) {
+  if (e.target.id === 'commentsSheet') closeCommentsSheet();
+}
+
+function postNewComment() {
+  const input = document.getElementById('newCommentInput');
+  const txt = input.value.trim();
+  if (!txt || !activePostIdForComments) return;
+
+  const post = IrisStore.posts.find(p => p.id === activePostIdForComments);
+  if (!post) return;
+
+  const newComment = {
+    u: IrisStore.currentUser,
+    a: IrisStore.profiles[IrisStore.currentUser].avatar,
+    t: txt,
+    time: 'Just now',
+    liked: false
+  };
+  post.comments.push(newComment);
+  post.commentsCount++;
+
+  input.value = '';
+  openCommentsSheet(activePostIdForComments);
+  renderFeed();
+  showToast('Comment posted! ✨');
+}
+
+// Settings Sheet
+function openSettingsModal() {
+  document.getElementById('settingsSheet').classList.add('open');
+}
+function closeSettingsSheet() {
+  document.getElementById('settingsSheet').classList.remove('open');
+}
+function handleSettingsBackdrop(e) {
+  if (e.target.id === 'settingsSheet') closeSettingsSheet();
+}
+
+function toggleThemeFromSettings(isDark) {
+  document.body.classList.toggle('light-mode', !isDark);
+  showToast(isDark ? 'Dark mode enabled' : 'Light mode enabled');
+}
+
+// Top Bar Button Handlers
+document.getElementById('themeToggleBtn').onclick = () => {
+  const isLight = document.body.classList.toggle('light-mode');
+  const toggleInput = document.getElementById('settingsThemeToggle');
+  if (toggleInput) toggleInput.checked = !isLight;
+  showToast(isLight ? 'Switched to Light Mode' : 'Switched to Dark Mode');
+};
+
+document.getElementById('notifIconBtn').onclick = () => switchTab(3);
+document.getElementById('messagesIconBtn').onclick = () => {
+  alert('Direct Messages:\nEnd-to-end encrypted messaging is coming in Phase 2.');
+};
+
+// Toast helper
+function showToast(msg) {
+  const t = document.getElementById('toastMessage');
+  t.innerText = msg;
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 2200);
+}
+
+// Start
+initApp();
+</script>
+
+</body>
+</html>

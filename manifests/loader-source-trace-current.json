@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "report": "evidence/phase-2/source-trace/20261111T054315892562Z/report.json",
+  "sha256": "a6f9211b459ef8309c53b6e39403a0ebad792cf013b904d7a2771b218c9a86b9",
+  "counts": {
+    "source_files": 28,
+    "excerpts": 40,
+    "base_fdts": 3,
+    "config_symbols": 22,
+    "tool_scripts": 6,
+    "indexed_files": 82
+  },
+  "scope": "source_and_retained_image_declarations_only",
+  "phone_writes": false,
+  "phone_queries": false,
+  "phase_2_device_gate_passed": false,
+  "safe_for_loader_placement": false,
+  "a51_destination_selected": false,
+  "live_fdt_selection_verified": false,
+  "runtime_memory_ownership_verified": false,
+  "probe_log_retrieval_verified": false,
+  "return_to_android_verified": false
+}

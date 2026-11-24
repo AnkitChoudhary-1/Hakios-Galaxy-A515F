@@ -1,0 +1,85 @@
+{
+  "packet": "evidence/phase-4/recovery-export-qemu/20261115T215525223262Z",
+  "work": "/opt/a51-hakios/experimental/recovery-export-tests/20261115T215525223262Z",
+  "passed": true,
+  "device_operations": false,
+  "sources": {
+    "prototype/xnu-loader/a51_recovery_export.S": {
+      "bytes": 5044,
+      "sha256": "8ff38a873babd5401447f348744e963ca24c5a959d5f6877e59efa23f8add7c5"
+    },
+    "prototype/xnu-loader/xnu_trampoline.h": {
+      "bytes": 2893,
+      "sha256": "9caaf7ac721aa5f7c9896b6931d681e75e47745ebec11851b7ebd3fa3ba84e03"
+    },
+    "prototype/xnu-loader/tests/recovery_export_entry.S": {
+      "bytes": 3170,
+      "sha256": "e2b634e6578096d8c5d7dab7430c5fc40abe0d75fc8007d31a3e486a59fa79cc"
+    },
+    "prototype/xnu-loader/tests/recovery_export_test.c": {
+      "bytes": 5298,
+      "sha256": "bdfa64a1802bb275e140acd5cd0eb32c5d935a7617fc97957144c756adb75911"
+    },
+    "prototype/xnu-loader/tests/recovery_export.ld": {
+      "bytes": 177,
+      "sha256": "4dfbd3d747bbd2523660a66d037505cb58f1158aa445b027007cdfbe207157c6"
+    },
+    "scripts/phase4-test-recovery-export.py": {
+      "bytes": 11344,
+      "sha256": "0dd15f9bb400813852884369c2061c013688a0570626d90fb29d147e12a6f0a1"
+    }
+  },
+  "executions": {
+    "alignment-0": {
+      "exit_code": 0,
+      "executable": {
+        "bytes": 372968,
+        "sha256": "36468fdc1ba54e4235654087bc7f9f659bca907fcc2d95ccd7b27e4b57b8e71f"
+      },
+      "trace": {
+        "bytes": 12773,
+        "sha256": "be06112a948b82e06206eaf1f1e7fd00f4e69606bfd8cb2ec2954d0cf4a49331"
+      },
+      "report": {
+        "suite": "recovery-export",
+        "cases": 37,
+        "checks": 39083413,
+        "alignment_checks": 0,
+        "sctlr": 12916792,
+        "passed": true
+      }
+    },
+    "alignment-1": {
+      "exit_code": 0,
+      "executable": {
+        "bytes": 372968,
+        "sha256": "a40c9f8dddc51099c2c83ea2a4a5bfb14fc8b5d85b1d00eba93f2056d40b8167"
+      },
+      "trace": {
+        "bytes": 12773,
+        "sha256": "be06112a948b82e06206eaf1f1e7fd00f4e69606bfd8cb2ec2954d0cf4a49331"
+      },
+      "report": {
+        "suite": "recovery-export",
+        "cases": 37,
+        "checks": 39083413,
+        "alignment_checks": 1,
+        "sctlr": 12916794,
+        "passed": true
+      }
+    }
+  },
+  "report": {
+    "suite": "recovery-export",
+    "cases": 74,
+    "checks": 78166826,
+    "alignment_modes": [
+      0,
+      1
+    ],
+    "mmu_off": true,
+    "dcache_off": true,
+    "icache_on": true,
+    "passed": true
+  }
+}

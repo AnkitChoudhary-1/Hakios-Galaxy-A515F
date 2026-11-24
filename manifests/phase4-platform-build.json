@@ -1,0 +1,282 @@
+{
+  "root": "/opt/a51-hakios/experimental/phase4-port/20261114T150320411427Z",
+  "packet": "evidence/phase-4/platform-build/20261119T110627706418Z",
+  "build_verified": true,
+  "adaptation_packet": "evidence/phase-4/readonly-platform-revision/20261119T110434966498Z",
+  "initial_adaptation_packet": "evidence/phase-4/platform-adaptation/20261114T154338406253Z",
+  "adaptation_manifest": {
+    "bytes": 9865,
+    "sha256": "e766a7e7a10282acfc90745b1cbeaa2bd154a4a1ab0cc93d0a9be33887b5d4c2"
+  },
+  "revision_result": {
+    "path": "evidence/phase-4/readonly-platform-revision/20261119T110434966498Z/result.json",
+    "bytes": 2357,
+    "sha256": "d4715415b9ba2c7b57a457e11ef8e7519014dc01f82c128a5689b9eb8a89d798"
+  },
+  "workspace_manifest": {
+    "bytes": 2393360,
+    "sha256": "91d9b1d4cd41f9e69c674467993feb92e474b2efe0e3329c043bfaae640bca79"
+  },
+  "source_pins": {
+    "hello.c": {
+      "bytes": 15302,
+      "sha256": "9299456e9b2a3687a2d41c3f0fac647f25cc6ffdb8d572cfe3c8adc721c25a50"
+    },
+    "hakios.a51.h": {
+      "bytes": 6650,
+      "sha256": "a1af295eca6cdbfa85fb941865d02ded4e73db82d77ff084320109664db08127"
+    },
+    "gic_v2_irq.c": {
+      "bytes": 12563,
+      "sha256": "1285d05af4a7805c30b5524af3849354e2898c7bb5f9f1cfac0ebb18fc78cae0"
+    },
+    "hakios.a51.c": {
+      "bytes": 25096,
+      "sha256": "6c5921a389c1131e83cd19a626693b5a081530d6e9d4289cbdeed913d4f6fc49"
+    },
+    "a51_ufs_readonly.h": {
+      "bytes": 21740,
+      "sha256": "73e6b390831606f3d4a60d2cf0a7b89a91d3a9b0661c0a35eb0cb668f86fb71f"
+    },
+    "a51_input.h": {
+      "bytes": 10174,
+      "sha256": "e0cc1151d48bf5c691c4b8980e8a88a051151daebc26253204e8e753b220b8c1"
+    }
+  },
+  "adapted_sources": [
+    {
+      "tree": "native",
+      "path": "osfmk/arm64/gic_v2_irq.c",
+      "before_exists": true,
+      "before": {
+        "bytes": 7207,
+        "sha256": "d7c2c15b62fad97fa8280c0582a5b3425416b8d4b9eba09f60292e8816deb84c"
+      },
+      "after": {
+        "bytes": 12563,
+        "sha256": "1285d05af4a7805c30b5524af3849354e2898c7bb5f9f1cfac0ebb18fc78cae0"
+      }
+    },
+    {
+      "tree": "common",
+      "path": "drivers/core/hakios.a51.c",
+      "before_exists": false,
+      "before": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "after": {
+        "bytes": 25096,
+        "sha256": "6c5921a389c1131e83cd19a626693b5a081530d6e9d4289cbdeed913d4f6fc49"
+      }
+    },
+    {
+      "tree": "native",
+      "path": "bsd/dev/hakios.a51.c",
+      "before_exists": false,
+      "before": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "after": {
+        "bytes": 25096,
+        "sha256": "6c5921a389c1131e83cd19a626693b5a081530d6e9d4289cbdeed913d4f6fc49"
+      }
+    },
+    {
+      "tree": "common",
+      "path": "drivers/core/hakios.a51.h",
+      "before_exists": false,
+      "before": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "after": {
+        "bytes": 6650,
+        "sha256": "a1af295eca6cdbfa85fb941865d02ded4e73db82d77ff084320109664db08127"
+      }
+    },
+    {
+      "tree": "native",
+      "path": "bsd/dev/hakios.a51.h",
+      "before_exists": false,
+      "before": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "after": {
+        "bytes": 6650,
+        "sha256": "a1af295eca6cdbfa85fb941865d02ded4e73db82d77ff084320109664db08127"
+      }
+    },
+    {
+      "tree": "common",
+      "path": "userland/src/hello.c",
+      "before_exists": true,
+      "before": {
+        "bytes": 6994,
+        "sha256": "2b1c7624bb6f5445014375922da512b393e27432756b76bc5278958723a4813d"
+      },
+      "after": {
+        "bytes": 15302,
+        "sha256": "9299456e9b2a3687a2d41c3f0fac647f25cc6ffdb8d572cfe3c8adc721c25a50"
+      }
+    },
+    {
+      "tree": "common",
+      "path": "userland/src/hakios.a51.h",
+      "before_exists": false,
+      "before": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "after": {
+        "bytes": 6650,
+        "sha256": "a1af295eca6cdbfa85fb941865d02ded4e73db82d77ff084320109664db08127"
+      }
+    },
+    {
+      "tree": "common",
+      "path": "drivers/core/conf",
+      "before_exists": true,
+      "before": {
+        "bytes": 1152,
+        "sha256": "6e8967fa338f8b77d2e7f2b3d0a6cfe3efcd570bd7cad222848b47a7f4829cb7"
+      },
+      "after": {
+        "bytes": 1273,
+        "sha256": "e453c151a6136d73671859c18d7829c6d0ebbe928ef81e6912dfedc37f553283"
+      }
+    },
+    {
+      "tree": "common",
+      "path": "drivers/map",
+      "before_exists": true,
+      "before": {
+        "bytes": 2214,
+        "sha256": "6fe1665cb4fe518b628f2898f89bfacd86bf9a0505dd37ffe12a7232b6089702"
+      },
+      "after": {
+        "bytes": 2273,
+        "sha256": "d19cbed13cea3d55e619b5860812ab9e4163bd8e97f83e4cee45e36fce3f21eb"
+      }
+    },
+    {
+      "tree": "common",
+      "path": "devices/a51/configs/a51_defconfig",
+      "before_exists": true,
+      "before": {
+        "bytes": 977,
+        "sha256": "a5b5f66fd048b4129b5e3169647101337ab69c971dbaf57e93dbad021b8147ae"
+      },
+      "after": {
+        "bytes": 1078,
+        "sha256": "5e606746595689b9949b02809968a5db42098d43162114d00159b4946a31cc3c"
+      }
+    },
+    {
+      "tree": "common",
+      "path": ".config",
+      "before_exists": true,
+      "before": {
+        "bytes": 11858,
+        "sha256": "a8776ce374ca9ce8ff0e5dc20e426129477ae29cc9e502d30669a8c396843b50"
+      },
+      "after": {
+        "bytes": 11878,
+        "sha256": "3a364a97d6a922cd7fea0859b51392032daa94bfe3219a0cd0859f91588dcf9f"
+      }
+    },
+    {
+      "tree": "common",
+      "path": "drivers/core/a51_ufs_readonly.h",
+      "before_exists": false,
+      "before": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "after": {
+        "bytes": 21740,
+        "sha256": "73e6b390831606f3d4a60d2cf0a7b89a91d3a9b0661c0a35eb0cb668f86fb71f"
+      }
+    },
+    {
+      "tree": "native",
+      "path": "bsd/dev/a51_ufs_readonly.h",
+      "before_exists": false,
+      "before": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "after": {
+        "bytes": 21740,
+        "sha256": "73e6b390831606f3d4a60d2cf0a7b89a91d3a9b0661c0a35eb0cb668f86fb71f"
+      }
+    },
+    {
+      "tree": "common",
+      "path": "drivers/core/a51_input.h",
+      "before_exists": false,
+      "before": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "after": {
+        "bytes": 10174,
+        "sha256": "e0cc1151d48bf5c691c4b8980e8a88a051151daebc26253204e8e753b220b8c1"
+      }
+    },
+    {
+      "tree": "native",
+      "path": "bsd/dev/a51_input.h",
+      "before_exists": false,
+      "before": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "after": {
+        "bytes": 10174,
+        "sha256": "e0cc1151d48bf5c691c4b8980e8a88a051151daebc26253204e8e753b220b8c1"
+      }
+    },
+    {
+      "tree": "common",
+      "path": "userland/src/a51_input.h",
+      "before_exists": false,
+      "before": {
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "after": {
+        "bytes": 10174,
+        "sha256": "e0cc1151d48bf5c691c4b8980e8a88a051151daebc26253204e8e753b220b8c1"
+      }
+    }
+  ],
+  "device_operations": false,
+  "phase_4_gate_passed": false,
+  "heads": {
+    "common": "1c9c1c63e4636731c4ab79c1978c04c5335cd4b6",
+    "native": "c54f35ca767986246321eb901baf8f5ff7923f6a"
+  },
+  "artifacts": {
+    "hakios-kernel": {
+      "bytes": 15268544,
+      "sha256": "99b6a713f74669c25c7ef7c45445b8a765792b6b1d6df4c99d1d6f746c3dcda2"
+    },
+    "userland/hello": {
+      "bytes": 16736,
+      "sha256": "4a10d5692244b959ad22482107b3270aa3ed97655b5ace8567e3545dd6404455"
+    },
+    ".config": {
+      "bytes": 11878,
+      "sha256": "3a364a97d6a922cd7fea0859b51392032daa94bfe3219a0cd0859f91588dcf9f"
+    },
+    "xnu-build.log": {
+      "bytes": 119995,
+      "sha256": "7d225a0c4bd6c953e8ff8dc92656549a47a6c60cb1949173d85b06d58cd04f48"
+    }
+  },
+  "parent_unchanged": true,
+  "source_and_manifest_stable": true
+}

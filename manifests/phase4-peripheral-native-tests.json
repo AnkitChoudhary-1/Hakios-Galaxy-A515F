@@ -1,0 +1,53 @@
+{
+  "packet": "evidence/phase-4/peripheral-native-tests/20261121T143158104177Z",
+  "build": "/opt/a51-hakios/experimental/phase4-protocol-tests/20261121T143158104177Z",
+  "passed": true,
+  "device_operations": false,
+  "phase_4_gate_passed": false,
+  "sources": {
+    "a51_ufs_readonly.h": {
+      "bytes": 21740,
+      "sha256": "73e6b390831606f3d4a60d2cf0a7b89a91d3a9b0661c0a35eb0cb668f86fb71f"
+    },
+    "a51_input.h": {
+      "bytes": 10174,
+      "sha256": "e0cc1151d48bf5c691c4b8980e8a88a051151daebc26253204e8e753b220b8c1"
+    },
+    "hakios.a51.h": {
+      "bytes": 6650,
+      "sha256": "a1af295eca6cdbfa85fb941865d02ded4e73db82d77ff084320109664db08127"
+    },
+    "tests/ufs_model.c": {
+      "bytes": 20858,
+      "sha256": "6759f5b574281ac67c2e45c744e520f8fdf2f9f6d64441b9495a43b57a7062ed"
+    },
+    "tests/input_model.c": {
+      "bytes": 9122,
+      "sha256": "02e7c2af0b510ee7a7c66fe277627dc662ac39bfd49477f5b1fe28cac6cc1afa"
+    },
+    "tests/reporting_model.c": {
+      "bytes": 8570,
+      "sha256": "fabbed08e0ea83a88b6ff9af9eb6a08cfe91acc90c8704e9e46e9326db661c77"
+    }
+  },
+  "suites": {
+    "ufs": {
+      "suite": "ufs",
+      "cases": 74,
+      "checks": 316791,
+      "passed": true
+    },
+    "input": {
+      "suite": "input",
+      "cases": 42,
+      "checks": 20620,
+      "passed": true
+    },
+    "reporting": {
+      "suite": "reporting",
+      "passed": true,
+      "cases": 124,
+      "checks": 124
+    }
+  }
+}

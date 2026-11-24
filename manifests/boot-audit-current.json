@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "captured_utc": "2026-11-11T02:25:33.905884+00:00",
+  "report": "evidence/phase-2/boot-audit/20261111T022538476271Z/report.json",
+  "sha256": "37f373bba0ea4002cb8853a09298355a8e24045c40f51853c97ebaecc50a344b",
+  "counts": {
+    "images": 4,
+    "dt_tables": 5,
+    "fdt_blobs": 11,
+    "references": 13
+  },
+  "status": "verified_host_structure_live_entry_memory_selection_and_return_unknown",
+  "phone_writes": false,
+  "phase_2_device_gate_passed": false
+}

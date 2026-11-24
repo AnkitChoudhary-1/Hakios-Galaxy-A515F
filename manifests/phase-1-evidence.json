@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "build_manifest": "evidence/build-snapshots/20261110T163349179842Z/manifest.json",
+  "qemu_results": [
+    "evidence/qemu/20261110T163522719592Z/result.json",
+    "evidence/qemu/20261110T194844042212Z/result.json"
+  ],
+  "inventory": "manifests/inventory-snapshots/20261110T162732057411Z.json",
+  "historical_input_copies": {
+    "C:\\Users\\Ankit\\Desktop\\A51\\hakios-assessment\\ROADMAP.md": "evidence/phase-1-reference/ROADMAP-20261110.md"
+  },
+  "passed_runs": [
+    "runs/20261110T162731809925Z-clean-rebuild-path-corrected",
+    "runs/20261110T162731694328Z-device-inventory-reconnected",
+    "runs/20261110T161931413955Z-audit-pinned-research",
+    "runs/20261110T163324291234Z-retained-input-integrity",
+    "runs/20261110T163517185456Z-archive-sdk-integrity",
+    "runs/20261110T163500047715Z-qemu-acceptance-guards",
+    "runs/20261110T163517331079Z-qemu-final-user-version-check",
+    "runs/20261110T194715388870Z-review-host-processes",
+    "runs/20261110T194715427936Z-review-qemu-acceptance-guards",
+    "runs/20261110T194838455423Z-review-source-pins",
+    "runs/20261110T194838530755Z-review-qemu-live",
+    "runs/20261110T195454076601Z-review-phase1-integrity",
+    "runs/20261110T195454161742Z-review-phase1-bundle-guards"
+  ],
+  "documentation_markers": {
+    "README.md": "Phase 1 is complete",
+    "docs/STATE.md": "Phase 1: complete",
+    "docs/HANDOFF.md": "Phase 1 is complete",
+    "evidence/phase-1-reference/ROADMAP-20261111.md": "Phase 1 is complete"
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "audio": {
+    "size": 24445,
+    "sha256": "2abab2e6cc4cf3a205f6ccda805a7adef86cbf18125bdb23b2f30138e35db073"
+  },
+  "gpu": {
+    "size": 78786,
+    "sha256": "2b6d56d74187fd68cf18620dbc90fbcb3fc2702f75c03209c7f8b8612e640a29"
+  },
+  "iris_executable": {
+    "size": 375968,
+    "sha256": "265ef87ece3b08ec36a620fcb099ad9968d52ccd7b2c7418e47d6b1980876971"
+  },
+  "iris_plist": {
+    "size": 1410,
+    "sha256": "3ecfdfaa1306adb99cb7f1a17a01b47b9bf9292622c0edc64762138ab56454db"
+  },
+  "device_operations": false,
+  "audible_audio_verified": false
+}

@@ -1,0 +1,10 @@
+{
+  "packet": "evidence\\phase-3\\loader-contract\\20261114T030511718315Z",
+  "checks": {
+    "root": true,
+    "pstore_2m": true,
+    "pstore_base": true,
+    "console_512k": true,
+    "ecc_disabled": true
+  }
+}

@@ -1,0 +1,281 @@
+{
+  "schema_version": 1,
+  "scope": "isolated_phase3_source_preservation",
+  "root": "/opt/a51-hakios/experimental/phase3-port/20261114T013656044425Z",
+  "packet": "evidence/phase-3/source-preservation/20261114T013656044425Z",
+  "trees": {
+    "common": {
+      "original": "/opt/a51-hakios/src/hakios-xnu-kernel",
+      "isolated": "/opt/a51-hakios/experimental/phase3-port/20261114T013656044425Z",
+      "head": "63fc2b4633bac3af8e57dadab9f5a8d4cb940438",
+      "origin": "https://github.com/oosexgang/hakios-xnu-kernel.git",
+      "files": 866,
+      "archive": "common-source.tar",
+      "bytes": 131911680,
+      "sha256": "d48ab7d69b7cc3ef10ce764413b217738b73af1406fde40bc811fc2416544704",
+      "source_bytes_verified": true,
+      "original_unchanged": true
+    },
+    "native": {
+      "original": "/opt/a51-hakios/src/hakios-xnu-kernel/xnu-src/xnu-8796.121.2",
+      "isolated": "/opt/a51-hakios/experimental/phase3-port/20261114T013656044425Z/xnu-src/xnu-8796.121.2",
+      "head": "c54f35ca767986246321eb901baf8f5ff7923f6a",
+      "origin": "https://github.com/apple-oss-distributions/xnu.git",
+      "files": 5188,
+      "archive": "native-source.tar",
+      "bytes": 80701440,
+      "sha256": "c60cc601072102467a98144b1c99c62bbfdb652c362037e101e71c498e2b6be2",
+      "source_bytes_verified": true,
+      "original_unchanged": true
+    }
+  },
+  "dependency_files": 14088,
+  "commands": [
+    {
+      "name": "common-head",
+      "argv": [
+        "git",
+        "-C",
+        "/opt/a51-hakios/src/hakios-xnu-kernel",
+        "rev-parse",
+        "HEAD"
+      ],
+      "started_utc": "2026-11-14T01:36:56.054887+00:00",
+      "finished_utc": "2026-11-14T01:36:56.086176+00:00",
+      "exit_code": 0
+    },
+    {
+      "name": "common-origin",
+      "argv": [
+        "git",
+        "-C",
+        "/opt/a51-hakios/src/hakios-xnu-kernel",
+        "remote",
+        "get-url",
+        "origin"
+      ],
+      "started_utc": "2026-11-14T01:36:56.086275+00:00",
+      "finished_utc": "2026-11-14T01:36:56.104962+00:00",
+      "exit_code": 0
+    },
+    {
+      "name": "common-status",
+      "argv": [
+        "git",
+        "-C",
+        "/opt/a51-hakios/src/hakios-xnu-kernel",
+        "status",
+        "--short"
+      ],
+      "started_utc": "2026-11-14T01:36:56.105041+00:00",
+      "finished_utc": "2026-11-14T01:36:56.189279+00:00",
+      "exit_code": 0
+    },
+    {
+      "name": "common-tracked-adaptations",
+      "argv": [
+        "git",
+        "-C",
+        "/opt/a51-hakios/src/hakios-xnu-kernel",
+        "diff",
+        "--binary",
+        "HEAD"
+      ],
+      "started_utc": "2026-11-14T01:36:56.189351+00:00",
+      "finished_utc": "2026-11-14T01:36:56.231946+00:00",
+      "exit_code": 0
+    },
+    {
+      "name": "common-snapshot",
+      "argv": [
+        "tar",
+        "-C",
+        "/opt/a51-hakios/src/hakios-xnu-kernel",
+        "--exclude=./.git",
+        "--exclude=./xnu-deps",
+        "--exclude=./xnu-src",
+        "--exclude=.git",
+        "-cf",
+        "/mnt/c/Users/Ankit/Desktop/A51/hakios-a51/evidence/phase-3/source-preservation/20261114T013656044425Z/common-source.tar",
+        "."
+      ],
+      "started_utc": "2026-11-14T01:36:57.145719+00:00",
+      "finished_utc": "2026-11-14T01:37:07.352526+00:00",
+      "exit_code": 0
+    },
+    {
+      "name": "common-clone",
+      "argv": [
+        "git",
+        "clone",
+        "--local",
+        "--no-hardlinks",
+        "/opt/a51-hakios/src/hakios-xnu-kernel",
+        "/opt/a51-hakios/experimental/phase3-port/20261114T013656044425Z"
+      ],
+      "started_utc": "2026-11-14T01:37:07.352659+00:00",
+      "finished_utc": "2026-11-14T01:37:08.123891+00:00",
+      "exit_code": 0
+    },
+    {
+      "name": "common-upstream-origin",
+      "argv": [
+        "git",
+        "-C",
+        "/opt/a51-hakios/experimental/phase3-port/20261114T013656044425Z",
+        "remote",
+        "set-url",
+        "origin",
+        "https://github.com/oosexgang/hakios-xnu-kernel.git"
+      ],
+      "started_utc": "2026-11-14T01:37:08.123974+00:00",
+      "finished_utc": "2026-11-14T01:37:08.139339+00:00",
+      "exit_code": 0
+    },
+    {
+      "name": "common-restore-adaptations",
+      "argv": [
+        "tar",
+        "-C",
+        "/opt/a51-hakios/experimental/phase3-port/20261114T013656044425Z",
+        "-xf",
+        "/mnt/c/Users/Ankit/Desktop/A51/hakios-a51/evidence/phase-3/source-preservation/20261114T013656044425Z/common-source.tar"
+      ],
+      "started_utc": "2026-11-14T01:37:08.139418+00:00",
+      "finished_utc": "2026-11-14T01:37:12.707986+00:00",
+      "exit_code": 0
+    },
+    {
+      "name": "native-head",
+      "argv": [
+        "git",
+        "-C",
+        "/opt/a51-hakios/src/hakios-xnu-kernel/xnu-src/xnu-8796.121.2",
+        "rev-parse",
+        "HEAD"
+      ],
+      "started_utc": "2026-11-14T01:37:14.654948+00:00",
+      "finished_utc": "2026-11-14T01:37:14.682833+00:00",
+      "exit_code": 0
+    },
+    {
+      "name": "native-origin",
+      "argv": [
+        "git",
+        "-C",
+        "/opt/a51-hakios/src/hakios-xnu-kernel/xnu-src/xnu-8796.121.2",
+        "remote",
+        "get-url",
+        "origin"
+      ],
+      "started_utc": "2026-11-14T01:37:14.682939+00:00",
+      "finished_utc": "2026-11-14T01:37:14.700783+00:00",
+      "exit_code": 0
+    },
+    {
+      "name": "native-status",
+      "argv": [
+        "git",
+        "-C",
+        "/opt/a51-hakios/src/hakios-xnu-kernel/xnu-src/xnu-8796.121.2",
+        "status",
+        "--short"
+      ],
+      "started_utc": "2026-11-14T01:37:14.700883+00:00",
+      "finished_utc": "2026-11-14T01:37:14.781267+00:00",
+      "exit_code": 0
+    },
+    {
+      "name": "native-tracked-adaptations",
+      "argv": [
+        "git",
+        "-C",
+        "/opt/a51-hakios/src/hakios-xnu-kernel/xnu-src/xnu-8796.121.2",
+        "diff",
+        "--binary",
+        "HEAD"
+      ],
+      "started_utc": "2026-11-14T01:37:14.781341+00:00",
+      "finished_utc": "2026-11-14T01:37:14.991293+00:00",
+      "exit_code": 0
+    },
+    {
+      "name": "native-snapshot",
+      "argv": [
+        "tar",
+        "-C",
+        "/opt/a51-hakios/src/hakios-xnu-kernel/xnu-src/xnu-8796.121.2",
+        "--exclude=./.git",
+        "--exclude=./BUILD",
+        "--exclude=.git",
+        "-cf",
+        "/mnt/c/Users/Ankit/Desktop/A51/hakios-a51/evidence/phase-3/source-preservation/20261114T013656044425Z/native-source.tar",
+        "."
+      ],
+      "started_utc": "2026-11-14T01:37:18.010462+00:00",
+      "finished_utc": "2026-11-14T01:37:24.305743+00:00",
+      "exit_code": 0
+    },
+    {
+      "name": "native-clone",
+      "argv": [
+        "git",
+        "clone",
+        "--local",
+        "--no-hardlinks",
+        "/opt/a51-hakios/src/hakios-xnu-kernel/xnu-src/xnu-8796.121.2",
+        "/opt/a51-hakios/experimental/phase3-port/20261114T013656044425Z/xnu-src/xnu-8796.121.2"
+      ],
+      "started_utc": "2026-11-14T01:37:24.306665+00:00",
+      "finished_utc": "2026-11-14T01:37:26.726022+00:00",
+      "exit_code": 0
+    },
+    {
+      "name": "native-upstream-origin",
+      "argv": [
+        "git",
+        "-C",
+        "/opt/a51-hakios/experimental/phase3-port/20261114T013656044425Z/xnu-src/xnu-8796.121.2",
+        "remote",
+        "set-url",
+        "origin",
+        "https://github.com/apple-oss-distributions/xnu.git"
+      ],
+      "started_utc": "2026-11-14T01:37:26.726097+00:00",
+      "finished_utc": "2026-11-14T01:37:26.745865+00:00",
+      "exit_code": 0
+    },
+    {
+      "name": "native-restore-adaptations",
+      "argv": [
+        "tar",
+        "-C",
+        "/opt/a51-hakios/experimental/phase3-port/20261114T013656044425Z/xnu-src/xnu-8796.121.2",
+        "-xf",
+        "/mnt/c/Users/Ankit/Desktop/A51/hakios-a51/evidence/phase-3/source-preservation/20261114T013656044425Z/native-source.tar"
+      ],
+      "started_utc": "2026-11-14T01:37:26.745942+00:00",
+      "finished_utc": "2026-11-14T01:37:30.254939+00:00",
+      "exit_code": 0
+    },
+    {
+      "name": "copy-dependencies",
+      "argv": [
+        "cp",
+        "-a",
+        "--reflink=auto",
+        "/opt/a51-hakios/src/hakios-xnu-kernel/xnu-deps/.",
+        "/opt/a51-hakios/experimental/phase3-port/20261114T013656044425Z/xnu-deps"
+      ],
+      "started_utc": "2026-11-14T01:37:44.454223+00:00",
+      "finished_utc": "2026-11-14T01:37:54.887157+00:00",
+      "exit_code": 0
+    }
+  ],
+  "native_build_output_copied": false,
+  "device_operations": false,
+  "result_pin": {
+    "bytes": 8424,
+    "sha256": "59aaa95d109b6512b21bff024656860959958a74491436e035d0d72be1d1690c"
+  }
+}

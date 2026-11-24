@@ -1,0 +1,9 @@
+{
+  "packet": "evidence/phase-4/device-preflight/20261118T213926739261Z",
+  "case": "full",
+  "passed": false,
+  "host_prerequisites_passed": false,
+  "device_operations": false,
+  "phase_4_gate_passed": false,
+  "error": "Loader source changed after QEMU: entry.S"
+}

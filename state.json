@@ -1,0 +1,69 @@
+{
+  "schema_version": 1,
+  "updated_date_local": "2026-11-24",
+  "target": "Samsung Galaxy A51 SM-A515F / Exynos 9611",
+  "active_phase": "phase_4",
+  "phase_1_status": "complete",
+  "phase_2_status": "complete",
+  "phase_3_status": "complete",
+  "phase_4_status": "in_progress",
+  "planned_phases": [
+    5,
+    6,
+    7,
+    8,
+    9,
+    10
+  ],
+  "phase_4_device_gate_passed": false,
+  "audio_iris_repair_20261124": {
+    "status": "v3_host_verified_flashed_readback_verified_screen_audio_iris_pending",
+    "guide": "docs/AUDIO-IRIS-REPAIR-20261124.md",
+    "artifact": "artifacts/A51-HakiOS-full-quality-audio-iris-v3-boot.img",
+    "image": {
+      "size": 29712384,
+      "sha256": "b0fa71744861524d40e97eb51214462ca81d9bd601d1a7fa320ca4b1677ad6c0"
+    },
+    "kernel": {
+      "size": 15090776,
+      "sha256": "e228007caf15fda4c3844f3e005199074a10dc5280233434810c41291a3f9ae3"
+    },
+    "gpu": {
+      "size": 78786,
+      "sha256": "2b6d56d74187fd68cf18620dbc90fbcb3fc2702f75c03209c7f8b8612e640a29"
+    },
+    "audio": {
+      "size": 24445,
+      "sha256": "2abab2e6cc4cf3a205f6ccda805a7adef86cbf18125bdb23b2f30138e35db073"
+    },
+    "host_packet": "evidence/build-repair/audio-iris-20261124-v3",
+    "installation_result": "evidence/build-repair/device-flash-20261124T032057167732Z/result.json",
+    "full_partition_sha256": "654f17114d8009a49a7d050b08c1d9c8beae50e6dbd52d75c7bb02cbcfceec61",
+    "v2_backup": {
+      "packet": "evidence/build-repair/device-flash-20261124T032057167732Z",
+      "file": "boot-before.img",
+      "size": 61865984,
+      "sha256": "7431a547bd7f7756a6ed86934ba474b491e11733de87e810a334581780c7f931"
+    },
+    "phone_write_verified": true,
+    "reboot_command_succeeded": true,
+    "recovery_dtbo_unchanged": true,
+    "observation_status": "no_adb_boot_confirmation",
+    "home_screen_user_reported": false,
+    "audible_audio_verified": false,
+    "iris_icon_verified": false,
+    "iris_launch_verified": false,
+    "gpu_hardware_execution_verified": false,
+    "phase_gates_changed": false,
+    "native_audio_cases": 11,
+    "native_iris_cases": 4,
+    "qemu_scope": "virt/raw hello/audio disabled",
+    "hardware_limits": [
+      "speaker unverified",
+      "headphones/capture/routes unavailable",
+      "idle ring clearing only on callbacks",
+      "clock/DMA/MMU/cache assumptions unverified",
+      "Iris LaunchServices result unverified"
+    ]
+  }
+}

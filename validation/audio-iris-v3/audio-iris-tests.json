@@ -1,0 +1,8 @@
+{
+  "audio_cases": 11,
+  "iris_cases": 4,
+  "passed": true,
+  "hardware_verified": false,
+  "audio_sha256": "2abab2e6cc4cf3a205f6ccda805a7adef86cbf18125bdb23b2f30138e35db073",
+  "iris_sha256": "f346f197f417aedc6267fe77a56bfe2f87902d305dbbef59be71355f20b22904"
+}

@@ -1,0 +1,116 @@
+{
+  "schema_version": 1,
+  "target": "a51-retained-source",
+  "source_root": "/opt/a51-everline/src",
+  "lineage_commit": "468ab8343364e4d3a267e670fa6a22fd4197a805",
+  "boot_report": {
+    "path": "evidence/phase-2/boot-audit/20261111T022538476271Z/report.json",
+    "sha256": "37f373bba0ea4002cb8853a09298355a8e24045c40f51853c97ebaecc50a344b"
+  },
+  "config_symbols": [
+    "CONFIG_KEXEC", "CONFIG_RELOCATABLE", "CONFIG_RANDOMIZE_BASE", "CONFIG_HAVE_MEMBLOCK",
+    "CONFIG_ARCH_KEEP_MEMBLOCK", "CONFIG_DEBUG_FS", "CONFIG_SAMSUNG_PRODUCT_SHIP",
+    "CONFIG_SYSFS", "CONFIG_ARM_PSCI_FW", "CONFIG_EXYNOS_REBOOT", "CONFIG_SEC_REBOOT",
+    "CONFIG_WATCHDOG", "CONFIG_S3C2410_WATCHDOG", "CONFIG_DEBUG_SNAPSHOT", "CONFIG_SEC_DEBUG",
+    "CONFIG_SEC_DEBUG_LAST_KMSG", "CONFIG_SEC_PM_DEBUG", "CONFIG_PSTORE", "CONFIG_PSTORE_RAM",
+    "CONFIG_PSTORE_CONSOLE", "CONFIG_PSTORE_PMSG", "CONFIG_EXYNOS_SECURE_LOG"
+  ],
+  "sources": [
+    {"path": "Documentation/arm64/booting.txt", "excerpts": [
+      {"id": "linux-boot-protocol", "start": 137, "end": 232, "purpose": "Linux entry-register, exception-level, cache/MMU, timer and DMA requirements"}
+    ]},
+    {"path": "arch/arm64/kernel/head.S", "excerpts": [
+      {"id": "linux-entry-and-saved-args", "start": 113, "end": 163, "purpose": "stext entry and KASLR-dependent recording of x1-x3"},
+      {"id": "linux-primary-bss-start", "start": 338, "end": 387, "purpose": "Primary virtual entry, BSS initialization and start_kernel"},
+      {"id": "linux-mmu-relocation", "start": 640, "end": 878, "purpose": "MMU enablement and relocatable/KASLR transition code; not observed Samsung placement"}
+    ]},
+    {"path": "arch/arm64/kernel/setup.c", "excerpts": [
+      {"id": "linux-fdt-memblock-psci-setup", "start": 212, "end": 352, "purpose": "FDT reservation/scanning, setup_arch memblock and DT PSCI initialization"}
+    ]},
+    {"path": "drivers/of/fdt.c", "excerpts": [
+      {"id": "fdt-chosen-rng-removal", "start": 1140, "end": 1193, "purpose": "Chosen scan, rng-seed removal and refreshed CRC"},
+      {"id": "fdt-early-validation", "start": 1290, "end": 1329, "purpose": "Initial FDT validation, saved CRC and early scans"},
+      {"id": "fdt-root-sysfs-export", "start": 1392, "end": 1417, "purpose": "Root-readable firmware FDT export and CRC/absence conditions"}
+    ]},
+    {"path": "drivers/of/of_reserved_mem.c", "excerpts": [
+      {"id": "reserved-memory-allocation", "start": 28, "end": 203, "purpose": "Memblock-based allocation of size-only reservations and allocation constraints"},
+      {"id": "reserved-memory-recording", "start": 263, "end": 300, "purpose": "Allocated base/size stored in reserved_mem and memsize record hook"}
+    ]},
+    {"path": "mm/memblock.c", "excerpts": [
+      {"id": "memsize-record-capacity", "start": 460, "end": 579, "purpose": "64-entry reservation records, truncated names and stored ownership attributes"},
+      {"id": "memblock-memsize-exports", "start": 1873, "end": 2082, "purpose": "Debugfs-conditional exports and product-ship address/nomap redaction"}
+    ]},
+    {"path": "drivers/firmware/psci.c", "excerpts": [
+      {"id": "psci-standard-reset-setup", "start": 600, "end": 657, "purpose": "PSCI >=0.2 function setup and standard restart registration"},
+      {"id": "psci-legacy-dt-selection", "start": 666, "end": 761, "purpose": "Legacy arm,psci path with DT CPU IDs; no standard SYSTEM_RESET registration"}
+    ]},
+    {"path": "arch/arm64/kernel/process.c", "excerpts": [
+      {"id": "linux-machine-restart-selection", "start": 143, "end": 179, "purpose": "Complete machine_restart path: stop secondary CPUs, EFI/debug hook, arm_pm_restart selection and failure halt"}
+    ]},
+    {"path": "drivers/soc/samsung/exynos-reboot.c", "excerpts": [
+      {"id": "exynos-reset-platform-prerequisites", "start": 20, "end": 190, "purpose": "Mapped PMU and platform/CPU reset state dependencies"},
+      {"id": "exynos-restart-registration", "start": 268, "end": 369, "purpose": "Platform reboot routine, DT mapping and arm_pm_restart initialization"}
+    ]},
+    {"path": "drivers/samsung/sec_reboot.c", "excerpts": [
+      {"id": "samsung-restart-wrapper", "start": 301, "end": 383, "purpose": "Reboot reason/cache handling, saved mach_restart and level-4 initialization"}
+    ]},
+    {"path": "drivers/watchdog/s3c2410_wdt.c", "excerpts": [
+      {"id": "watchdog-probe-prerequisites", "start": 1272, "end": 1479, "purpose": "Watchdog register mapping, clocks, IRQ, PMU and registration requirements"}
+    ]},
+    {"path": "lib/debug-snapshot.c", "excerpts": [
+      {"id": "debug-log-item-defaults", "start": 69, "end": 84, "purpose": "Persistence/enabled field defaults, including persistent pstore"},
+      {"id": "debug-log-remapping", "start": 443, "end": 651, "purpose": "Reserved debug-log address mapping and item activation requirements"},
+      {"id": "debug-log-persistence-and-hooks", "start": 652, "end": 861, "purpose": "Conditional log clearing/preservation, previous-log copy and hook registration"},
+      {"id": "debug-sec-log-proc-export", "start": 863, "end": 917, "purpose": "SEC_PM_DEBUG-controlled proc/sec_log mode 0440 and buffer condition"}
+    ]},
+    {"path": "lib/debug-snapshot-local.h", "excerpts": [
+      {"id": "debug-log-persistence-fields", "start": 49, "end": 108, "purpose": "Base field order: size, virtual/physical address, persist and enabled"}
+    ]},
+    {"path": "drivers/samsung/debug/sec_debug_last_kmsg.c", "excerpts": [
+      {"id": "last-kmsg-copy-and-export", "start": 21, "end": 104, "purpose": "Previous-buffer validation/copy and conditional proc/last_kmsg mode 0444"}
+    ]},
+    {"path": "lib/debug-snapshot-pstore.c", "excerpts": [
+      {"id": "debug-pstore-registration", "start": 187, "end": 244, "purpose": "Ramoops registration from log_pstore and configured record/console/pmsg sizes"}
+    ]},
+    {"path": "drivers/soc/samsung/exynos-seclog.c", "excerpts": [
+      {"id": "secure-log-client", "start": 1, "end": 363, "purpose": "Secure-world log client and ownership dependencies; not payload scratch storage"}
+    ]},
+    {"path": "arch/arm64/boot/dts/exynos/exynos9610.dts", "excerpts": [
+      {"id": "dts-psci-declaration", "start": 2839, "end": 2863, "purpose": "SoC legacy PSCI declaration and CPU function IDs"},
+      {"id": "dts-reboot-declaration", "start": 3358, "end": 3364, "purpose": "Exynos reboot compatible and declared PMU base"}
+    ]},
+    {"path": "arch/arm64/boot/dts/exynos/exynos9610-rmem.dtsi", "excerpts": [
+      {"id": "dts-reservations-and-debug-logs", "start": 1, "end": 161, "purpose": "Fixed/dynamic reservations and actual debug_snapshot/log_pstore declaration file"}
+    ]},
+    {"path": "arch/arm64/boot/dts/exynos/exynos9610-debug.dtsi", "excerpts": [
+      {"id": "dts-debug-soc-client", "start": 1, "end": 105, "purpose": "Debug SoC client, distinct from reserved log declarations"}
+    ]},
+    {"path": "include/dt-bindings/soc/samsung/debug-snapshot-table.h", "excerpts": [
+      {"id": "dts-debug-log-address-macros", "start": 1, "end": 88, "purpose": "Debug snapshot offsets, sizes and derived addresses"}
+    ]},
+    {"path": "drivers/Makefile", "excerpts": [
+      {"id": "driver-top-level-linkage", "start": 1, "end": 221, "purpose": "Source linkage ordering of soc/ and samsung/; not measured runtime init order"}
+    ]},
+    {"path": "drivers/soc/samsung/Makefile", "excerpts": [
+      {"id": "exynos-driver-config-linkage", "start": 1, "end": 75, "purpose": "EXYNOS_REBOOT and EXYNOS_SECURE_LOG object conditions"}
+    ]},
+    {"path": "drivers/samsung/Makefile", "excerpts": [
+      {"id": "samsung-driver-config-linkage", "start": 1, "end": 29, "purpose": "SEC_REBOOT and Samsung debug object conditions"}
+    ]},
+    {"path": "drivers/samsung/debug/Makefile", "excerpts": [
+      {"id": "last-kmsg-config-linkage", "start": 1, "end": 27, "purpose": "SEC_DEBUG_LAST_KMSG object condition"}
+    ]},
+    {"path": "drivers/firmware/Makefile", "excerpts": [
+      {"id": "psci-config-linkage", "start": 1, "end": 32, "purpose": "ARM_PSCI_FW object condition"}
+    ]},
+    {"path": "lib/Makefile", "excerpts": [
+      {"id": "debug-log-config-linkage", "start": 270, "end": 275, "purpose": "DEBUG_SNAPSHOT object group including pstore and helpers"}
+    ]},
+    {"path": "init/main.c", "excerpts": [
+      {"id": "linux-initcall-execution", "start": 1032, "end": 1133, "purpose": "Source initcall-level execution; no running handler measurement"}
+    ]},
+    {"path": "include/linux/init.h", "excerpts": [
+      {"id": "linux-initcall-level-definitions", "start": 178, "end": 255, "purpose": "Initcall section definitions and subsys_initcall at level 4"}
+    ]}
+  ]
+}

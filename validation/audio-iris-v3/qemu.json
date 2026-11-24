@@ -1,0 +1,28 @@
+{
+  "passed": true,
+  "kernel": {
+    "size": 15090776,
+    "sha256": "e228007caf15fda4c3844f3e005199074a10dc5280233434810c41291a3f9ae3"
+  },
+  "loader": {
+    "size": 72704,
+    "sha256": "ea76e840a37799dc5192255af38016c67f2d826e0f5ca23b6fbca31b6e025507"
+  },
+  "serial": {
+    "size": 7219,
+    "sha256": "b95b3b062388c261757b8ed038dc9dbb62ec12c6613b6d67afb0289c7599f9d5"
+  },
+  "hello": {
+    "size": 16528,
+    "sha256": "16ff0b05dd5ea107523d73640e9b3592944ec57f768e7ba74d923dcb47c77fd4"
+  },
+  "hello_source": {
+    "size": 5010,
+    "sha256": "f3c07a5e6a3f43e985b154178e8c3eaa7d36e03f62e409de1ddc14a4c0761e7a"
+  },
+  "timeout_seconds": 35,
+  "exit_code": 124,
+  "process_1_uid_0_verified": true,
+  "a51_hardware_verified": false,
+  "scope": "same repaired kernel and UEFI loader; QEMU virt; raw hello ramdisk; A51 audio disabled"
+}

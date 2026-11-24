@@ -1,0 +1,123 @@
+{
+  "schema_version": 1,
+  "packet": "evidence/phase-4/parallel-workflow/20261117T032633356619Z",
+  "baseline_selected": true,
+  "brief_ready": true,
+  "live_worker_freeze_succeeded": false,
+  "device_operations": false,
+  "existing_worker_writes": false,
+  "main_driver_changes": false,
+  "wsl_source_changes": false,
+  "phase_4_gate_passed": false,
+  "snapshot": "parallel/snapshots/20261117T032633356619Z-four-worker-baseline",
+  "snapshot_manifest": {
+    "bytes": 76628,
+    "sha256": "830e8ccb031b63ed24687b380c446cd93bc866789333cb566b74b8600d9ac881"
+  },
+  "verified_captured_files": 464,
+  "workers": {
+    "antigravity-phase4": {
+      "handoff": {
+        "bytes": 16285,
+        "sha256": "ad61a3b639bfca3e86a82714036bc27669041df880adfe1392f4c5de201b6d17"
+      },
+      "fixed_origin": "parallel/snapshots/20261117T013929281709Z-antigravity-first-handoff/antigravity"
+    },
+    "antigravity-input": {
+      "handoff": {
+        "bytes": 16497,
+        "sha256": "556005ae9fe1c11dfc48f26a8f426501e6df58d4334a201a3933baa4f2c99bb3"
+      },
+      "fixed_origin": "parallel/snapshots/20261117T030344301526Z-four-worker-inputs/handoffs/antigravity-input"
+    },
+    "antigravity-review": {
+      "handoff": {
+        "bytes": 14423,
+        "sha256": "5bc7a8db32c5ac79389b1e8d4221680a50b12eb8e8d92045989140769737f0d8"
+      },
+      "fixed_origin": "parallel/snapshots/20261117T030344301526Z-four-worker-inputs/handoffs/antigravity-review"
+    }
+  },
+  "unselected_live_drift": {
+    "antigravity-phase4": [
+      "HANDOFF.md",
+      "patches/phase4_display_input.patch",
+      "patches/unified_antigravity_phase4.patch",
+      "test_results/native_tests.log",
+      "test_results/test_summary.json",
+      "work/drivers/display/ExynosDECON.cpp",
+      "work/drivers/display/ExynosDECON.h",
+      "work/drivers/display/ExynosDSIM.cpp",
+      "work/drivers/display/ExynosDSIM.h",
+      "work/drivers/input/MelfasTouchDriver.cpp",
+      "work/prototype/phase4-platform/a51_display.h",
+      "work/prototype/phase4-platform/a51_input.h",
+      "work/prototype/phase4-platform/hakios.a51.c",
+      "work/prototype/phase4-platform/hakios.a51.h",
+      "work/prototype/phase4-platform/tests/display_model.c",
+      "work/prototype/phase4-platform/tests/input_model.c",
+      "work/prototype/phase4-platform/tests/reporting_model.c",
+      "work/scripts/__pycache__/phase4_reporting.cpython-312.pyc"
+    ],
+    "antigravity-input": [],
+    "antigravity-review": []
+  },
+  "private_roots": {
+    "main": {
+      "windows": "C:/Users/Ankit/Desktop/A51/hakios-a51/parallel/phase4-20261117T032633356619Z/main",
+      "wsl_project_alias": "/mnt/c/Users/Ankit/Desktop/A51/hakios-a51/parallel/phase4-20261117T032633356619Z/main",
+      "wsl_build": "/opt/a51-hakios/parallel/phase4-20261117T032633356619Z/main",
+      "logger": "/mnt/c/Users/Ankit/Desktop/A51/hakios-a51/parallel/phase4-20261117T032633356619Z/main/scripts/run.py",
+      "logger_pin": {
+        "bytes": 3341,
+        "sha256": "0ac5abf12fe973703adf1901715fef0fe053fa3ac7044f86e722c81f989c280d"
+      }
+    },
+    "display-brightness": {
+      "windows": "C:/Users/Ankit/Desktop/A51/hakios-a51/parallel/phase4-20261117T032633356619Z/display-brightness",
+      "wsl_project_alias": "/mnt/c/Users/Ankit/Desktop/A51/hakios-a51/parallel/phase4-20261117T032633356619Z/display-brightness",
+      "wsl_build": "/opt/a51-hakios/parallel/phase4-20261117T032633356619Z/display-brightness",
+      "logger": "/mnt/c/Users/Ankit/Desktop/A51/hakios-a51/parallel/phase4-20261117T032633356619Z/display-brightness/scripts/run.py",
+      "logger_pin": {
+        "bytes": 3341,
+        "sha256": "0ac5abf12fe973703adf1901715fef0fe053fa3ac7044f86e722c81f989c280d"
+      }
+    },
+    "touch-keys": {
+      "windows": "C:/Users/Ankit/Desktop/A51/hakios-a51/parallel/phase4-20261117T032633356619Z/touch-keys",
+      "wsl_project_alias": "/mnt/c/Users/Ankit/Desktop/A51/hakios-a51/parallel/phase4-20261117T032633356619Z/touch-keys",
+      "wsl_build": "/opt/a51-hakios/parallel/phase4-20261117T032633356619Z/touch-keys",
+      "logger": "/mnt/c/Users/Ankit/Desktop/A51/hakios-a51/parallel/phase4-20261117T032633356619Z/touch-keys/scripts/run.py",
+      "logger_pin": {
+        "bytes": 3341,
+        "sha256": "0ac5abf12fe973703adf1901715fef0fe053fa3ac7044f86e722c81f989c280d"
+      }
+    },
+    "source-review": {
+      "windows": "C:/Users/Ankit/Desktop/A51/hakios-a51/parallel/phase4-20261117T032633356619Z/source-review",
+      "wsl_project_alias": "/mnt/c/Users/Ankit/Desktop/A51/hakios-a51/parallel/phase4-20261117T032633356619Z/source-review",
+      "wsl_build": "/opt/a51-hakios/parallel/phase4-20261117T032633356619Z/source-review",
+      "logger": "/mnt/c/Users/Ankit/Desktop/A51/hakios-a51/parallel/phase4-20261117T032633356619Z/source-review/scripts/run.py",
+      "logger_pin": {
+        "bytes": 3341,
+        "sha256": "0ac5abf12fe973703adf1901715fef0fe053fa3ac7044f86e722c81f989c280d"
+      }
+    }
+  },
+  "path_audit": {
+    "bytes": 7916,
+    "sha256": "49a98545fc830ad857547955f13d18795fba73e29a295f41f89af2594e9dc8b7"
+  },
+  "retained_failed_freeze": "evidence/phase-4/parallel-source-freeze/20261117T030344301526Z",
+  "worker_full_builds_allowed": false,
+  "selected_artifacts": {
+    "hakios-kernel": {
+      "bytes": 15218432,
+      "sha256": "3d4a0ae89f4a111c7c4e21ac6bac59e7249d8cae62daa1843ee15f7576be5911"
+    },
+    "userland/hello": {
+      "bytes": 16736,
+      "sha256": "4a10d5692244b959ad22482107b3270aa3ed97655b5ace8567e3545dd6404455"
+    }
+  }
+}

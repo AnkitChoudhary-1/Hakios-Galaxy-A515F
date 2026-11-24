@@ -1,0 +1,22 @@
+{
+  "packet": "evidence/phase-4/storage-trial/20261119T083428785023Z",
+  "passed": false,
+  "preflight_only": false,
+  "cycles_requested": 1,
+  "cycles": [
+    {
+      "result": "evidence/phase-4/storage-trial/20261119T083428785023Z/cycle-1/result.json",
+      "bytes": 2763,
+      "sha256": "05c5075d1daf96b9bdb84ae0f69406310117508e3951b21980f579c59349eda3",
+      "nonce": "594d0e8f3eb44839b334dbc1ebed0617",
+      "passed": false,
+      "baseline_verified": true,
+      "error": "Candidate did not reach recovery before the deadline",
+      "restoration_error": null
+    }
+  ],
+  "device_operations": true,
+  "storage_gate_passed": false,
+  "phase_4_gate_passed": false,
+  "error": "Candidate did not reach recovery before the deadline"
+}

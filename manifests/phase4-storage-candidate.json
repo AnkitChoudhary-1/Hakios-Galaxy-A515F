@@ -1,0 +1,531 @@
+{
+  "schema_version": 1,
+  "kind": "storage",
+  "route": "historical-assembly-loader",
+  "packet": "evidence/phase-4/storage-candidate/20261119T083428836110Z",
+  "host_prepared": true,
+  "device_operations": false,
+  "phase_4_gate_passed": false,
+  "nonce": "594d0e8f3eb44839b334dbc1ebed0617",
+  "cmdline": "rd=md0 -v cpus=1 serial=3 debug=0x104008 hello_wait=3 loader_return_after=20 hakios_run_nonce=594d0e8f3eb44839b334dbc1ebed0617 hakios_kver=p4-a53-drivers hakios_a51_diag=1 hakios_a51_mmio=1 hakios_a51_probe=16",
+  "candidate": {
+    "path": "evidence/phase-4/storage-candidate/20261119T083428836110Z/candidate-boot.img",
+    "bytes": 61865984,
+    "sha256": "2d51ab7ff204b7c2e2d842ceee167c31044838d380c360815a33210d91d0919b"
+  },
+  "image": {
+    "path": "evidence/phase-4/storage-candidate/20261119T083428836110Z/a51_xnu_loader.bin",
+    "bytes": 36334080,
+    "sha256": "5a7d87eda284cf3bf3bc1cb9b389f2d254b31ca0675695877397a14093339842"
+  },
+  "read_hashes": {
+    "single": "946f25011224f568fa325e5c9e14f95f98a8a8b8cdb56896db4217d2a22c6329",
+    "multi": "2dbb863a06778439fffde474de969c73e95f87098a000f047672d72661d6ec0d"
+  },
+  "log_va": 18446744005119363520,
+  "log_pa": 2209663424,
+  "rollback_pins": {
+    "template": {
+      "path": "everline-ksu/artifacts/A51-PixelOS-Everline-KernelSU-Next-boot.img",
+      "bytes": 61865984,
+      "sha256": "eb30609a62999e3282ac81e0a5e56411ef12ec1a39c107171bf3e01209c7cb67"
+    },
+    "original_boot": {
+      "path": "everline-ksu/backups/a51-pixelos-original-boot.img",
+      "bytes": 61865984,
+      "sha256": "89600eb7f3bb73a26d6d8b38aa46c7cb27a5b942da84e0a3c77626ea21642e52"
+    },
+    "recovery": {
+      "path": "everline-ksu/backups/a51-twrp-original-recovery.img",
+      "bytes": 71106560,
+      "sha256": "12412e2008d950260cda627ac7a6b8eac954b49ef9db5573a297f67e4fc85999"
+    },
+    "dtbo": {
+      "path": "everline-ksu/backups/a51-pixelos-original-dtbo.img",
+      "bytes": 8388608,
+      "sha256": "41662c61ff3158448935025477a4e29d445823dab2cddafb18ea649c8ea925d6"
+    }
+  },
+  "capture_route": "recovery-envelope-v1",
+  "package_metadata": {
+    "ba_pa": 2217148416,
+    "capture_route": "recovery-envelope-v1",
+    "checkpoint": 0,
+    "dt_pa": 2217213952,
+    "entry_pa": 2202227880,
+    "output_bin": "/opt/a51-hakios/experimental/storage-trials/20261119T083428836110Z/a51_xnu_loader.bin",
+    "ramdisk_pa": 2217082880,
+    "size_bytes": 36334080,
+    "stub_slot_pa": 2202233000,
+    "toc_entries": 13
+  },
+  "record_contract": {
+    "entry_pa": 2202227880,
+    "ba_pa": 2217148416,
+    "checkpoint": 0
+  },
+  "platform_build": {
+    "path": "manifests/phase4-platform-build.json",
+    "bytes": 8498,
+    "sha256": "c72bf1292db6109a1b0b79b563a826172a09250f6aaa24bef20bf891f5c96c31"
+  },
+  "platform_qemu": {
+    "path": "manifests/phase4-platform-qemu.json",
+    "bytes": 7912,
+    "sha256": "720a9a84bfe90eba042103f701a56e3e13b33ba93d7581878bcb02c5f6f1ae7c"
+  },
+  "native_tests": {
+    "path": "manifests/phase4-peripheral-native-tests.json",
+    "bytes": 1447,
+    "sha256": "0beb33c617ced26a8e4215681379606205cffea6075183de25c816d732120367"
+  },
+  "harness_tests": {
+    "path": "manifests/phase4-storage-trial-tests.json",
+    "bytes": 405056,
+    "sha256": "3ab17c717c04d0e048b73825ba693059d254800dba86631dde18875b0916990c"
+  },
+  "recovery_export_qemu": {
+    "path": "manifests/phase4-recovery-export-qemu.json",
+    "bytes": 2506,
+    "sha256": "bcda8d4261b2142633d1e9c2cb8bebf333c6c71a170925eeec8f86ce3110b65b"
+  },
+  "adaptation_provenance": {
+    "path": "evidence/phase-4/readonly-platform-revision/20261119T110434966498Z/after/manifests/phase4-platform-adaptation.json",
+    "bytes": 9865,
+    "sha256": "e766a7e7a10282acfc90745b1cbeaa2bd154a4a1ab0cc93d0a9be33887b5d4c2",
+    "revision_packets": [
+      "evidence/phase-4/probe-build-correction/20261114T155443230088Z",
+      "evidence/phase-4/spi-correction/20261114T160314417746Z",
+      "evidence/phase-4/readonly-platform-revision/20261115T132749001666Z",
+      "evidence/phase-4/readonly-platform-revision/20261115T135924082043Z",
+      "evidence/phase-4/readonly-platform-revision/20261115T143701141937Z",
+      "evidence/phase-4/readonly-platform-revision/20261115T144851224285Z",
+      "evidence/phase-4/readonly-platform-revision/20261115T151459864313Z",
+      "evidence/phase-4/readonly-platform-revision/20261115T152301859261Z",
+      "evidence/phase-4/readonly-platform-revision/20261115T154218462210Z",
+      "evidence/phase-4/readonly-platform-revision/20261115T155953282052Z",
+      "evidence/phase-4/readonly-platform-revision/20261115T160909730277Z",
+      "evidence/phase-4/readonly-platform-revision/20261115T162729618324Z",
+      "evidence/phase-4/readonly-platform-revision/20261115T170839094971Z",
+      "evidence/phase-4/readonly-platform-revision/20261115T171633781285Z",
+      "evidence/phase-4/readonly-platform-revision/20261115T180457749898Z",
+      "evidence/phase-4/readonly-platform-revision/20261115T192417863578Z",
+      "evidence/phase-4/readonly-platform-revision/20261115T213418804741Z",
+      "evidence/phase-4/readonly-platform-revision/20261116T015921266007Z",
+      "evidence/phase-4/readonly-platform-revision/20261116T021324689226Z",
+      "evidence/phase-4/readonly-platform-revision/20261116T025641918187Z",
+      "evidence/phase-4/readonly-platform-revision/20261116T034828437840Z",
+      "evidence/phase-4/readonly-platform-revision/20261116T105347403480Z",
+      "evidence/phase-4/readonly-platform-revision/20261116T110734586131Z",
+      "evidence/phase-4/readonly-platform-revision/20261116T110848469901Z",
+      "evidence/phase-4/readonly-platform-revision/20261116T113457982736Z",
+      "evidence/phase-4/readonly-platform-revision/20261116T124047594642Z",
+      "evidence/phase-4/readonly-platform-revision/20261116T132222559255Z",
+      "evidence/phase-4/readonly-platform-revision/20261116T133410120689Z",
+      "evidence/phase-4/readonly-platform-revision/20261116T144056129070Z",
+      "evidence/phase-4/readonly-platform-revision/20261116T152517026190Z",
+      "evidence/phase-4/readonly-platform-revision/20261116T163741193643Z",
+      "evidence/phase-4/readonly-platform-revision/20261119T105953963871Z",
+      "evidence/phase-4/readonly-platform-revision/20261119T110434966498Z"
+    ]
+  },
+  "kernel_artifacts": {
+    "hakios-kernel": {
+      "bytes": 15268544,
+      "sha256": "99b6a713f74669c25c7ef7c45445b8a765792b6b1d6df4c99d1d6f746c3dcda2"
+    },
+    "userland/hello": {
+      "bytes": 16736,
+      "sha256": "4a10d5692244b959ad22482107b3270aa3ed97655b5ace8567e3545dd6404455"
+    },
+    ".config": {
+      "bytes": 11878,
+      "sha256": "3a364a97d6a922cd7fea0859b51392032daa94bfe3219a0cd0859f91588dcf9f"
+    },
+    "xnu-build.log": {
+      "bytes": 119995,
+      "sha256": "7d225a0c4bd6c953e8ff8dc92656549a47a6c60cb1949173d85b06d58cd04f48"
+    }
+  },
+  "package_work_directory": "/opt/a51-hakios/experimental/storage-trials/20261119T083428836110Z",
+  "source_pins": {
+    "phase4_storage.py": {
+      "bytes": 34345,
+      "sha256": "ac706ac8b0619cabaa663c22d67794424212533750c29dab3a55c93187e52a53"
+    },
+    "phase4-storage-trial.py": {
+      "bytes": 13914,
+      "sha256": "2fb605546df473aa59590ad868d52344cc25154877abe2f00b0412ae5468220c"
+    },
+    "phase4-test-storage-trial.py": {
+      "bytes": 45659,
+      "sha256": "74df591e3f9ecfc2026fa73e333f3b45f8d742799add9aba9f6a8a2a069d28c7"
+    },
+    "phase4-device-cycle.py": {
+      "bytes": 38022,
+      "sha256": "52d6c6bb39b36f09e95c76af24b090e04a069c1b432d494a09250c8c2b5ee043"
+    },
+    "phase4_device.py": {
+      "bytes": 2704,
+      "sha256": "85d3bbc5f47f73784ad936c0448e8893867d611c04cc68520300b36b9a3dd977"
+    },
+    "phase4_support.py": {
+      "bytes": 3244,
+      "sha256": "054c2008e734f017a1d924ebbb29bbeb1ff7f54f24e9fdfe50be77c365bbf05e"
+    },
+    "boot_formats.py": {
+      "bytes": 18828,
+      "sha256": "a0b36f354f3f4684b6be63540f51aa0693c97995c934c01818659523f25dd976"
+    },
+    "test-boot-formats.py": {
+      "bytes": 14440,
+      "sha256": "7943c760fe285860c5faceef6f9dd4abe2f35de5116b645c849f4bf918f9d393"
+    },
+    "phase4-test-device-cycle.py": {
+      "bytes": 36947,
+      "sha256": "8744830a4b170bdc912e4844f480e03f5ed051fc86bc8935e19ca2e39ba76028"
+    },
+    "phase4-test-capture.py": {
+      "bytes": 5697,
+      "sha256": "8c1c0d497ff446181f7c389205002a618aeb112b27848f9ac4f4171ad83e8d2f"
+    },
+    "phase4_pstore.py": {
+      "bytes": 3942,
+      "sha256": "1922db1ead19e1a2f4a08aacf0cff2da21a1fb61d04de25fe497167dc57f96fd"
+    },
+    "phase4_envelope.py": {
+      "bytes": 4609,
+      "sha256": "0a86b131423dfdf4681ad45d88726a40d2ca36488fb5dbb76565b6ccc812081b"
+    },
+    "phase4_reporting.py": {
+      "bytes": 1567,
+      "sha256": "61bbf3e7e9d3668ffb8751aeddf6c855d41dade8636192b755aa34ca2fbdc1f2"
+    }
+  },
+  "loader_source_pins": {
+    "pack_a51_payload.py": {
+      "bytes": 9617,
+      "sha256": "b715f97d78f5ca51cdde2f1231af9842cf3018df5b9a50d636bdaa85bd5171c5"
+    },
+    "a51_loader.S": {
+      "bytes": 8204,
+      "sha256": "40ad309ae674299aba851ad95a4c32d2e19e3c279e12a408ab14d0488f08eb45"
+    },
+    "a51_loader.ld": {
+      "bytes": 835,
+      "sha256": "b32f8dd8f0fa37f10a4850bc626910cfe5540a0b5faa8002950ef1afc2836c58"
+    },
+    "xnu_trampoline.S": {
+      "bytes": 16213,
+      "sha256": "f446bd06ccbee573dc0a7809f9cd8e36711bf4eb8d40bbdebc2f6d59d7ebff19"
+    },
+    "xnu_trampoline.h": {
+      "bytes": 2893,
+      "sha256": "9caaf7ac721aa5f7c9896b6931d681e75e47745ebec11851b7ebd3fa3ba84e03"
+    },
+    "a51_recovery_export.S": {
+      "bytes": 5044,
+      "sha256": "8ff38a873babd5401447f348744e963ca24c5a959d5f6877e59efa23f8add7c5"
+    },
+    "hakios_macho.py": {
+      "bytes": 8528,
+      "sha256": "c70730f9e7dc5d30f12a535be5ed9d4ffcee545972ac285741f06de5eefae5d0"
+    },
+    "hakios_devicetree.py": {
+      "bytes": 14160,
+      "sha256": "62f1f5277cf810884209b54f07e5a9f0044c08411827bb21ed0785b7aae63c43"
+    }
+  },
+  "reconstruction": {
+    "schema_version": 1,
+    "status": "verified_host_only",
+    "scope": "retained_a51_android_v2_unsigned_avb_in_memory_reconstruction",
+    "template": {
+      "bytes": 61865984,
+      "sha256": "eb30609a62999e3282ac81e0a5e56411ef12ec1a39c107171bf3e01209c7cb67"
+    },
+    "kernel": {
+      "bytes": 36334080,
+      "sha256": "5a7d87eda284cf3bf3bc1cb9b389f2d254b31ca0675695877397a14093339842",
+      "runtime_bytes": 36334080,
+      "header": {
+        "text_offset": 524288,
+        "image_size": 36334080,
+        "stored_kernel_bytes": 36334080,
+        "flags": 2,
+        "endianness": "little",
+        "page_size": 4096,
+        "placement_any_2m_aligned_base": false,
+        "code0": "0x14000011",
+        "code1": "0x0",
+        "initial_branch_offset": 68,
+        "reserved_words": [
+          "0x0",
+          "0x0",
+          "0x0"
+        ],
+        "pe_header_offset": 0,
+        "status": "retained Linux Image header; actual Samsung execution state is unknown"
+      }
+    },
+    "layout": {
+      "page_size": 2048,
+      "kernel_offset": 2048,
+      "old_kernel_bytes": 36333584,
+      "new_kernel_bytes": 36334080,
+      "kernel_slot_bytes": 36335616,
+      "old_kernel_padding_bytes": 2032,
+      "new_kernel_padding_bytes": 1536,
+      "ramdisk_offset": 36337664,
+      "dtb_offset": 37662720,
+      "payload_end": 37797888,
+      "partition_bytes": 61865984,
+      "later_section_offsets_unchanged": true
+    },
+    "avb": {
+      "footer_version": [
+        1,
+        0
+      ],
+      "required_libavb_version": [
+        1,
+        0
+      ],
+      "original_image_size": 37797888,
+      "vbmeta_offset": 37797888,
+      "vbmeta_size": 704,
+      "algorithm_type": 0,
+      "flags": 0,
+      "authentication_data_bytes": 0,
+      "hash_algorithm": "sha256",
+      "boot_hash_matches": true
+    },
+    "candidate": {
+      "bytes": 61865984,
+      "sha256": "2d51ab7ff204b7c2e2d842ceee167c31044838d380c360815a33210d91d0919b",
+      "android_boot_id_sha1": "b35da92fd708734cffb0e0c9ba7d225fc3624d0c"
+    },
+    "changed_regions": [
+      {
+        "name": "header.kernel_size",
+        "offset": 8,
+        "bytes": 4,
+        "before_sha256": "5e21af3a1225ff1b3008553fe57a5e5fbc49b0ccb8da00c2bf708c2ae3a9cf52",
+        "after_sha256": "7e149434c545c8672a6edf02f926448cde5cccc1940d5e133eaac613f2f99f47"
+      },
+      {
+        "name": "header.id",
+        "offset": 576,
+        "bytes": 32,
+        "before_sha256": "d0cadf2ccd21fb1b6b13e0e460a406115c5e261d67df3982e7c9c8befdcd6f98",
+        "after_sha256": "f1f346cfb31beea8e4b40b3203b9b4cc0a0f7767bb614f54ee35e5a9910f387f"
+      },
+      {
+        "name": "kernel.slot",
+        "offset": 2048,
+        "bytes": 36335616,
+        "before_sha256": "f4d2e16120d89d88b98dbed5297a238d847ad7da34f8dfb42eda557e8c74bf29",
+        "after_sha256": "55919af572a9b1110ff3802aaf309bc0cb3c1d016d38f6cf2f1979bef5aa1db6"
+      },
+      {
+        "name": "avb.boot_digest",
+        "offset": 37798312,
+        "bytes": 32,
+        "before_sha256": "c0bf88256c4d8652501d1a4c48f3dd050e06f14fd3d13182d50b020a8064e452",
+        "after_sha256": "f220e923805a1ee7afc547162526058cb4b4d34f22ff0a64a630f88f1cc2b00c"
+      }
+    ],
+    "invariants": {
+      "ramdisk_sha256": "9452fae62ccc8d877d41ddf1c36c5bcf9b7be67bda141d32cdd2320696a568b6",
+      "second_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "recovery_dtbo_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "dtb_sha256": "d01ea262e10663e4e000bf66f64a8bbfcdf5a9ea04d0924b1bf33108e1d85037",
+      "full_partition_length_unchanged": true,
+      "bytes_outside_declared_regions_unchanged": true
+    },
+    "outputs": {
+      "full_image_emitted": false,
+      "candidate_bytes_retained": false,
+      "installable_image_created": false
+    },
+    "operations": {
+      "phone_queries": false,
+      "phone_writes": false,
+      "flashing": false,
+      "repartitioning": false,
+      "reboot": false
+    },
+    "gates": {
+      "a51_payload_execution_verified": false,
+      "standalone_execution_verified": false,
+      "persistent_fault_logging_verified": false,
+      "a51_return_verified": false,
+      "phase_2_device_gate_passed": false
+    },
+    "limits": [
+      "The reconstruction is an in-memory host calculation; no boot image is emitted.",
+      "The retained AVB metadata is unsigned (algorithm type 0); this does not establish the phone's complete verified-boot policy.",
+      "This validates retained boot-partition byte layout, not Odin packaging, Samsung firmware entry, phone execution, fault recovery, or return."
+    ]
+  },
+  "snapshot_contract": {
+    "groups": 16,
+    "bytes": 3096,
+    "version": 1,
+    "registers": [
+      {
+        "pa": 324141056,
+        "group": 16
+      },
+      {
+        "pa": 324141064,
+        "group": 16
+      },
+      {
+        "pa": 324141072,
+        "group": 16
+      },
+      {
+        "pa": 324141076,
+        "group": 16
+      },
+      {
+        "pa": 324141080,
+        "group": 16
+      },
+      {
+        "pa": 324141088,
+        "group": 16
+      },
+      {
+        "pa": 324141092,
+        "group": 16
+      },
+      {
+        "pa": 324141104,
+        "group": 16
+      },
+      {
+        "pa": 324141108,
+        "group": 16
+      },
+      {
+        "pa": 324141132,
+        "group": 16
+      },
+      {
+        "pa": 324141136,
+        "group": 16
+      },
+      {
+        "pa": 324141140,
+        "group": 16
+      },
+      {
+        "pa": 324141144,
+        "group": 16
+      },
+      {
+        "pa": 324141152,
+        "group": 16
+      },
+      {
+        "pa": 324141156,
+        "group": 16
+      },
+      {
+        "pa": 324141168,
+        "group": 16
+      },
+      {
+        "pa": 324141172,
+        "group": 16
+      },
+      {
+        "pa": 324141176,
+        "group": 16
+      },
+      {
+        "pa": 324141184,
+        "group": 16
+      },
+      {
+        "pa": 324141200,
+        "group": 16
+      },
+      {
+        "pa": 324141204,
+        "group": 16
+      },
+      {
+        "pa": 324141208,
+        "group": 16
+      },
+      {
+        "pa": 324141212,
+        "group": 16
+      }
+    ],
+    "banks": [
+      {
+        "pa": 324141056,
+        "group": 16,
+        "count": 23
+      }
+    ],
+    "source_pins": {
+      "hakios.a51.c": {
+        "bytes": 25096,
+        "sha256": "6c5921a389c1131e83cd19a626693b5a081530d6e9d4289cbdeed913d4f6fc49"
+      },
+      "hakios.a51.h": {
+        "bytes": 6650,
+        "sha256": "a1af295eca6cdbfa85fb941865d02ded4e73db82d77ff084320109664db08127"
+      },
+      "hello.c": {
+        "bytes": 15302,
+        "sha256": "9299456e9b2a3687a2d41c3f0fac647f25cc6ffdb8d572cfe3c8adc721c25a50"
+      }
+    },
+    "built_adaptation": {
+      "path": "evidence/phase-4/readonly-platform-revision/20261119T110434966498Z/after/manifests/phase4-platform-adaptation.json",
+      "bytes": 9865,
+      "sha256": "e766a7e7a10282acfc90745b1cbeaa2bd154a4a1ab0cc93d0a9be33887b5d4c2",
+      "revision_packets": [
+        "evidence/phase-4/probe-build-correction/20261114T155443230088Z",
+        "evidence/phase-4/spi-correction/20261114T160314417746Z",
+        "evidence/phase-4/readonly-platform-revision/20261115T132749001666Z",
+        "evidence/phase-4/readonly-platform-revision/20261115T135924082043Z",
+        "evidence/phase-4/readonly-platform-revision/20261115T143701141937Z",
+        "evidence/phase-4/readonly-platform-revision/20261115T144851224285Z",
+        "evidence/phase-4/readonly-platform-revision/20261115T151459864313Z",
+        "evidence/phase-4/readonly-platform-revision/20261115T152301859261Z",
+        "evidence/phase-4/readonly-platform-revision/20261115T154218462210Z",
+        "evidence/phase-4/readonly-platform-revision/20261115T155953282052Z",
+        "evidence/phase-4/readonly-platform-revision/20261115T160909730277Z",
+        "evidence/phase-4/readonly-platform-revision/20261115T162729618324Z",
+        "evidence/phase-4/readonly-platform-revision/20261115T170839094971Z",
+        "evidence/phase-4/readonly-platform-revision/20261115T171633781285Z",
+        "evidence/phase-4/readonly-platform-revision/20261115T180457749898Z",
+        "evidence/phase-4/readonly-platform-revision/20261115T192417863578Z",
+        "evidence/phase-4/readonly-platform-revision/20261115T213418804741Z",
+        "evidence/phase-4/readonly-platform-revision/20261116T015921266007Z",
+        "evidence/phase-4/readonly-platform-revision/20261116T021324689226Z",
+        "evidence/phase-4/readonly-platform-revision/20261116T025641918187Z",
+        "evidence/phase-4/readonly-platform-revision/20261116T034828437840Z",
+        "evidence/phase-4/readonly-platform-revision/20261116T105347403480Z",
+        "evidence/phase-4/readonly-platform-revision/20261116T110734586131Z",
+        "evidence/phase-4/readonly-platform-revision/20261116T110848469901Z",
+        "evidence/phase-4/readonly-platform-revision/20261116T113457982736Z",
+        "evidence/phase-4/readonly-platform-revision/20261116T124047594642Z",
+        "evidence/phase-4/readonly-platform-revision/20261116T132222559255Z",
+        "evidence/phase-4/readonly-platform-revision/20261116T133410120689Z",
+        "evidence/phase-4/readonly-platform-revision/20261116T144056129070Z",
+        "evidence/phase-4/readonly-platform-revision/20261116T152517026190Z",
+        "evidence/phase-4/readonly-platform-revision/20261116T163741193643Z",
+        "evidence/phase-4/readonly-platform-revision/20261119T105953963871Z",
+        "evidence/phase-4/readonly-platform-revision/20261119T110434966498Z"
+      ]
+    }
+  }
+}

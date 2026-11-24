@@ -1,0 +1,9 @@
+{
+  "schema_version": 2,
+  "report": "evidence/phase-2/live-loader/20261111T071559056361Z/report.json",
+  "sha256": "771929edd98643aed7c7ecb50fec5354510bae39cfb8f7b1d56fd938c59bd9fd",
+  "indexed_files": 153,
+  "scope": "live_android_read_only_observations",
+  "phone_writes": false,
+  "phase_2_device_gate_passed": false
+}

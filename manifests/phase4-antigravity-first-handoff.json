@@ -1,0 +1,14 @@
+{
+  "snapshot": "parallel/snapshots/20261117T013929281709Z-antigravity-first-handoff",
+  "manifest": {
+    "bytes": 15920,
+    "sha256": "024b3c2add18375efca9067684054d789844439b7b005090df359aa5e8a1322a"
+  },
+  "accepted": false,
+  "review_status": "changes_required_before_integration",
+  "phase_4_gate_passed": false,
+  "review": "evidence/phase-4/antigravity-first-review/20261117T015701009941Z/result.json",
+  "supplement": "evidence/phase-4/antigravity-first-review-supplement/20261117T022721584880Z/result.json",
+  "disposition": "evidence/phase-4/antigravity-first-review-disposition/20261117T024516001914Z/result.json",
+  "review_document": "docs/PHASE-4-ANTIGRAVITY-FIRST-REVIEW.md"
+}

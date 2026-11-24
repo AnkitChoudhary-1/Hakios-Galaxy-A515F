@@ -1,0 +1,70 @@
+{
+  "schema_version": 1,
+  "scope": "android_arena_diagnostic_budget",
+  "arena_bytes": 65536,
+  "page_bytes": 4096,
+  "order": 4,
+  "regions": [
+    {
+      "role": "input",
+      "offset": 0,
+      "bytes": 4096,
+      "pattern": 17
+    },
+    {
+      "role": "image",
+      "offset": 4096,
+      "bytes": 16384,
+      "pattern": 34
+    },
+    {
+      "role": "bss",
+      "offset": 20480,
+      "bytes": 8192,
+      "pattern": 51
+    },
+    {
+      "role": "stack",
+      "offset": 28672,
+      "bytes": 16384,
+      "pattern": 68
+    },
+    {
+      "role": "logs",
+      "offset": 45056,
+      "bytes": 4096,
+      "pattern": 85
+    },
+    {
+      "role": "spare",
+      "offset": 49152,
+      "bytes": 16384,
+      "pattern": 102
+    }
+  ],
+  "allocator_flags": [
+    "GFP_NOWAIT",
+    "__GFP_ZERO",
+    "__GFP_NOWARN",
+    "__GFP_NOMEMALLOC"
+  ],
+  "reference": {
+    "result": "evidence/phase-2/loader-probe/20261111T105317947466Z/result.json",
+    "result_sha256": "d34df32b8ec8f95d62453dec4021a6f59577e72ddefb7fc2bdac4b8bb16b8351",
+    "binary": {
+      "bytes": 7248,
+      "sha256": "bdb3754a8856c412661a31dae53d46bce59cc0d12407f7a807c1bb346cc1958e"
+    },
+    "elf_sha256": "dedf47cfa9dd5438dd53c46b8a7915677239df310f55c7d68471895c4886a187",
+    "bss_bytes": 4100,
+    "actual_stack_bytes": 16384,
+    "modeled_arena_bytes": 4096,
+    "frame_bytes": 256,
+    "frame_count": 7,
+    "linker_sha256": "2130fc7949bf32033b0fe955a33df48a1a72d43920ba9e30e6b6717ec950a07d",
+    "a51_executable": false
+  },
+  "payload_budget_final": false,
+  "a51_destination_selected": false,
+  "phase_2_device_gate_passed": false
+}

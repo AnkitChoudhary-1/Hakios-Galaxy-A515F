@@ -1,0 +1,12 @@
+{
+  "packet": "evidence/phase-4/storage-preflight/20261119T082444878694Z",
+  "passed": true,
+  "preflight_only": true,
+  "cycles_requested": 1,
+  "cycles": [],
+  "device_operations": false,
+  "storage_gate_passed": false,
+  "phase_4_gate_passed": false,
+  "candidate": "evidence/phase-4/storage-candidate/20261119T082444932365Z",
+  "host_prerequisites_passed": true
+}

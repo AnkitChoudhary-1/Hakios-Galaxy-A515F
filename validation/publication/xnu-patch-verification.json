@@ -1,0 +1,13 @@
+{
+  "passed": true,
+  "pristine_commit": "c54f35ca767986246321eb901baf8f5ff7923f6a",
+  "patch": {
+    "bytes": 5691572,
+    "sha256": "09743efaf412df8c51b6c3bf2af896ee94ee49b7a2bd7ba3c2b00f8c34dee6b5"
+  },
+  "files_verified": 269,
+  "check_and_apply_passed": true,
+  "exact_after_hashes_verified": true,
+  "active_source_changed": false,
+  "phone_operations": false
+}

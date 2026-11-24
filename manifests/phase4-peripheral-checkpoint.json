@@ -1,0 +1,66 @@
+{
+  "packet": "evidence/phase-4/peripheral-source-checkpoint/20261115T121621378775Z",
+  "device_operations": false,
+  "captured": true,
+  "phase_4_gate_passed": false,
+  "files": {
+    "prototype/phase4-platform/a51_ufs_readonly.h": {
+      "bytes": 15360,
+      "sha256": "107e157fbf0296ba2139a4f20f30168d89385b0baa93007b43df928b978bf7c7"
+    },
+    "prototype/phase4-platform/a51_input.h": {
+      "bytes": 9211,
+      "sha256": "7475a80f719e86f73024e48baa6c3e119810aead1fe1a17fb0b61df792ce3870"
+    },
+    "prototype/phase4-platform/hakios.a51.c": {
+      "bytes": 39926,
+      "sha256": "fbfe61fd70df860c5adefe58c8e1402dcc1b9b7a4c60dd5ac30da84402437136"
+    },
+    "prototype/phase4-platform/hakios.a51.h": {
+      "bytes": 2701,
+      "sha256": "b1484e712716ea1edd9fc1b223fd6f69feb3829ef2d8b67d69054b53527b2f35"
+    },
+    "prototype/phase4-platform/hello.c": {
+      "bytes": 14506,
+      "sha256": "5c4325dc329124dadc6416e3514914ec5698be3c4284ab72570767babbed1526"
+    },
+    "scripts/phase4-revise-platform.py": {
+      "bytes": 15536,
+      "sha256": "0f778a47168763ffb6ef02e6fc183fadfdf3a7a34108e22ff1d46ff3a9787c6c"
+    },
+    "scripts/phase4-build-platform.py": {
+      "bytes": 5653,
+      "sha256": "153d0f7bba76cafb9aeb2d232f878e83f64badcd8fd5f85aa0f4f28fa5d7620f"
+    },
+    "scripts/phase4-qemu-platform.py": {
+      "bytes": 15210,
+      "sha256": "2eff045b0f4d3d65a9b09b1cd2ce88ef53068929ac39fd5b55da7c092a9f0ce5"
+    },
+    "scripts/phase4-build-device-path.py": {
+      "bytes": 12140,
+      "sha256": "fc0ac7185d1282708aaf7d64be007bd98e95c5c3739bbca52f78d47795676760"
+    },
+    "scripts/phase4-device-cycle.py": {
+      "bytes": 37697,
+      "sha256": "4b30380c33ccd942140a71f0e843721c47c1e8f489948aeeb04fcdbe568e88c3"
+    }
+  },
+  "references": {
+    "include/crypto/fmp.h": {
+      "bytes": 8268,
+      "sha256": "6eeab6aed2ff55eb85116391d104a48492a70d93c34169bc5e775a8abbb41fac"
+    },
+    "drivers/input/touchscreen/melfas/mss100/melfas_mss100.h": {
+      "bytes": 15918,
+      "sha256": "7f599e98f35500729f2eec05f11fa5654294f3cb51776dde9de7d4aab54659aa"
+    },
+    "arch/arm64/boot/dts/exynos/exynos9610.dts": {
+      "bytes": 96781,
+      "sha256": "2685b745e80e288a8fb6086652d2b80a3c7fb7a337dbd07f4386025cde317bae"
+    },
+    "drivers/i2c/busses/i2c-s3c2410.c": {
+      "bytes": 39829,
+      "sha256": "5dc960a5db9db47edc73a7550c1061500e92a92310436fa4dd566050da186d5f"
+    }
+  }
+}

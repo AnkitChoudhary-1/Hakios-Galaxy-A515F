@@ -1,0 +1,60 @@
+{
+  "packet": "evidence/phase-3/entry-probe-device/20261114T045658970138Z",
+  "nonce": "1a3b0f7e0c384effa0fc7f96522328f9",
+  "candidate": {
+    "path": "artifacts/phase-3/entry-probe/20261114T045610587686Z/boot.img",
+    "bytes": 61865984,
+    "sha256": "2a1922d4ad6dc5fddc8319f00546f6126dab6203aa20765bdfbde1f53357c9cc"
+  },
+  "checks": {
+    "fresh_nonce_crc_footer": true,
+    "entry_pc_matches_image": true,
+    "continuation_matches_image": true,
+    "firmware_arguments_agree": true,
+    "el1_mmu_dcache_off": true,
+    "a53_26mhz": true,
+    "fresh_android_continuation": true,
+    "baseline_readback_boot_root": true
+  },
+  "operations": {
+    "device_reads": true,
+    "file_writes": 2,
+    "boot_writes": 2,
+    "reboots": 2
+  },
+  "passed": true,
+  "baseline_restored": true,
+  "qualifying_run": false,
+  "phase_3_device_gate_passed": false,
+  "boot_id_before": "3db03616-9f8d-468e-80a1-ef8343c94723",
+  "return_mode": "device",
+  "return_seconds": 43.187,
+  "capture_diagnostics": [],
+  "capture_banks": [
+    "console",
+    "pmsg"
+  ],
+  "entry": {
+    "magic": 3553430628039215944,
+    "nonce_hi": 1890121502657367807,
+    "nonce_lo": 11600287023799412985,
+    "entry_el": 4,
+    "daif": 704,
+    "sctlr": 818219066,
+    "cntfrq": 26000000,
+    "midr": 1091555380,
+    "mpidr": 2147483648,
+    "pc": 2148335680,
+    "sp": 3374381872,
+    "x0": 2316304384,
+    "x1": 2147483648,
+    "x2": 851968,
+    "x3": 2148335616,
+    "nzcv": 1610612736,
+    "continuation": 2163110696,
+    "bytes": 160,
+    "crc32": 894694317,
+    "footer": 3555667008770034504
+  },
+  "boot_id_after": "e06baa28-d767-4ae9-adba-a14ffd73ff2e"
+}

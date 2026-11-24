@@ -1,0 +1,155 @@
+{
+  "packet": "evidence/phase-4/storage-repair-checkpoint/20261115T215121900466Z",
+  "captured": true,
+  "device_operations": false,
+  "files": {
+    "prototype/phase4-platform/a51_ufs_readonly.h": {
+      "bytes": 21991,
+      "sha256": "bde94e65527003d5b6703d97e3fd348af2969d1de09f0fc43289a231392038a1"
+    },
+    "prototype/phase4-platform/hakios.a51.c": {
+      "bytes": 23800,
+      "sha256": "9ee3adf75b1dbdec875128c1e14eef150f3a22f357fca2487dbe451561e4fd0d"
+    },
+    "prototype/phase4-platform/hakios.a51.h": {
+      "bytes": 2167,
+      "sha256": "885f87d27504a3f3442550ee3552380e9dd7358677fcf048c699ea5d89117292"
+    },
+    "prototype/phase4-platform/hello.c": {
+      "bytes": 15032,
+      "sha256": "b55abe7d5cd48467c239540fd2c07907fcf13054126c216f01567721cff5eb22"
+    },
+    "prototype/phase4-platform/tests/ufs_model.c": {
+      "bytes": 20911,
+      "sha256": "1c30af8cda18c3e223e482c5d0373cddbd83c8ecb252e5f17bb5ea68d1f0aa7f"
+    },
+    "diagnostics/storage-reader/Makefile": {
+      "bytes": 33,
+      "sha256": "ff83fa6685850a19d6a18160214ebf75282e527ab3b277060ba2ad74b1dc9481"
+    },
+    "diagnostics/storage-reader/hakios_storage_reader.c": {
+      "bytes": 4320,
+      "sha256": "1e02b04ba83080c5b87df93e9b1a530b88293586cb48f40374ba628918c0ed08"
+    },
+    "scripts/phase4-build-storage-reader.py": {
+      "bytes": 7259,
+      "sha256": "fb0d65933972abb149f59e8463b48fe63fc3e365d6c0d67ee4b8044861d3ceef"
+    },
+    "scripts/phase4_storage.py": {
+      "bytes": 32057,
+      "sha256": "671eaef330728af2d8dbd87a4a887dc9152994f49bb0ea08d18499efb00f0cd8"
+    },
+    "scripts/phase4-storage-trial.py": {
+      "bytes": 13914,
+      "sha256": "2fb605546df473aa59590ad868d52344cc25154877abe2f00b0412ae5468220c"
+    },
+    "scripts/phase4-test-storage-trial.py": {
+      "bytes": 36648,
+      "sha256": "c644627710023068eb2046df9dbbc5458779ca3026f563a432a407ec1e28295b"
+    },
+    "scripts/phase4-revise-platform.py": {
+      "bytes": 17001,
+      "sha256": "d0740cd13afe136c96fd38397a7494afef5bc1c33f0a02eebf38a90f7a6e5922"
+    },
+    "scripts/phase4-build-platform.py": {
+      "bytes": 5653,
+      "sha256": "153d0f7bba76cafb9aeb2d232f878e83f64badcd8fd5f85aa0f4f28fa5d7620f"
+    },
+    "scripts/phase4-test-peripherals.py": {
+      "bytes": 6285,
+      "sha256": "ebdb8681e4dcfbd95f79cdd72a872ad074c8d97c3220b4b03633033a3d8fd568"
+    },
+    "scripts/phase4-qemu-platform.py": {
+      "bytes": 15210,
+      "sha256": "2eff045b0f4d3d65a9b09b1cd2ce88ef53068929ac39fd5b55da7c092a9f0ce5"
+    },
+    "scripts/phase4-device-cycle.py": {
+      "bytes": 37697,
+      "sha256": "4b30380c33ccd942140a71f0e843721c47c1e8f489948aeeb04fcdbe568e88c3"
+    },
+    "scripts/phase4_device.py": {
+      "bytes": 2704,
+      "sha256": "85d3bbc5f47f73784ad936c0448e8893867d611c04cc68520300b36b9a3dd977"
+    },
+    "scripts/phase4_support.py": {
+      "bytes": 3244,
+      "sha256": "054c2008e734f017a1d924ebbb29bbeb1ff7f54f24e9fdfe50be77c365bbf05e"
+    },
+    "scripts/phase4-checkpoint-storage.py": {
+      "bytes": 4428,
+      "sha256": "201612ddb4355bb4a0e33e29dc8fbff56aba3d1ee405435194d936e580a009d7"
+    },
+    "prototype/xnu-loader/xnu_trampoline.S": {
+      "bytes": 16213,
+      "sha256": "f446bd06ccbee573dc0a7809f9cd8e36711bf4eb8d40bbdebc2f6d59d7ebff19"
+    },
+    "prototype/xnu-loader/xnu_trampoline.h": {
+      "bytes": 2893,
+      "sha256": "9caaf7ac721aa5f7c9896b6931d681e75e47745ebec11851b7ebd3fa3ba84e03"
+    },
+    "prototype/xnu-loader/a51_recovery_export.S": {
+      "bytes": 4784,
+      "sha256": "8c548bdec13376a3c5e6f97dbd00f1faa9b925730b4f521dad2aa97937ba78a8"
+    },
+    "prototype/xnu-loader/pack_a51_payload.py": {
+      "bytes": 9617,
+      "sha256": "b715f97d78f5ca51cdde2f1231af9842cf3018df5b9a50d636bdaa85bd5171c5"
+    },
+    "README.md": {
+      "bytes": 16085,
+      "sha256": "340b2d32f378bafd81a65007e80e0e0abc198df5e1a6a8f2a236b0b614a02163"
+    },
+    "docs/STATE.md": {
+      "bytes": 31659,
+      "sha256": "a95b0b43a0f177d0f29737307103aa9e20fa477bed32e66b99911a31a347b005"
+    },
+    "docs/INDEX.md": {
+      "bytes": 21285,
+      "sha256": "7869d63cf492918727bbe042b8f6adc7c5a35643fef91a373617b9c772bbbd6b"
+    },
+    "docs/IMPLEMENTATION-LOG.md": {
+      "bytes": 467064,
+      "sha256": "d75ac12272b75f60fc5bf35be4e4dd63fb067f98a4b7b64ec959d1b934ec83ef"
+    },
+    "state.json": {
+      "bytes": 121102,
+      "sha256": "447f81bdf62655f0b887a5ef4e7b4aca776a2eef07fe6aa20bae3f6c79717198"
+    },
+    "manifests/phase4-readonly-revision.json": {
+      "bytes": 10847,
+      "sha256": "c50976fd3406cb586d1ec093d8d5904ebaf1d3fb0ba220c1aedecfda467472e7"
+    },
+    "manifests/phase4-platform-adaptation.json": {
+      "bytes": 8681,
+      "sha256": "37850b98c31bf3bb44cb97d631bfb2e738b290e27e4d1338f2068eb5b8ca1afa"
+    },
+    "manifests/phase4-platform-build.json": {
+      "bytes": 912,
+      "sha256": "3095f0e32f7fc1f30000b1c87a4a94a29cddeeef6c538bf2251d448a0335363c"
+    },
+    "manifests/phase4-platform-qemu.json": {
+      "bytes": 5928,
+      "sha256": "33887c28edd7584fa0bd1c53464791f3a92c400fc5c8771234dce175bf0be9f5"
+    },
+    "manifests/phase4-peripheral-native-tests.json": {
+      "bytes": 1054,
+      "sha256": "114cc28b806bfde4ba5d13be7b0b63fda3ce3d6225a61a6417796b3320565499"
+    },
+    "manifests/phase4-storage-reader.json": {
+      "bytes": 1663,
+      "sha256": "c022eb921e8c7c303c72b6067a52b50c93a4ed19c3be0ef17c473ebfefe121ba"
+    },
+    "manifests/phase4-storage-trial-tests.json": {
+      "bytes": 62949,
+      "sha256": "c35459cbae20f146d2fb7a0c79199cb681bf2b82eb42b86bbbec57b417c520df"
+    },
+    "manifests/phase4-last-storage-trial.json": {
+      "bytes": 844,
+      "sha256": "a0051ee1c5cd423ddbd7735817cf80019a0b9169c2c9beb6b459a1143a49db24"
+    }
+  },
+  "previous_selection": {
+    "bytes": 6004,
+    "sha256": "e4c38c784a1c337c33ed42243115859c57de8022eccf03cef03afac78e91bc3f"
+  }
+}

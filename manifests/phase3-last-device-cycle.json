@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "packet": "evidence/phase-3/loader-device-cycle/20261114T043156953842Z",
+  "case": "reset",
+  "nonce": "fb23be88b0fd40ee8b6b2bfb43d2aef6",
+  "candidate": {
+    "path": "artifacts/phase-3/bounded-loader/20261114T043137254821Z/boot.img",
+    "bytes": 61865984,
+    "sha256": "2b819a65a1600cbb0b6c64331203fc5cc64e5683ea416010ef35d973765fb343"
+  },
+  "checks": {
+    "recovery_reconnected": true,
+    "baseline_readback_boot_root": true
+  },
+  "operations": {
+    "device_reads": true,
+    "file_writes": 2,
+    "boot_writes": 2,
+    "reboots": 2
+  },
+  "baseline_restored": true,
+  "qualifying_run": false,
+  "passed": false,
+  "phase_3_device_gate_passed": false,
+  "boot_id_before": "01500a14-e824-4ea6-af69-4cedc55265aa",
+  "return_seconds": 47.532,
+  "capture_diagnostics": [
+    "No original console envelope",
+    "No original pmsg envelope"
+  ],
+  "error": "No original console envelope; No original pmsg envelope",
+  "boot_id_after": "4ec085da-7b6f-429e-a8c7-942f047a9080"
+}

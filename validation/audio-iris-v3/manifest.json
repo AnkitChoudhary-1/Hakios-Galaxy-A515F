@@ -1,0 +1,59 @@
+{
+  "schema_version": 1,
+  "verified_at_utc": "2026-11-24T03:16:27.945401+00:00",
+  "image": {
+    "size": 29712384,
+    "sha256": "b0fa71744861524d40e97eb51214462ca81d9bd601d1a7fa320ca4b1677ad6c0"
+  },
+  "kernel_section_bytes": 29570016,
+  "partition_bytes": 61865984,
+  "header_version": 2,
+  "page_size": 2048,
+  "shim": {
+    "size": 176,
+    "sha256": "0790c416d72cd3e04770f4f0cc173c4201f36bb8cd084c5f6fdf735d256e6b9a"
+  },
+  "firmware": {
+    "size": 2097152,
+    "sha256": "038283aa0f0afcda6058e44b7331febd31cbc990bce0456c408bc9be17250ec1"
+  },
+  "entries": {
+    "loader.efi": {
+      "size": 72704,
+      "sha256": "ea76e840a37799dc5192255af38016c67f2d826e0f5ca23b6fbca31b6e025507"
+    },
+    "kernel": {
+      "size": 15090776,
+      "sha256": "e228007caf15fda4c3844f3e005199074a10dc5280233434810c41291a3f9ae3"
+    },
+    "ramdisk": {
+      "size": 8114176,
+      "sha256": "d88ffcc0d2035947a8eb02202125e986120eba20031e0b135b99ed7b07b7b57a"
+    },
+    "resident": {
+      "size": 4194304,
+      "sha256": "5cae4fe2beba2fc3286c6ad750c7be86b4f8e182cc5fa116c0aa97dc52534af9"
+    },
+    "cmdline": {
+      "size": 467,
+      "sha256": "3714662a15aef6988c2c291d36fe0370905e00e6689ab7cd7fd46ac9093c56a3"
+    },
+    "kernel.ver": {
+      "size": 51,
+      "sha256": "ecb8d3e92312537930edb1ec8ff3e93740404f24ed6e3b7431bab63d09f4ac1f"
+    }
+  },
+  "gpu": {
+    "size": 78786,
+    "sha256": "2b6d56d74187fd68cf18620dbc90fbcb3fc2702f75c03209c7f8b8612e640a29"
+  },
+  "audio": {
+    "size": 24445,
+    "sha256": "2abab2e6cc4cf3a205f6ccda805a7adef86cbf18125bdb23b2f30138e35db073"
+  },
+  "host_package_verified": true,
+  "device_boot_verified": false,
+  "audible_audio_verified": false,
+  "gpu_hardware_execution_verified": false,
+  "device_writes": false
+}

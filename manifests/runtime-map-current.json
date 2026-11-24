@@ -1,0 +1,9 @@
+{
+  "schema_version": 1,
+  "result": "evidence/phase-2/runtime-map/20261111T113849417244Z/result.json",
+  "size": 2155,
+  "sha256": "eab0d48a1838a92b4dd0ec5cbac8e3738c86e90f72fd44458c8af7e27ef4f9d9",
+  "scope": "historical_linux_observations_only",
+  "safe_for_loader_placement": false,
+  "phase_2_device_gate_passed": false
+}

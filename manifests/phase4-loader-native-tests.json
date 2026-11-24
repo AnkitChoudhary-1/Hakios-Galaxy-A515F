@@ -1,0 +1,17 @@
+{
+  "packet": "evidence/phase-4/loader-native-tests/20261114T230237101479Z",
+  "passed": true,
+  "device_operations": false,
+  "phase_4_gate_passed": false,
+  "original_fdt": {
+    "path": "evidence/phase-4/live-inventory/20261114T162645749263Z/live-fdt.stdout.bin",
+    "bytes": 224774,
+    "sha256": "f4886342027fe1569be21325bb6a453d03b5dcf6080806d5e3e1869392b35a24"
+  },
+  "native_checks": 4112,
+  "envelope_checks": 106,
+  "binary": {
+    "bytes": 1808760,
+    "sha256": "6d27624fd87fb1bed10bf5684eaf1743ecd647d76268b8daf15c726dbde71830"
+  }
+}
