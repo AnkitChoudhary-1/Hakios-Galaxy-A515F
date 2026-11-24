@@ -1,0 +1,50 @@
+{
+  "files": [
+    {
+      "path": "drivers/soc/samsung/cal-if/ra.c",
+      "size": 28474,
+      "sha256": "1a1d5022a2c2263f87473bdba4359f1cff8eea2ad840827e02d13bdfffe98e76",
+      "origin": "/opt/a51-everline/src/drivers/soc/samsung/cal-if/ra.c"
+    },
+    {
+      "path": "drivers/soc/samsung/cal-if/ra.h",
+      "size": 3434,
+      "sha256": "1240a33a1061755078ad1c885296afd92106932f67ccf97a8883ebff4b468fd0",
+      "origin": "/opt/a51-everline/src/drivers/soc/samsung/cal-if/ra.h"
+    },
+    {
+      "path": "drivers/soc/samsung/cal-if/exynos9610/cmucal-sfr.c",
+      "size": 584756,
+      "sha256": "bd3e5105307a4ae4cf9c716d83034586df3e6bfe011de249dc27abc890083860",
+      "origin": "/opt/a51-everline/src/drivers/soc/samsung/cal-if/exynos9610/cmucal-sfr.c"
+    },
+    {
+      "path": "drivers/soc/samsung/cal-if/exynos9610/cmucal-node.c",
+      "size": 254006,
+      "sha256": "ae0c157e8ee27580b3f2af13c51bb4cac186215b89f4324ce83aeef82f722a58",
+      "origin": "/opt/a51-everline/src/drivers/soc/samsung/cal-if/exynos9610/cmucal-node.c"
+    },
+    {
+      "path": "drivers/input/touchscreen/melfas/mss100/melfas_mss100.c",
+      "size": 50709,
+      "sha256": "0cb6d6a3b5c87292aa3c573ff81a03a9bf43fe1c26d5eb9280334ef0355c8047",
+      "origin": "/opt/a51-everline/src/drivers/input/touchscreen/melfas/mss100/melfas_mss100.c"
+    },
+    {
+      "path": "drivers/input/touchscreen/melfas/mss100/melfas_mss100_mod.c",
+      "size": 31148,
+      "sha256": "d6c035cab24aafa6fc092b4de87d51f7391bd64bb59a53160e553936829a126c",
+      "origin": "/opt/a51-everline/src/drivers/input/touchscreen/melfas/mss100/melfas_mss100_mod.c"
+    },
+    {
+      "path": "arch/arm64/boot/dts/samsung/exynos9611-a51_common.dtsi",
+      "size": 32670,
+      "sha256": "f141a2b647a4eb92d94878b436d78acd25c1323ded3b3c3c2564c1015f6660f1",
+      "origin": "/opt/a51-everline/src/arch/arm64/boot/dts/samsung/exynos9611-a51_common.dtsi"
+    }
+  ],
+  "head": null,
+  "head_exit": 128,
+  "head_error": "fatal: not a git repository (or any of the parent directories): .git\n",
+  "qualification": "Local Samsung reference bytes; source evidence, not hardware validation"
+}

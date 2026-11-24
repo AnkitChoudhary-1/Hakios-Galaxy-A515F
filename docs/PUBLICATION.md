@@ -1,18 +1,48 @@
-# Publication scope and provenance
+# Public A51 source publication
 
-The user explicitly requested publishing all HakiOS project code to `AnkitChoudhary-1/Hakios-Galaxy-A515F`. A new empty clone was prepared for this destination. The earlier `hakios-SM-A515F` publication checkout, its remote/history and the active build trees remain preserved.
+On 15 November 2026 the user explicitly authorized pushing the current work to
+`https://github.com/AnkitChoudhary-1/hakios-SM-A515F.git`.
 
-Included: current common/device HakiOS source/build tools, all authored project source families, Iris native source and web simulator, cumulative native XNU adaptations, earlier port patches, comprehensive Markdown documentation, source/dependency manifests, license/attribution texts and selected source-bound v3 host/native/QEMU receipts.
+The export is prepared in `publication/hakios-SM-A515F`, separate from active
+sources and evidence. `scripts/prepare-publication.py` captures text-only
+authored sources, comprehensive documentation, selected source/build pins,
+cumulative Phase 3/4 common/XNU patches, retained license texts and a derived
+Phase 3 device summary. Templates live in `publication/templates/`.
 
-Excluded: compiled executables/images/APFS archives, private raw evidence and run trees, full device inventory/log dumps, personal serials/MAC addresses, phone/partition backups, vendor firmware, Apple runtime/SDK files, full separately downloaded upstream dependency checkouts and unrelated Android kernel projects. Dependencies are represented by pinned revisions/provenance, with local adaptations exported as source/patches. The public repository is a source snapshot, not an installable runtime bundle.
+Full raw evidence/runs, device backups, firmware, Apple runtime/SDK files,
+generated binaries/images, unrelated Android work and personal device
+identifiers are excluded. Original evidence and sources are preserved locally.
+The export's manifest identifies original and sanitized hashes; publication
+summaries do not replace original evidence or promote Phase 4's device gate.
 
-`PUBLICATION-MANIFEST.json` records exported hashes, original source hashes, transformations, executable modes, selected binary exclusions and scan results. Source snapshots sanitize personal device identifiers and repair links into absent local evidence to this scope document. Original local evidence hashes remain authoritative; sanitized publication content is a separate artifact.
+Validation uses `scripts/public-smoke.py` from the exported tree and
+`scripts/validate-publication.py` for patch application and exact result hashes
+against temporary copies of the pinned prepared baseline, JSON/text scans,
+staged-file review and post-push remote verification. Consequential commands
+run through `scripts/run.py`. Git publishing does not query/write/reboot the
+phone or create an upstream HakiOS PR.
 
-Historical documentation and upstream README/bring-up claims may describe old scopes or unvalidated assertions. [PUBLIC-STATUS.md](PUBLIC-STATUS.md) states the current distinction between implementation, host checks, user reports and unknown hardware behavior. The user-reported v2 home screen is not independent telemetry or proof of GPU acceleration; the v3 flash receipt is not audible playback or Iris launch acceptance.
+Rollback: the publication clone is isolated; discard only its unpublished
+files to redo export. Preserve local original work and captured run/export
+records. Published corrections should use normal follow-up commits, preserving
+history; never force-push to conceal a prior result.
 
-GitHub connector metadata verified the destination and access. Native Git is used for the bulk source commit/push because the connector exposes individual object/file operations rather than a bulk checkout upload. The push is the user-requested publication; it does not open an upstream PR or change firmware.
 
-The final scope check additionally exports locally changed/new Mu-Silicium, A51 board and Mu_Basecore source as `port/current-uefi/` overlays, with nested submodule pins and original/exported hashes. Binary logo/DTB changes are excluded. XNU patch applicability and resulting hashes were independently checked on isolated pristine source.
+## Published snapshot — 15 November 2026
+
+Successfully published 370 reviewed files to [hakios-SM-A515F](https://github.com/AnkitChoudhary-1/hakios-SM-A515F) on `main`.
+Commit: [`e793af437f39cd56ec55bad5a3992ae0f8ebcb35`](https://github.com/AnkitChoudhary-1/hakios-SM-A515F/commit/e793af437f39cd56ec55bad5a3992ae0f8ebcb35).
+
+The staged audit `20261115T154832492438Z-publication-staged-audit` passed for every actual Git blob against the finalized manifest. The commit and normal push passed in `20261115T155200598075Z-publication-commit` and `20261115T155210843797Z-publication-push`. Post-push verification `20261115T155301226602Z-publication-remote-verify` confirmed matching local HEAD, origin/main and GitHub refs/heads/main, a clean publication clone, all 370 committed files and the required public status, build, license, patch and validation files.
+
+Portable host and patch validation are recorded in PUB-003 and the public validation directory. The published commit is the reviewed capture; concurrent Phase 4 changes in the active workspace are separate from this snapshot. Phase 4 remains incomplete and its hardware gate remains unpassed. This publication performed no device operations or upstream PR.
 
 
-Source was published to the requested repository on main at initial commit `24c2b1b5e1b6d6bea0144fd5380f3b8ffe6053c2`, independently verified against remote main. A subsequent documentation commit records this receipt; it does not change the v3 image or any hardware acceptance gate. Speaker audio and Iris acceptance remain pending.
+## Requested source published — 24 November 2026
+
+Current HakiOS source, audio/Iris v3 changes, UEFI source overlays, build tools and documentation were published to [Hakios-Galaxy-A515F](https://github.com/AnkitChoudhary-1/Hakios-Galaxy-A515F) on main at initial commit `24c2b1b5e1b6d6bea0144fd5380f3b8ffe6053c2`. Native remote main and the GitHub connector independently confirmed the commit. All 1515 staged files matched the reviewed bytes. XNU patch application and all 269 result hashes passed. Publication receipts are under evidence/publication/requested-20261124. This is a source export; binaries and private/proprietary inputs remain local. V3 screen/audio/Iris acceptance remains pending, and no phase gate changed. A follow-up documentation commit records this first-publication receipt.
+
+
+## Current r1 repair
+
+The current candidate is described in [TOUCH-AUDIO-REPAIR-20261124.md](TOUCH-AUDIO-REPAIR-20261124.md). It uses a separately restored retained v3 root image and new diagnostics helper, rather than the stripped active root. Some current platform/userland sources and job recipes contain later experiments; they were not compiled into the restored v3 root. Use the r1 separate-root recipe for this candidate, rather than the older RC_JOBS recommendation above. The scripts intentionally require local retained inputs and preserve their hashes. Current physical touch/audio/Iris acceptance and diagnostic persistence are unverified. The current cumulative XNU patch supersedes the older v3 patch snapshot; an isolated pristine apply and all resulting hashes are checked before this publication.

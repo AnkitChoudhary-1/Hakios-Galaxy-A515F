@@ -15,7 +15,7 @@ def pin(raw):
     return {'bytes': len(raw), 'sha256': hashlib.sha256(raw).hexdigest()}
 
 
-def main():
+def main(receipt_path=None):
     manifest = json.loads((D / 'manifests/current-sources.json').read_text())
     commit = next(x['commit'] for x in manifest['dependencies']
                   if x['path'] == 'xnu-src/xnu-8796.121.2')
@@ -47,10 +47,14 @@ def main():
               'files_verified': len(manifest['native_patch_files']),
               'check_and_apply_passed': True, 'exact_after_hashes_verified': True,
               'active_source_changed': False, 'phone_operations': False}
-    (P / 'evidence/publication/requested-20261124/xnu-patch-verification.json').write_text(
+    target = Path(receipt_path) if receipt_path else P / 'evidence/publication/requested-20261124/xnu-patch-verification.json'
+    target.write_text(
         json.dumps(result, indent=2) + '\n')
     print(json.dumps(result, indent=2))
 
 
 if __name__ == '__main__':
-    main()
+    import argparse
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--receipt')
+    main(parser.parse_args().receipt)

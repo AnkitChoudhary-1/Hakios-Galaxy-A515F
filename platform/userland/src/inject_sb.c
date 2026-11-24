@@ -1024,7 +1024,10 @@ unlock(void)
 static BOOL
 poster_switcher_allowed(__unused id self, __unused SEL selector, id *explanation)
 {
-	return YES;
+	if (explanation != NULL) {
+		*explanation = (id)CFSTR("the poster switcher is not shown here (see inject_sb.c)");
+	}
+	return NO;
 }
 
 /*

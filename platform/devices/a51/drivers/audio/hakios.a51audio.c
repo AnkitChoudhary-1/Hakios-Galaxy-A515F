@@ -10,11 +10,39 @@
 #include <mach/mach_types.h>
 #include <pexpert/pexpert.h>
 #include <sys/systm.h>
+#include <sys/sysctl.h>
 #include <sys/hakios.audio.h>
 
 extern vm_offset_t ml_io_map(vm_offset_t phys_addr, vm_size_t size);
 extern void loader_log_line(const char *line);
 extern void hakios_audio_set_sink(const char *name, hakios_audio_sink_t sink);
+
+/* Init log is cached in ordinary kernel memory, never assumed-reserved RAM.
+ * Only the startup thread appends; userland reads after startup completes.
+ */
+static char audio_diag[4096];
+static size_t audio_diag_used;
+static uint32_t sink_calls, sink_frames, sink_status;
+static void a51audio_log(const char *line)
+{
+    loader_log_line(line);
+    size_t n = strlen(line);
+    if (n > sizeof(audio_diag) - 1 - audio_diag_used)
+        n = sizeof(audio_diag) - 1 - audio_diag_used;
+    memcpy(audio_diag + audio_diag_used, line, n);
+    audio_diag_used += n;
+    audio_diag[audio_diag_used] = 0;
+}
+static int audio_diagnostic SYSCTL_HANDLER_ARGS
+{
+#pragma unused(oidp, arg1, arg2)
+    char output[4352];
+    snprintf(output, sizeof(output), "%s\nsink_calls=%u accepted_frames=%u last_dma_status=%08x\n",
+        audio_diag, sink_calls, sink_frames, sink_status);
+    return SYSCTL_OUT(req, output, strlen(output) + 1);
+}
+SYSCTL_PROC(_kern, OID_AUTO, hakios_a51audio, CTLTYPE_STRING | CTLFLAG_RD | CTLFLAG_LOCKED,
+    0, 0, audio_diagnostic, "A", "Cached A51 speaker diagnostics");
 
 static inline uint32_t audio_rd(vm_offset_t address)
 {
@@ -232,14 +260,26 @@ static int amp_write(uint8_t book, uint8_t page, uint8_t reg, uint8_t val)
 {
     int ret = amp_select_book_page(book, page);
     if (ret != 0) return ret;
-    return amp_write_reg(reg, val);
+    ret = amp_write_reg(reg, val);
+    if (ret) {
+        char line[120];
+        snprintf(line, sizeof(line), "a51audio: amp_write failed book=%u page=%u reg=%02x err=%d\n", book, page, reg, ret);
+        a51audio_log(line);
+    }
+    return ret;
 }
 
 static int amp_read(uint8_t book, uint8_t page, uint8_t reg, uint8_t *val)
 {
     int ret = amp_select_book_page(book, page);
     if (ret != 0) return ret;
-    return amp_read_reg(reg, val);
+    ret = amp_read_reg(reg, val);
+    if (ret) {
+        char line[120];
+        snprintf(line, sizeof(line), "a51audio: amp_read failed book=%u page=%u reg=%02x err=%d\n", book, page, reg, ret);
+        a51audio_log(line);
+    }
+    return ret;
 }
 
 /* =========================================================================
@@ -263,9 +303,11 @@ static bool dma_writer_started;
 static uint32_t dma_last_read;
 static uint32_t a51_audio_sink(const int16_t *frames, uint32_t count)
 {
+    sink_calls++;
     if (!audio_sink_active || !dma_virt_buffer || !abox_base) return 0;
     if (!count) return 0;
     uint32_t status = audio_rd(abox_base + 0x1030);
+    sink_status = status;
     if (!(status & (1u << 31))) return 0;
     uint32_t read_frame = (((status >> 16) & 0x1fffu) << 4) / HAKIOS_AUDIO_FRAME;
     if (read_frame >= A51_DMA_FRAMES) return 0;
@@ -292,6 +334,7 @@ static uint32_t a51_audio_sink(const int16_t *frames, uint32_t count)
     }
     __asm__ volatile("dsb sy" ::: "memory");
     dma_write_frame_offset = (cur + count) % A51_DMA_FRAMES;
+    sink_frames += count;
     return count;
 }
 
@@ -317,48 +360,85 @@ static uint32_t a51_bclk_div(uint32_t con0, uint32_t con3, uint32_t audif,
 /* =========================================================================
  * Exynos 9611 DISPAUD Pinmux, Clocks, SysMMU, ABOX Routing & DMA Configuration
  * ========================================================================= */
+/* Samsung ra.c: manual gate uses bits 20/21; QCH request only works
+ * when ENABLE(bit0)=0. Preserve unrelated fields, disable auto gating(bit28).
+ */
+static uint32_t a51_gate_value(uint32_t old)
+{
+    return (old & ~(1u << 28)) | (1u << 20) | (1u << 21);
+}
+static uint32_t a51_qch_value(uint32_t old)
+{
+    return (old & ~7u) | 6u; /* manual clock request + PM ignore, QCH disabled */
+}
+static int clock_wait(vm_offset_t reg, uint32_t mask, uint32_t expected)
+{
+    for (unsigned i = 0; i < 10000; i++) {
+        if ((audio_rd(reg) & mask) == expected) return 0;
+        delay(10);
+    }
+    a51audio_log("a51audio: clock transition timed out; sink unavailable\n");
+    return -1;
+}
 static int a51_audio_hardware_init(vm_offset_t cmu)
 {
-    /* 1. Ungate GPIO_DISPAUD clock and main DISPAUD audio clock */
-    audio_wr(cmu + 0x206c, audio_rd(cmu + 0x206c) | 1u); /* GPIO_DISPAUD PCLK */
-    audio_wr(cmu + 0x2040, audio_rd(cmu + 0x2040) | 1u); /* CLK_DISPAUD_AUD */
-
-    /* 2. Pinmux: Configure GPB2 pins 0..3 for AUD_I2S2 bus (function 2) with 4x drive strength */
-    vm_offset_t pinctrl = ml_io_map(0x14a60000UL, 0x1000);
-    if (pinctrl) {
-        audio_wr(pinctrl + 0x40, 0x2222); /* gpb2-0..3 func 2 (AUD_I2S2_BCLK/WS/SDI/SDO) */
-        audio_wr(pinctrl + 0x48, 0x0000); /* no pull */
-        audio_wr(pinctrl + 0x4C, 0x00FF); /* 4x drive strength on all GPB2 pins */
-        loader_log_line("a51audio: GPB2 configured for AUD_I2S2 bus (func 2, 4x drive)\n");
+    static const uint16_t gates[] = {0x206c, 0x2040, 0x2008, 0x2018,
+        0x2020, 0x202c, 0x203c, 0x2078, 0x207c, 0x2080, 0x20a4, 0x20b0};
+    static const uint16_t qchs[] = {0x3020, 0x3014, 0x304c, 0x3040, 0x3060};
+    char line[180];
+    for (unsigned i = 0; i < sizeof(gates)/sizeof(gates[0]); i++) {
+        uint32_t before = audio_rd(cmu + gates[i]), desired = a51_gate_value(before);
+        audio_wr(cmu + gates[i], desired);
+        uint32_t after = audio_rd(cmu + gates[i]);
+        snprintf(line, sizeof(line), "gate %04x: %08x -> %08x\n", gates[i], before, after);
+        a51audio_log(line);
+        if ((after & ((1u << 28)|(3u << 20))) != (3u << 20)) return -1;
     }
-
+    for (unsigned i = 0; i < sizeof(qchs)/sizeof(qchs[0]); i++) {
+        uint32_t before = audio_rd(cmu + qchs[i]);
+        audio_wr(cmu + qchs[i], a51_qch_value(before));
+        uint32_t after = audio_rd(cmu + qchs[i]);
+        snprintf(line, sizeof(line), "qch %04x: %08x -> %08x\n", qchs[i], before, after);
+        a51audio_log(line);
+        if ((after & 7u) != 6u) return -1;
+    }
+    vm_offset_t pinctrl = ml_io_map(0x14a60000UL, 0x1000);
     if (!pinctrl) return -1;
-
-    /* 3. Clocks: CMU_DISPAUD ungate & dividers */
-    audio_wr(cmu + 0x2008, audio_rd(cmu + 0x2008) | 1u); /* UAIF2 BCLK gate */
-    audio_wr(cmu + 0x2018, audio_rd(cmu + 0x2018) | 1u); /* UAIF2 reset gate */
-    audio_wr(cmu + 0x2020, audio_rd(cmu + 0x2020) | (1u << 21) | 1u); /* ABOX ACLK */
-    audio_wr(cmu + 0x2030, audio_rd(cmu + 0x2030) | 1u); /* ABOX CCLK */
-    audio_wr(cmu + 0x2078, audio_rd(cmu + 0x2078) | 1u); /* LHS_AXI_D_ABOX AXI DRAM bus gate */
-    audio_wr(cmu + 0x20a4, audio_rd(cmu + 0x20a4) | 1u); /* RSTNSYNC_CLK_DISPAUD_AUD */
+    audio_wr(pinctrl + 0x40, (audio_rd(pinctrl + 0x40) & ~0xffffu) | 0x2222u);
+    audio_wr(pinctrl + 0x48, audio_rd(pinctrl + 0x48) & ~0xffffu);
+    audio_wr(pinctrl + 0x4c, (audio_rd(pinctrl + 0x4c) & ~0xffffu) | 0x3333u);
+    /* Retain the reference-supported 48k PLL plan used in the later source.
+     * cmucal-node.c PLL_RATE_MPSK(1179648071,45,1,0,24319).
+     * Fail on a real transition error rather than assuming a successful lock.
+     */
+    uint32_t con = audio_rd(cmu + 0x160);
+    uint32_t mps = (45u << 16) | (1u << 8);
+    uint32_t mpsmask = (1023u << 16) | (63u << 8) | 7u;
+    if ((con & mpsmask) != mps || (audio_rd(cmu + 0x16c) & 65535u) != 24319u || !(con & (1u << 31))) {
+        audio_wr(cmu + 0x160, con & ~(1u << 4));
+        if (clock_wait(cmu + 0x160, 1u << 7, 0)) return -1;
+        audio_wr(cmu + 0x16c, (audio_rd(cmu + 0x16c) & ~65535u) | 24319u);
+        audio_wr(cmu + 0x160, (con & ~(mpsmask | (1u << 4))) | mps | (1u << 31));
+    }
+    if (clock_wait(cmu + 0x160, 1u << 29, 1u << 29)) return -1;
+    audio_wr(cmu + 0x160, audio_rd(cmu + 0x160) | (1u << 4));
+    if (clock_wait(cmu + 0x160, 1u << 7, 0)) return -1;
+    audio_wr(cmu + 0x1800, (audio_rd(cmu + 0x1800) & ~((1u << 28) | 511u)) | 47u);
+    if (clock_wait(cmu + 0x1800, 1u << 16, 0)) return -1;
     uint32_t bclk = 0;
-    uint32_t div = a51_bclk_div(audio_rd(cmu + 0x160), audio_rd(cmu + 0x16c),
-        audio_rd(cmu + 0x1800), &bclk);
-    char clock_log[160];
-    snprintf(clock_log, sizeof(clock_log), "a51audio: retained PLL=%08x K=%08x AUDIF=%08x BCLK estimate=%u divider=%u\n",
+    uint32_t div = a51_bclk_div(audio_rd(cmu + 0x160), audio_rd(cmu + 0x16c), audio_rd(cmu + 0x1800), &bclk);
+    snprintf(line, sizeof(line), "PLL=%08x K=%08x AUDIF=%08x BCLK estimate=%u divider=%u\n",
         audio_rd(cmu + 0x160), audio_rd(cmu + 0x16c), audio_rd(cmu + 0x1800), bclk, div);
-    loader_log_line(clock_log);
+    a51audio_log(line);
     if (!div) return -1;
-    audio_wr(cmu + 0x182c, (audio_rd(cmu + 0x182c) & ~511u) | (div - 1));
-    audio_wr(cmu + 0x1018, audio_rd(cmu + 0x1018) & ~1u); /* internal UAIF2 parent */
-    /* This driver uses reserved physical DRAM, not DSP IOVA mappings. */
+    audio_wr(cmu + 0x182c, (audio_rd(cmu + 0x182c) & ~((1u << 28)|511u)) | (div - 1));
+    if (clock_wait(cmu + 0x182c, 1u << 16, 0)) return -1;
+    audio_wr(cmu + 0x1018, audio_rd(cmu + 0x1018) & ~((1u << 28)|1u));
+    if (clock_wait(cmu + 0x1018, 1u << 16, 0)) return -1;
     vm_offset_t sysmmu = ml_io_map(0x14920000UL, 0x1000);
     if (!sysmmu) return -1;
-    uint32_t mmu_before = audio_rd(sysmmu);
-    audio_wr(sysmmu, 0u); /* Samsung CTRL_DISABLE: translation bypass */
+    audio_wr(sysmmu, 0u);
     if (audio_rd(sysmmu) != 0) return -1;
-    snprintf(clock_log, sizeof(clock_log), "a51audio: ABOX SysMMU CTRL %08x -> %08x\n", mmu_before, audio_rd(sysmmu));
-    loader_log_line(clock_log);
 
     /* 5. ABOX system registers & UAIF2 interface */
     abox_base = ml_io_map(0x14a50000UL, 0x10000);
@@ -400,7 +480,7 @@ static int a51_audio_hardware_init(vm_offset_t cmu)
         audio_wr(abox_base + 0x1018, 0x007fffffu); /* half of the 24-bit maximum */
         audio_wr(abox_base + 0x101c, 1u);
         audio_wr(abox_base + 0x1000, 1u);
-        loader_log_line("a51audio: RDMA0 physical ring enabled, 4096-byte period; RDMA7 stopped\n");
+        a51audio_log("a51audio: RDMA0 physical ring enabled, 4096-byte period; RDMA7 stopped\n");
 
         /* Now that RDMA is streaming samples into SIFS1 FIFO, enable UAIF2 SPK transmitter */
         audio_wr(abox_base + 0x0520, (1u << 0) | (4u << 24) | (1u << 2));
@@ -410,7 +490,7 @@ static int a51_audio_hardware_init(vm_offset_t cmu)
         snprintf(log, sizeof(log), "a51audio: ABOX UAIF2 active: CTRL0=0x%08x, CTRL1=0x%08x, STATUS=0x%08x, RDMA0_STATUS=0x%08x\n",
                  audio_rd(abox_base + 0x0520), audio_rd(abox_base + 0x0524),
                  audio_rd(abox_base + 0x052c), audio_rd(abox_base + 0x1030));
-        loader_log_line(log);
+        a51audio_log(log);
         return 0;
     }
     return -1;
@@ -424,7 +504,7 @@ static int tas2562_bringup(void)
     char log[256];
     amp_gpio = ml_io_map(0x11c20000UL, 0x1000);
     if (!amp_gpio) {
-        loader_log_line("a51audio: failed to map CMGP GPIO (0x11C20000)\n");
+        a51audio_log("a51audio: failed to map CMGP GPIO (0x11C20000)\n");
         return -1;
     }
 
@@ -443,7 +523,7 @@ static int tas2562_bringup(void)
     int scl_idle = amp_read_scl();
     int sda_idle = amp_read_sda();
     snprintf(log, sizeof(log), "a51audio: CMGP I2C bus state: SCL=%d, SDA=%d\n", scl_idle, sda_idle);
-    loader_log_line(log);
+    a51audio_log(log);
 
     /* Run bus recovery in case slave was previously stuck in data phase */
     amp_bus_recovery();
@@ -464,7 +544,7 @@ static int tas2562_bringup(void)
     audio_wr(p_rst + 4, audio_rd(p_rst + 4) | 1u);
     __asm__ volatile("dsb sy" ::: "memory");
     delay(20000); /* 20 ms reset recovery */
-    loader_log_line("a51audio: TAS2562 hardware reset completed (gpm0-0 driven HIGH)\n");
+    a51audio_log("a51audio: TAS2562 hardware reset completed (gpm0-0 driven HIGH)\n");
 
     /* Invalidate cached book/page after hardware reset */
     current_book = -1;
@@ -475,10 +555,10 @@ static int tas2562_bringup(void)
     int err = amp_read(0, 0, 0x7D, &id);
     snprintf(log, sizeof(log), "a51audio: TAS2562 probe: silicon_id=0x%02x (err=%d, SCL=%d, SDA=%d)\n",
              id, err, amp_read_scl(), amp_read_sda());
-    loader_log_line(log);
+    a51audio_log(log);
 
     if (err != 0) {
-        loader_log_line("a51audio: TAS2562 I2C probe failed; aborting amplifier configuration\n");
+        a51audio_log("a51audio: TAS2562 I2C probe failed; aborting amplifier configuration\n");
         return err;
     }
 
@@ -531,7 +611,7 @@ static int tas2562_bringup(void)
         }
     }
     snprintf(log, sizeof(log), "a51audio: TAS2562 power_mode=0x%02x, latched_irq=0x%02x\n", pwr, irq);
-    loader_log_line(log);
+    a51audio_log(log);
 
     /* 7. Diagnostic Status Readbacks: INTSTATUS, Live Clock Faults, and Battery ADC */
     uint8_t intstatus = 0, liveirq = 0, vbat_msb = 0, vbat_lsb = 0;
@@ -542,7 +622,7 @@ static int tas2562_bringup(void)
     uint32_t vbat_mv = (((uint32_t)vbat_msb << 4) | (vbat_lsb >> 4)) * 61 / 10;
     snprintf(log, sizeof(log), "a51audio: TAS2562 state: INTSTATUS=0x%02x (ClassD=%d, DAC=%d), LIVE_IRQ=0x%02x, VBAT=%u mV\n",
              intstatus, !!(intstatus & 0x04), !!(intstatus & 0x08), liveirq, vbat_mv);
-    loader_log_line(log);
+    a51audio_log(log);
 
     return (pwr == 0x00 && (irq & 0x04) == 0 && (liveirq & 0x04) == 0) ? 0 : -1;
 }
@@ -558,30 +638,30 @@ static void a51audio_init(void)
     }
     if (step == 0) return;
 
-    loader_log_line("a51audio: initializing Galaxy A51 audio subsystem...\n");
+    a51audio_log("a51audio: initializing Galaxy A51 audio subsystem...\n");
 
     /* 1. Verify PMU DISPAUD power domain */
     vm_offset_t pmu = ml_io_map(0x11860000UL, 0x5000);
     if (!pmu) {
-        loader_log_line("a51audio: PMU mapping failed; aborting\n");
+        a51audio_log("a51audio: PMU mapping failed; aborting\n");
         return;
     }
     uint32_t status = audio_rd(pmu + 0x4004);
     if ((status & 0xf) != 0xf) {
-        loader_log_line("a51audio: DISPAUD power domain is off\n");
+        a51audio_log("a51audio: DISPAUD power domain is off\n");
         return;
     }
 
     /* 2. Map CMU_DISPAUD */
     vm_offset_t cmu = ml_io_map(0x14980000UL, 0x4000);
     if (!cmu) {
-        loader_log_line("a51audio: CMU mapping failed; aborting\n");
+        a51audio_log("a51audio: CMU mapping failed; aborting\n");
         return;
     }
 
     /* 3. Configure Exynos hardware pinmux, clocks, ABOX routing & DMA FIRST */
     if (a51_audio_hardware_init(cmu) != 0) {
-        loader_log_line("a51audio: hardware setup failed; sink unavailable\n");
+        a51audio_log("a51audio: hardware setup failed; sink unavailable\n");
         return;
     }
 
@@ -592,7 +672,7 @@ static void a51audio_init(void)
         (void)amp_write(0, 0, 0x02, 0x02); /* shutdown */
         audio_wr(abox_base + 0x1000, 0u);
         audio_wr(abox_base + 0x0520, audio_rd(abox_base + 0x0520) & ~1u);
-        loader_log_line("a51audio: amp configuration failed; sink unavailable\n");
+        a51audio_log("a51audio: amp configuration failed; sink unavailable\n");
         return;
     }
 
@@ -602,7 +682,7 @@ static void a51audio_init(void)
 
     char msg[128];
     snprintf(msg, sizeof(msg), "a51audio: registered speaker sink with CoreAudio (amp_status=%d)\n", amp_status);
-    loader_log_line(msg);
+    a51audio_log(msg);
 }
 
 STARTUP(EARLY_BOOT, STARTUP_RANK_LAST, a51audio_init);

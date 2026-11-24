@@ -1,0 +1,29 @@
+{
+  "baseline_image": "/opt/a51-hakios/build-repair/audio-iris-20261124/root.apfs",
+  "baseline_pin": {
+    "size": 8114176,
+    "sha256": "df3bd10f5fd24a02cb95d20d60da0869bbfe8c82558a6d5161e1865a912c2dbd"
+  },
+  "restoration": "APFS census --meta and cat; exact file/mode/symlink readback",
+  "entries_verified": 507,
+  "iris_helper_source": {
+    "size": 1611,
+    "sha256": "f346f197f417aedc6267fe77a56bfe2f87902d305dbbef59be71355f20b22904"
+  },
+  "iris_helper_binary": {
+    "size": 34552,
+    "sha256": "cf93904a3d4a60e5701495fdbb88265c17e40bd4ac2bb012157aa0e4456d6f64"
+  },
+  "iris_helper_reused_from_verified_v3_image": true,
+  "rc_jobs": "# Included Iris registration and bounded boot diagnostics.\n/redwood/bin/iris-register &\n/redwood/bin/device-diagnostics &\n",
+  "diagnostics_source": {
+    "size": 1819,
+    "sha256": "2332e56d9aacc1c547860d7531ff026e8818f952af1deb1afa7ef65255ea47cd"
+  },
+  "diagnostics_binary": {
+    "size": 34584,
+    "sha256": "6c281c709dd172b635133eec147b2eb4a5fcbc1453f2327d36e720c96d4a90bc"
+  },
+  "active_userland_root_overwritten": false,
+  "diagnostics_persistence_verified": false
+}

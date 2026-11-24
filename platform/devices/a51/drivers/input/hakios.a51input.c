@@ -21,7 +21,7 @@
  *   events      MIP4 protocol: read 0x02 0x10 (packet info: bit 7 the category, 0 = touches; the low 7 bits the
  *               number of events, size type 1), then 0x02 0x11 for that many events of 16 bytes (event format 10):
  *               byte 0 bits 7..6 the state (1 press, 2 move, 3 release), 5..2 the finger + 1, 1..0 the type
- *               (1 = screen); x = byte1 << 4 | byte3 >> 4, y = byte2 << 4 | byte3 & 15, over the chip's resolution
+ *               (1 = screen); x = byte1 << 4 | byte3 >> 4, y = byte2 << 4 | byte3 & 15, over the DT event coordinate range
  *               (0x01 0x10 / 0x12, little endian; the tree says 4095 x 4095 for 1080 x 2400)
  * The bus is driven by polling, as i2c-s3c2410.c does for its "polling" variant: the same states, its interrupt line
  * never taken. SCL is PCLK / 512, under the 400 kHz the tree allows whatever the PERI bus clock is.
@@ -43,6 +43,7 @@
 #include <pexpert/pexpert.h>
 #include <sys/hakios.input.h>
 #include <sys/systm.h>
+#include <sys/sysctl.h>
 
 extern vm_offset_t ml_io_map(vm_offset_t phys_addr, vm_size_t size);
 
@@ -270,7 +271,21 @@ mip_read(uint8_t r0, uint8_t r1, uint8_t *buf, unsigned len)
 
 /* ---- the touch screen ---- */
 
-static uint32_t res_x = 4096, res_y = 4096;
+/* Samsung DT/vendor driver use inclusive maxima 4095, not chip metadata.
+ * Counts are 4096; the full 12-bit event range maps to the full display.
+ */
+static const uint32_t res_x = 4096, res_y = 4096;
+static uint32_t chip_x, chip_y, last_raw_x, last_raw_y, last_x, last_y, samples;
+static int touch_diagnostic SYSCTL_HANDLER_ARGS
+{
+#pragma unused(oidp, arg1, arg2)
+    char out[256];
+    snprintf(out, sizeof(out), "range=4096x4096 chip=%ux%u samples=%u raw=%u,%u normalized=%u,%u\n",
+        chip_x, chip_y, samples, last_raw_x, last_raw_y, last_x, last_y);
+    return SYSCTL_OUT(req, out, strlen(out) + 1);
+}
+SYSCTL_PROC(_kern, OID_AUTO, hakios_a51touch, CTLTYPE_STRING | CTLFLAG_RD | CTLFLAG_LOCKED,
+    0, 0, touch_diagnostic, "A", "A51 coordinate diagnostics");
 static int finger_down[MIP_MAX_FINGERS];
 static int touch_on;
 static uint64_t touch_errors;
@@ -278,7 +293,7 @@ static uint64_t touch_errors;
 static uint32_t
 scale(uint32_t v, uint32_t range)
 {
-	if (range == 0) {
+	if (range <= 1) {
 		return 0;
 	}
 	if (v >= range) {
@@ -369,8 +384,10 @@ touch_events(void)
 		if (type != 1 || id < 0 || id >= MIP_MAX_FINGERS) {
 			continue;
 		}
+		last_raw_x = x; last_raw_y = y; samples++;
 		x = scale(x, res_x);
 		y = scale(y, res_y);
+		last_x = x; last_y = y;
 		if (state == 2 && id == 0 && finger_down[id]) {
 			touch_gap();
 		} else if (state == 3 && id == 0) {
@@ -418,11 +435,8 @@ touch_bringup(uint32_t steps)
 		return -1;
 	}
 	if (mip_read(0x01, 0x10, res, 4) == 0) {
-		uint32_t x = res[0] | (uint32_t)res[1] << 8, y = res[2] | (uint32_t)res[3] << 8;
-		if (x >= 256 && x <= 16384 && y >= 256 && y <= 16384) {
-			res_x = x;
-			res_y = y;
-		}
+		chip_x = res[0] | (uint32_t)res[1] << 8;
+		chip_y = res[2] | (uint32_t)res[3] << 8;
 	}
 	for (int i = 0; i < 15; i++) {
 		if (name[i] < 0x20 || name[i] > 0x7e) {

@@ -13,3 +13,8 @@ The host parser/native models cannot qualify a phone image. `scripts/run.py` rec
 Known limits: the kernel wrapper accepts a linked image even when preexisting kext symbol-set checks report exit2; QEMU's passing test uses raw hello, not final md0/md1, and disables A51 audio; current speaker and Iris observations are pending. Generated phone images and full raw evidence remain local and cannot be replayed from this repository alone.
 
 Local UEFI experiments are exported as source overlays under `port/current-uefi/`. Copy each overlay to its matching pristine Mu-Silicium/Mu_Basecore revision in `manifests/current-sources.json`, preserving file paths; supply excluded resources separately. These overlays are independent older experiments and were not rebuilt or used for v3. The current XNU patch passed an isolated apply check and exact verification of all 269 output hashes; receipt: `validation/publication/xnu-patch-verification.json`.
+
+
+## Current r1 repair
+
+The current candidate is described in [TOUCH-AUDIO-REPAIR-20261124.md](TOUCH-AUDIO-REPAIR-20261124.md). It uses a separately restored retained v3 root image and new diagnostics helper, rather than the stripped active root. Some current platform/userland sources and job recipes contain later experiments; they were not compiled into the restored v3 root. Use the r1 separate-root recipe for this candidate, rather than the older RC_JOBS recommendation above. The scripts intentionally require local retained inputs and preserve their hashes. Current physical touch/audio/Iris acceptance and diagnostic persistence are unverified. The current cumulative XNU patch supersedes the older v3 patch snapshot; an isolated pristine apply and all resulting hashes are checked before this publication.

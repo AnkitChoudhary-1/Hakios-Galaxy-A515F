@@ -1340,6 +1340,11 @@ run_command(char *line)
 		}
 		execve(argv[1], argv + 1, envp);
 		printf("%s: %s\n", argv[1], strerror(errno));
+		if (strcmp(argv[1], "/sbin/launchd.darwin") == 0) {
+			argv[1] = "/sbin/launchd";
+			execve(argv[1], argv + 1, envp);
+			printf("%s: %s\n", argv[1], strerror(errno));
+		}
 		return;
 	}
 
@@ -1569,8 +1574,14 @@ main(int argc, char **argv, char **envp)
 	chmod("/dev/console", 0666);
 	configure_inject();
 	configure_vnodes();
-	run_rc(in_image("/etc/rc"));
-	printf("\n=== init: done ===\n");
-	reboot(RB_HALT);
+	if (flash_root_mode) {
+		run_rc(in_image("/etc/rc"));
+	} else {
+		run_rc(in_image("/etc/rc.jobs"));
+	}
+	printf("\n=== init: completed rc, entering idle loop ===\n");
+	for (;;) {
+		usleep(1000000);
+	}
 	return failures != 0;
 }

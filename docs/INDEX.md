@@ -1,5 +1,15 @@
 # Documentation index and reading order
 
+## Touch/audio r1 installation — 25 November 2026
+
+R1 was flashed from rooted TWRP on 25 November 2026 after the user explicitly requested proceeding at 1% battery. USB power and Charging were verified before staging and immediately before writing. The full boot backup is retained and independently hashed. One boot write and one reboot succeeded; full-partition SHA-256 readback matched, and recovery/DTBO hashes stayed unchanged. Physical boot completion, touch accuracy, speaker playback, Iris icon/launch and diagnostic persistence remain unverified. Bounded ADB observation: no_adb_boot_confirmation. Phase gates unchanged. Receipt: [installation result](PUBLICATION.md).
+
+Earlier checkpoints below retain their historical scope.
+
+## Latest touch/audio r1 host candidate — 24 November 2026
+
+Latest user report: silent speaker and taps landing in the wrong place. The new r1 candidate corrects DT-based coordinate scaling, checked audio clocks/amp setup and restores full userland/Iris registration plus diagnostics. Fresh build, native/APFS/package and minimal QEMU checks passed. It is not installed yet: ADB sees no device. Physical touch/audio/Iris and diagnostic persistence remain unverified; phase gates unchanged. Read [r1 repair guide](TOUCH-AUDIO-REPAIR-20261124.md). Dated checkpoints below retain their historical scope.
+
 ## Audio/Iris v3 installation — 24 November 2026
 
 V2 reached the iOS home screen per user, but audio was silent, Iris absent and SSH unavailable. V3 includes targeted audio clock/DMA/amplifier changes and nondestructive Iris boot registration. Its native checks, APFS/package checks and minimal QEMU PID1 test passed; authorized TWRP installation and full boot-partition readback passed. Recovery/DTBO are unchanged. V3 home-screen/audio/Iris acceptance is pending. Phase 4 and all existing completion gates are unchanged. See [repair details](AUDIO-IRIS-REPAIR-20261124.md).
@@ -168,3 +178,8 @@ Phase 2 remains **IN PROGRESS**; its device gate is **UNPASSED**. The P2-022 har
 The review script checks retained hashes, exact record correspondence to original output, linked source pins, failed execution predicates and restoration records. Run through `scripts/run.py`; audit exit 0 reports a completed review, while its structured device gate remains false.
 
 Phase 4 platform diagnostics/SPI and corrected C loader have host/QEMU evidence; silicon execution and real peripheral drivers remain pending. See docs/PHASE-4-DEVICE-PATH.md.
+
+
+## Requested source published — 24 November 2026
+
+Current HakiOS source, audio/Iris v3 changes, UEFI source overlays, build tools and documentation were published to [Hakios-Galaxy-A515F](https://github.com/AnkitChoudhary-1/Hakios-Galaxy-A515F) on main at initial commit `24c2b1b5e1b6d6bea0144fd5380f3b8ffe6053c2`. Native remote main and the GitHub connector independently confirmed the commit. All 1515 staged files matched the reviewed bytes. XNU patch application and all 269 result hashes passed. Publication receipts are under evidence/publication/requested-20261124. This is a source export; binaries and private/proprietary inputs remain local. V3 screen/audio/Iris acceptance remains pending, and no phase gate changed. A follow-up documentation commit records this first-publication receipt.

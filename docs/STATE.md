@@ -1,5 +1,15 @@
 # HakiOS A51 - current state
 
+## Touch/audio r1 installation — 25 November 2026
+
+R1 was flashed from rooted TWRP on 25 November 2026 after the user explicitly requested proceeding at 1% battery. USB power and Charging were verified before staging and immediately before writing. The full boot backup is retained and independently hashed. One boot write and one reboot succeeded; full-partition SHA-256 readback matched, and recovery/DTBO hashes stayed unchanged. Physical boot completion, touch accuracy, speaker playback, Iris icon/launch and diagnostic persistence remain unverified. Bounded ADB observation: no_adb_boot_confirmation. Phase gates unchanged. Receipt: [installation result](PUBLICATION.md).
+
+Earlier checkpoints below retain their historical scope.
+
+## Latest touch/audio r1 host candidate — 24 November 2026
+
+Latest user report: silent speaker and taps landing in the wrong place. The new r1 candidate corrects DT-based coordinate scaling, checked audio clocks/amp setup and restores full userland/Iris registration plus diagnostics. Fresh build, native/APFS/package and minimal QEMU checks passed. It is not installed yet: ADB sees no device. Physical touch/audio/Iris and diagnostic persistence remain unverified; phase gates unchanged. Read [r1 repair guide](TOUCH-AUDIO-REPAIR-20261124.md). Dated checkpoints below retain their historical scope.
+
 ## Audio/Iris v3 installation — 24 November 2026
 
 V2 reached the iOS home screen per user, but audio was silent, Iris absent and SSH unavailable. V3 includes targeted audio clock/DMA/amplifier changes and nondestructive Iris boot registration. Its native checks, APFS/package checks and minimal QEMU PID1 test passed; authorized TWRP installation and full boot-partition readback passed. Recovery/DTBO are unchanged. V3 home-screen/audio/Iris acceptance is pending. Phase 4 and all existing completion gates are unchanged. See [repair details](AUDIO-IRIS-REPAIR-20261124.md).
@@ -39,3 +49,8 @@ Exactly one explicitly authorized storage cycle then ran through `runs/20261119T
 Recovery listed `/sys/fs/pstore` as `total 0`; both console and pmsg exports were correctly framed remote exit 1 with zero payload bytes. No nonce-bound record, UFS completion, PRDT telemetry, transfer digest, timer result or write-guard result was recovered. The current single-PRDT UFS path therefore remains **unverified on A51 hardware**.
 
 Rollback succeeded on attempt 0. Baseline readback matched SHA-256 `eb30609a62999e3282ac81e0a5e56411ef12ec1a39c107171bf3e01209c7cb67` before reboot, rooted Android completed boot with UUID `17436b89-c1dd-4512-9cb0-6fe3174af88c`, recovery and DTBO retained their pinned hashes, and all temporary staging paths were absent. No module or SELinux change occurred. This consumed the single-cycle authorization; no additional device cycle is authorized. Investigate recovery/export persistence before preparing any later candidate, and require new explicit authorization before another boot-partition write. Physical visible display, repeatable brightness, touch coordinates, power/volume keys and combined reporting also remain unpassed. `phase4-resume-audit.py` was not run.
+
+
+## Requested source published — 24 November 2026
+
+Current HakiOS source, audio/Iris v3 changes, UEFI source overlays, build tools and documentation were published to [Hakios-Galaxy-A515F](https://github.com/AnkitChoudhary-1/Hakios-Galaxy-A515F) on main at initial commit `24c2b1b5e1b6d6bea0144fd5380f3b8ffe6053c2`. Native remote main and the GitHub connector independently confirmed the commit. All 1515 staged files matched the reviewed bytes. XNU patch application and all 269 result hashes passed. Publication receipts are under evidence/publication/requested-20261124. This is a source export; binaries and private/proprietary inputs remain local. V3 screen/audio/Iris acceptance remains pending, and no phase gate changed. A follow-up documentation commit records this first-publication receipt.

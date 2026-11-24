@@ -1,0 +1,14 @@
+{
+  "image_sha256": "2f22fbb6f0cacae5afb17488d4bcdc6b6bd3b64a6fd046721bfee43880544ea7",
+  "full_partition_sha256": "fe0b641497b0c7622b76d6a0ca9e59c989aefcffec0e234c489748b1e0e857ca",
+  "boot_write_verified": true,
+  "reboot_command_succeeded": true,
+  "recovery_dtbo_unchanged": true,
+  "low_battery_override": {
+    "explicit_user_request": "just flash it anyway",
+    "usb_charging_required": true
+  },
+  "observation_status": "no_adb_boot_confirmation",
+  "device_boot_verified": false,
+  "phase_gates_changed": false
+}

@@ -1,6 +1,6 @@
 {
   "repository": "https://github.com/AnkitChoudhary-1/Hakios-Galaxy-A515F",
-  "captured_utc": "2026-11-24T03:35:28.446504+00:00",
+  "captured_utc": "2026-11-24T23:43:02.847309+00:00",
   "files": {
     "port/phase3/devices/a51/configs/a51_defconfig": {
       "origin": "/mnt/c/Users/Ankit/Desktop/A51/hakios-a51/publication/hakios-SM-A515F/port/phase3/devices/a51/configs/a51_defconfig",
@@ -2137,7 +2137,7 @@
       "transformed": false
     },
     "scripts/publish-requested-source.py": {
-      "origin": "C:\\Users\\Ankit\\Desktop\\A51\\hakios-a51\\scripts\\publish-requested-source.py",
+      "origin": "/mnt/c/Users/Ankit/Desktop/A51/hakios-a51/scripts/publish-requested-source.py",
       "original": {
         "bytes": 5772,
         "sha256": "4a039bffd57e25a64735b8ec9e4b8734c309af9338fffe4f543f2bc8b9dd9dc8"
@@ -2214,7 +2214,7 @@
       "transformed": false
     },
     "scripts/record-requested-publication.py": {
-      "origin": "C:\\Users\\Ankit\\Desktop\\A51\\hakios-a51\\scripts\\record-requested-publication.py",
+      "origin": "/mnt/c/Users/Ankit/Desktop/A51/hakios-a51/scripts/record-requested-publication.py",
       "original": {
         "bytes": 7524,
         "sha256": "f94e6c6dd4764b09f458d0f32f0d225a48f1a338a98847520eed04902b5d60b3"
@@ -4260,24 +4260,24 @@
       "transformed": true
     },
     "docs/IMPLEMENTATION-LOG.md": {
-      "origin": "C:\\Users\\Ankit\\Desktop\\A51\\hakios-a51\\docs\\IMPLEMENTATION-LOG.md",
+      "origin": "/mnt/c/Users/Ankit/Desktop/A51/hakios-a51/docs/IMPLEMENTATION-LOG.md",
       "original": {
-        "bytes": 685734,
-        "sha256": "40364e4dbf043470e993f35ce9bf037006ae4bd0792cfe2f285ffe4361251d6f"
+        "bytes": 697470,
+        "sha256": "ab7c3851a5d5ac82e31a1b8cc6bbc430544d53026f5067af8a4eb69b1d3a4870"
       },
-      "bytes": 685626,
-      "sha256": "570ff8c64534eb2b4b44325d3cc9fa14266e85fc7050153f12b48e4e548722da",
+      "bytes": 697207,
+      "sha256": "807248366fa21a8f7c85f9fe782bceb45e6ab403c4b9625a50213ea9ef9821eb",
       "mode": "100644",
       "transformed": true
     },
     "docs/INDEX.md": {
       "origin": "/mnt/c/Users/Ankit/Desktop/A51/hakios-a51/docs/INDEX.md",
       "original": {
-        "bytes": 25340,
-        "sha256": "d04baa0a1cdff8aa182eadb82665f87cb53680fecd929b3278a8cad3b96a2cf8"
+        "bytes": 27561,
+        "sha256": "ecbb3fcf2d7e226225cf7969e6be822548956f08d6f99e933a7f1d379d9f6e43"
       },
-      "bytes": 22369,
-      "sha256": "92d8b0a0124cbea6830302d0dfc9ca26d27e7d48f5e079ecca7fd7c4ebc7359a",
+      "bytes": 24517,
+      "sha256": "97025c908b808eb28ec51809d844e7d13ab3f6ebe5fea6209ce55d9fd83ea009",
       "mode": "100644",
       "transformed": true
     },
@@ -4535,13 +4535,13 @@
       "transformed": true
     },
     "docs/PUBLICATION.md": {
-      "origin": "initial publication receipt",
+      "origin": "current r1 publication supplement",
       "original": {
-        "bytes": 2964,
-        "sha256": "45ebc4d88d53972bb8b5b66febbc000e547b9154e6dd748a81178a956d679692"
+        "bytes": 4463,
+        "sha256": "0fced16b8c6a9f811283074784ab19cfc48737651d5c160e520140c3a0414141"
       },
-      "bytes": 2964,
-      "sha256": "45ebc4d88d53972bb8b5b66febbc000e547b9154e6dd748a81178a956d679692",
+      "bytes": 4463,
+      "sha256": "0fced16b8c6a9f811283074784ab19cfc48737651d5c160e520140c3a0414141",
       "mode": "100644",
       "transformed": false
     },
@@ -4592,11 +4592,11 @@
     "docs/STATE.md": {
       "origin": "/mnt/c/Users/Ankit/Desktop/A51/hakios-a51/docs/STATE.md",
       "original": {
-        "bytes": 8596,
-        "sha256": "821f1ccb96fc22cdb17017e116bc51e2ecf5f391b59eadb4f281774b11778959"
+        "bytes": 10817,
+        "sha256": "7d12e550a30321f745376a341c2531b6adb8804488618564b99b9de301563375"
       },
-      "bytes": 8066,
-      "sha256": "0f4c0582b0eb769bb8ad4422c4ecca37f17917221878d8b0210c72821cc300b5",
+      "bytes": 10214,
+      "sha256": "0b7b7fb11dacecbd089e550d120de30afb3b5edebf01b069ee28694b96a3b2b1",
       "mode": "100644",
       "transformed": true
     },
@@ -5833,13 +5833,13 @@
       "transformed": false
     },
     "README.md": {
-      "origin": "initial publication receipt",
+      "origin": "current checked r1 installation and evidence limits",
       "original": {
-        "bytes": 2574,
-        "sha256": "5a3ed795b7c0a60917ef37f760127072f37be0fbcee90a027d143c2364b3e0fd"
+        "bytes": 1796,
+        "sha256": "1235a451bdb2f9a0339d4f9f3b1e6ace17eb4a46f6f15f62ec24f5010473b539"
       },
-      "bytes": 2574,
-      "sha256": "5a3ed795b7c0a60917ef37f760127072f37be0fbcee90a027d143c2364b3e0fd",
+      "bytes": 1796,
+      "sha256": "1235a451bdb2f9a0339d4f9f3b1e6ace17eb4a46f6f15f62ec24f5010473b539",
       "mode": "100644",
       "transformed": false
     },
@@ -12116,11 +12116,11 @@
     "platform/userland/rc.jobs": {
       "origin": "/opt/a51-hakios/upstream-a51/hakios/userland/rc.jobs",
       "original": {
-        "bytes": 349,
-        "sha256": "77579bbe2430f078100fc832d3f50422342adea2c0a3faa9c82bb5d09c841da9"
+        "bytes": 664,
+        "sha256": "67c4ff47c1f8dbbc8c5da907302fefd26712b7b5058602c6edf69c8d224173b4"
       },
-      "bytes": 349,
-      "sha256": "77579bbe2430f078100fc832d3f50422342adea2c0a3faa9c82bb5d09c841da9",
+      "bytes": 664,
+      "sha256": "67c4ff47c1f8dbbc8c5da907302fefd26712b7b5058602c6edf69c8d224173b4",
       "mode": "100644",
       "transformed": false
     },
@@ -12193,11 +12193,11 @@
     "platform/userland/rc.jobs.audio-iris": {
       "origin": "/opt/a51-hakios/upstream-a51/hakios/userland/rc.jobs.audio-iris",
       "original": {
-        "bytes": 435,
-        "sha256": "e811c385535f3d5c4e07a238d8fe09901e7990d5f5d89f3f8fedb350993fad26"
+        "bytes": 664,
+        "sha256": "67c4ff47c1f8dbbc8c5da907302fefd26712b7b5058602c6edf69c8d224173b4"
       },
-      "bytes": 435,
-      "sha256": "e811c385535f3d5c4e07a238d8fe09901e7990d5f5d89f3f8fedb350993fad26",
+      "bytes": 664,
+      "sha256": "67c4ff47c1f8dbbc8c5da907302fefd26712b7b5058602c6edf69c8d224173b4",
       "mode": "100644",
       "transformed": false
     },
@@ -13436,11 +13436,11 @@
     "platform/userland/src/init.c": {
       "origin": "/opt/a51-hakios/upstream-a51/hakios/userland/src/init.c",
       "original": {
-        "bytes": 52589,
-        "sha256": "f01d58dd97d5203b57b64a3e46c11dbe37f9a1e08bdc0ee36632f7030640654a"
+        "bytes": 52880,
+        "sha256": "c5cdc46a750c4eeb42d809237f502d795135a7078bcc98d18d1b8e85fa7d18f3"
       },
-      "bytes": 52589,
-      "sha256": "f01d58dd97d5203b57b64a3e46c11dbe37f9a1e08bdc0ee36632f7030640654a",
+      "bytes": 52880,
+      "sha256": "c5cdc46a750c4eeb42d809237f502d795135a7078bcc98d18d1b8e85fa7d18f3",
       "mode": "100644",
       "transformed": false
     },
@@ -13480,11 +13480,11 @@
     "platform/userland/src/inject_sb.c": {
       "origin": "/opt/a51-hakios/upstream-a51/hakios/userland/src/inject_sb.c",
       "original": {
-        "bytes": 109122,
-        "sha256": "a4a52715c5cf15ff3b8edd57b1031a159f4eccfc4d72a931bed4a2ee5506d97a"
+        "bytes": 109239,
+        "sha256": "82d9552aecacdee102910fd5e7e9c796af9810b29b5798a48118fd33c2dc3827"
       },
-      "bytes": 109122,
-      "sha256": "a4a52715c5cf15ff3b8edd57b1031a159f4eccfc4d72a931bed4a2ee5506d97a",
+      "bytes": 109239,
+      "sha256": "82d9552aecacdee102910fd5e7e9c796af9810b29b5798a48118fd33c2dc3827",
       "mode": "100644",
       "transformed": false
     },
@@ -15559,11 +15559,11 @@
     "platform/devices/a51/drivers/audio/hakios.a51audio.c": {
       "origin": "/opt/a51-hakios/upstream-a51/hakios/devices/a51/drivers/audio/hakios.a51audio.c",
       "original": {
-        "bytes": 24445,
-        "sha256": "2abab2e6cc4cf3a205f6ccda805a7adef86cbf18125bdb23b2f30138e35db073"
+        "bytes": 27542,
+        "sha256": "94a476be7f00b4656f00500bc8768a1579b6d19294d33bab10c7dfeae958a863"
       },
-      "bytes": 24445,
-      "sha256": "2abab2e6cc4cf3a205f6ccda805a7adef86cbf18125bdb23b2f30138e35db073",
+      "bytes": 27542,
+      "sha256": "94a476be7f00b4656f00500bc8768a1579b6d19294d33bab10c7dfeae958a863",
       "mode": "100644",
       "transformed": false
     },
@@ -15614,11 +15614,11 @@
     "platform/devices/a51/drivers/input/hakios.a51input.c": {
       "origin": "/opt/a51-hakios/upstream-a51/hakios/devices/a51/drivers/input/hakios.a51input.c",
       "original": {
-        "bytes": 16875,
-        "sha256": "8127452b501dac52f43b665f95d8c9ef28b32466e6fc3b99c81a226bedd66be8"
+        "bytes": 17615,
+        "sha256": "c5da01e7c3c4abba7360a3f388749028468de3d3b629538927c99f2545aa12a0"
       },
-      "bytes": 16875,
-      "sha256": "8127452b501dac52f43b665f95d8c9ef28b32466e6fc3b99c81a226bedd66be8",
+      "bytes": 17615,
+      "sha256": "c5da01e7c3c4abba7360a3f388749028468de3d3b629538927c99f2545aa12a0",
       "mode": "100644",
       "transformed": false
     },
@@ -15986,24 +15986,24 @@
       "transformed": false
     },
     "patches/current-xnu.patch": {
-      "origin": "active native cumulative adaptations",
+      "origin": "current native cumulative adaptations",
       "original": {
-        "bytes": 5691572,
-        "sha256": "09743efaf412df8c51b6c3bf2af896ee94ee49b7a2bd7ba3c2b00f8c34dee6b5"
+        "bytes": 5695503,
+        "sha256": "55c3b575ad7dc9e3f04bf04a573bf6bcfc203bb0c3eda0e606815a4c679dd8cf"
       },
-      "bytes": 5691572,
-      "sha256": "09743efaf412df8c51b6c3bf2af896ee94ee49b7a2bd7ba3c2b00f8c34dee6b5",
+      "bytes": 5695503,
+      "sha256": "55c3b575ad7dc9e3f04bf04a573bf6bcfc203bb0c3eda0e606815a4c679dd8cf",
       "mode": "100644",
       "transformed": false
     },
     "manifests/current-sources.json": {
-      "origin": "active Git identities and current UEFI source overlays",
+      "origin": "current source identities",
       "original": {
         "bytes": 107483,
-        "sha256": "da9d39eaac85f97cb8bae77e725c34f91830db29d47c876907f1a260dabeb58f"
+        "sha256": "d504bf4fd955269a3ccf53e18fd9db0d684ed5f0a8a4859b3e07e16f347846a5"
       },
       "bytes": 107483,
-      "sha256": "da9d39eaac85f97cb8bae77e725c34f91830db29d47c876907f1a260dabeb58f",
+      "sha256": "d504bf4fd955269a3ccf53e18fd9db0d684ed5f0a8a4859b3e07e16f347846a5",
       "mode": "100644",
       "transformed": false
     },
@@ -16074,35 +16074,35 @@
       "transformed": false
     },
     "docs/PUBLIC-BUILD.md": {
-      "origin": "publication scope supplement",
+      "origin": "current r1 publication supplement",
       "original": {
-        "bytes": 3260,
-        "sha256": "506d24fca85138fc5b4315a673c68fb072fe89c10479192e20942685c14ed34f"
+        "bytes": 4076,
+        "sha256": "db22e725271d26de394292b282ed8edc34bc483621ad38e53a23b3545ff03799"
       },
-      "bytes": 3260,
-      "sha256": "506d24fca85138fc5b4315a673c68fb072fe89c10479192e20942685c14ed34f",
+      "bytes": 4076,
+      "sha256": "db22e725271d26de394292b282ed8edc34bc483621ad38e53a23b3545ff03799",
       "mode": "100644",
       "transformed": false
     },
     "docs/PUBLIC-STATUS.md": {
-      "origin": "initial publication receipt",
+      "origin": "current checked r1 installation and evidence limits",
       "original": {
-        "bytes": 2148,
-        "sha256": "e0c34a8f70bb817be92cf1c88c174a2fa60167cae699a50455d643322aefc174"
+        "bytes": 2469,
+        "sha256": "b0866016ee2944f219f6543c240364759a83a6e80b47edb3eb92996009533eb9"
       },
-      "bytes": 2148,
-      "sha256": "e0c34a8f70bb817be92cf1c88c174a2fa60167cae699a50455d643322aefc174",
+      "bytes": 2469,
+      "sha256": "b0866016ee2944f219f6543c240364759a83a6e80b47edb3eb92996009533eb9",
       "mode": "100644",
       "transformed": false
     },
     "state.json": {
-      "origin": "selected state with first publication receipt",
+      "origin": "selected current repair state",
       "original": {
-        "bytes": 2835,
-        "sha256": "13dd25ad32d0437317c07b1399a838a111fcad5ac145c68386f375e1ce233b7a"
+        "bytes": 5767,
+        "sha256": "bff982e28106bbbc2742246b874ce5a0f34a8d37ef741a7dde7e186693939702"
       },
-      "bytes": 2835,
-      "sha256": "13dd25ad32d0437317c07b1399a838a111fcad5ac145c68386f375e1ce233b7a",
+      "bytes": 5767,
+      "sha256": "bff982e28106bbbc2742246b874ce5a0f34a8d37ef741a7dde7e186693939702",
       "mode": "100644",
       "transformed": false
     },
@@ -16615,11 +16615,11 @@
     "scripts/verify-requested-xnu-patch.py": {
       "origin": "/mnt/c/Users/Ankit/Desktop/A51/hakios-a51/scripts/verify-requested-xnu-patch.py",
       "original": {
-        "bytes": 2693,
-        "sha256": "ffe1de073040c3903d5c0de3c72c5610465ff148731b215a2198aa8ddbfb89b0"
+        "bytes": 2910,
+        "sha256": "0a40370b3ddac790887a2a411fd2b21ba4f0224f1f5b16d90af21770a11332fe"
       },
-      "bytes": 2693,
-      "sha256": "ffe1de073040c3903d5c0de3c72c5610465ff148731b215a2198aa8ddbfb89b0",
+      "bytes": 2910,
+      "sha256": "0a40370b3ddac790887a2a411fd2b21ba4f0224f1f5b16d90af21770a11332fe",
       "mode": "100644",
       "transformed": false
     },
@@ -16635,24 +16635,299 @@
       "transformed": false
     },
     "validation/publication/xnu-patch-verification.json": {
-      "origin": "/mnt/c/Users/Ankit/Desktop/A51/hakios-a51/evidence/publication/requested-20261124/xnu-patch-verification.json",
+      "origin": "/mnt/c/Users/Ankit/Desktop/A51/hakios-a51/evidence/publication/touch-audio-20261124-r1/xnu-patch-verification.json",
       "original": {
         "bytes": 368,
-        "sha256": "0f800a4c103713319494b6044b16f878938db216dfa480bd8618d5c28aafe7e0"
+        "sha256": "9595f75b2829ea6cf9da09402d5a1d575b447069e0cf74490c54434275d38a61"
       },
       "bytes": 368,
-      "sha256": "0f800a4c103713319494b6044b16f878938db216dfa480bd8618d5c28aafe7e0",
+      "sha256": "9595f75b2829ea6cf9da09402d5a1d575b447069e0cf74490c54434275d38a61",
       "mode": "100644",
       "transformed": false
     },
     "scripts/sync-requested-publication-docs.py": {
-      "origin": "C:\\Users\\Ankit\\Desktop\\A51\\hakios-a51\\scripts\\sync-requested-publication-docs.py",
+      "origin": "/mnt/c/Users/Ankit/Desktop/A51/hakios-a51/scripts/sync-requested-publication-docs.py",
       "original": {
         "bytes": 2417,
         "sha256": "517fe5fafaaf02e3bbf7fd5400089f278af395b642e79709b0277815b650dfec"
       },
       "bytes": 2417,
       "sha256": "517fe5fafaaf02e3bbf7fd5400089f278af395b642e79709b0277815b650dfec",
+      "mode": "100644",
+      "transformed": false
+    },
+    "scripts/capture-audio-failure.py": {
+      "origin": "/mnt/c/Users/Ankit/Desktop/A51/hakios-a51/scripts/capture-audio-failure.py",
+      "original": {
+        "bytes": 2774,
+        "sha256": "65acbdf060bdaf55a0da910b3d958e9e71ccf083506e5b147c9be1eb1113f0c3"
+      },
+      "bytes": 2778,
+      "sha256": "be89eba757ca1dc892d9c74d21a25aa1cf66e14ce7c14432970c15b81e8bb103",
+      "mode": "100644",
+      "transformed": true
+    },
+    "scripts/device-diagnostics.c": {
+      "origin": "/mnt/c/Users/Ankit/Desktop/A51/hakios-a51/scripts/device-diagnostics.c",
+      "original": {
+        "bytes": 1819,
+        "sha256": "2332e56d9aacc1c547860d7531ff026e8818f952af1deb1afa7ef65255ea47cd"
+      },
+      "bytes": 1819,
+      "sha256": "2332e56d9aacc1c547860d7531ff026e8818f952af1deb1afa7ef65255ea47cd",
+      "mode": "100644",
+      "transformed": false
+    },
+    "scripts/export-touch-audio.py": {
+      "origin": "/mnt/c/Users/Ankit/Desktop/A51/hakios-a51/scripts/export-touch-audio.py",
+      "original": {
+        "bytes": 2861,
+        "sha256": "8a65b15d092092417954791fbc3e42f8bcaf92d5c75af4de1d04cfbea4908ce8"
+      },
+      "bytes": 2861,
+      "sha256": "8a65b15d092092417954791fbc3e42f8bcaf92d5c75af4de1d04cfbea4908ce8",
+      "mode": "100644",
+      "transformed": false
+    },
+    "scripts/flash-touch-audio.py": {
+      "origin": "/mnt/c/Users/Ankit/Desktop/A51/hakios-a51/scripts/flash-touch-audio.py",
+      "original": {
+        "bytes": 3414,
+        "sha256": "863630edc74b84cc5c9fef8f87fac5eeb0cd81c558449909bce50a3dcfa0f107"
+      },
+      "bytes": 3414,
+      "sha256": "863630edc74b84cc5c9fef8f87fac5eeb0cd81c558449909bce50a3dcfa0f107",
+      "mode": "100644",
+      "transformed": false
+    },
+    "scripts/flash-v4-audio-chime.py": {
+      "origin": "/mnt/c/Users/Ankit/Desktop/A51/hakios-a51/scripts/flash-v4-audio-chime.py",
+      "original": {
+        "bytes": 1703,
+        "sha256": "3c697043385af730755c79eb613de9221baf797e6581d35488bc618270097611"
+      },
+      "bytes": 1707,
+      "sha256": "b15d462a3ea17efb660de1148aa9a9eddbab55ba7ffaf46891c3a4f0af2db178",
+      "mode": "100644",
+      "transformed": true
+    },
+    "scripts/flash-v5-audio-fixed.py": {
+      "origin": "/mnt/c/Users/Ankit/Desktop/A51/hakios-a51/scripts/flash-v5-audio-fixed.py",
+      "original": {
+        "bytes": 1727,
+        "sha256": "49f844b91e97fe90c7175829bb0ed36c488555c77f5cd7ffb14f651f58d74c2e"
+      },
+      "bytes": 1731,
+      "sha256": "9609bd4883f4ab02ccbff71fd8f2541971360aa0c137ea7e6bed479cbe528669",
+      "mode": "100644",
+      "transformed": true
+    },
+    "scripts/flash-v6-audio-fixed.py": {
+      "origin": "/mnt/c/Users/Ankit/Desktop/A51/hakios-a51/scripts/flash-v6-audio-fixed.py",
+      "original": {
+        "bytes": 1731,
+        "sha256": "2515ee3b4cd6255027a99ae884f4232fa683be39f4ea722f3c295c61b5406234"
+      },
+      "bytes": 1735,
+      "sha256": "34a7ee5579a619a2607516b656dfb2a0e2728d087699861816892728e2d489b7",
+      "mode": "100644",
+      "transformed": true
+    },
+    "scripts/flash-v7-audio-fixed.py": {
+      "origin": "/mnt/c/Users/Ankit/Desktop/A51/hakios-a51/scripts/flash-v7-audio-fixed.py",
+      "original": {
+        "bytes": 1726,
+        "sha256": "4de327ed55c99880d4b3646dcdb45251046f74c0211f4f1501b9c0ee555f8c23"
+      },
+      "bytes": 1730,
+      "sha256": "92375b09f3a6e02a5ab1a2b732474cd446e9574a3ae1f26826dac693d14df2dd",
+      "mode": "100644",
+      "transformed": true
+    },
+    "scripts/publish-touch-audio-source.py": {
+      "origin": "/mnt/c/Users/Ankit/Desktop/A51/hakios-a51/scripts/publish-touch-audio-source.py",
+      "original": {
+        "bytes": 3852,
+        "sha256": "5c09a0159ffeb4b2432127cc4c1223ce73ac64127304fd98b3b6b38593261387"
+      },
+      "bytes": 3852,
+      "sha256": "5c09a0159ffeb4b2432127cc4c1223ce73ac64127304fd98b3b6b38593261387",
+      "mode": "100644",
+      "transformed": false
+    },
+    "scripts/record-touch-audio.py": {
+      "origin": "/mnt/c/Users/Ankit/Desktop/A51/hakios-a51/scripts/record-touch-audio.py",
+      "original": {
+        "bytes": 10680,
+        "sha256": "55cf7d5e53e21c842cc0456864857ce2f51c7fdc0db93adc3f696d26e07ef884"
+      },
+      "bytes": 10680,
+      "sha256": "55cf7d5e53e21c842cc0456864857ce2f51c7fdc0db93adc3f696d26e07ef884",
+      "mode": "100644",
+      "transformed": false
+    },
+    "scripts/refresh-touch-audio-publication.py": {
+      "origin": "/mnt/c/Users/Ankit/Desktop/A51/hakios-a51/scripts/refresh-touch-audio-publication.py",
+      "original": {
+        "bytes": 15220,
+        "sha256": "9aece23de92cc1fd83a11154de8e6dcd1b3e0ee4c7a7e7cd84c48f03367c28e3"
+      },
+      "bytes": 15220,
+      "sha256": "9aece23de92cc1fd83a11154de8e6dcd1b3e0ee4c7a7e7cd84c48f03367c28e3",
+      "mode": "100644",
+      "transformed": false
+    },
+    "scripts/repair-touch-audio.py": {
+      "origin": "/mnt/c/Users/Ankit/Desktop/A51/hakios-a51/scripts/repair-touch-audio.py",
+      "original": {
+        "bytes": 18878,
+        "sha256": "34825079e116a24be1c3468fe3351d5854424ba09ada63e85dda70b4928e7ec9"
+      },
+      "bytes": 18878,
+      "sha256": "34825079e116a24be1c3468fe3351d5854424ba09ada63e85dda70b4928e7ec9",
+      "mode": "100644",
+      "transformed": false
+    },
+    "scripts/test-touch-audio.py": {
+      "origin": "/mnt/c/Users/Ankit/Desktop/A51/hakios-a51/scripts/test-touch-audio.py",
+      "original": {
+        "bytes": 2909,
+        "sha256": "d7e8a2b54200c3f2e4f33bd730bec42ec6ff615202254372895f2dabcf859e3e"
+      },
+      "bytes": 2909,
+      "sha256": "d7e8a2b54200c3f2e4f33bd730bec42ec6ff615202254372895f2dabcf859e3e",
+      "mode": "100644",
+      "transformed": false
+    },
+    "prototype/fixed_hakios.a51audio.c": {
+      "origin": "/mnt/c/Users/Ankit/Desktop/A51/hakios-a51/prototype/fixed_hakios.a51audio.c",
+      "original": {
+        "bytes": 16981,
+        "sha256": "9b99d601d5522f03d0c70fb25abd39c875d5d003e97d4745da5be848d6e0b7d5"
+      },
+      "bytes": 16981,
+      "sha256": "9b99d601d5522f03d0c70fb25abd39c875d5d003e97d4745da5be848d6e0b7d5",
+      "mode": "100644",
+      "transformed": false
+    },
+    "docs/TOUCH-AUDIO-REPAIR-20261124.md": {
+      "origin": "current checked r1 installation and evidence limits",
+      "original": {
+        "bytes": 9349,
+        "sha256": "b47621e08fbcaa72d5517314e644cd5726a9333e39039dff4d458adfa9aa3131"
+      },
+      "bytes": 9291,
+      "sha256": "3341fcdca1536f46e0816149eaaa6e546f8c23fbc2be91d5597c80884a1dc231",
+      "mode": "100644",
+      "transformed": false
+    },
+    "validation/touch-audio-r1/manifest.json": {
+      "origin": "/mnt/c/Users/Ankit/Desktop/A51/hakios-a51/evidence/build-repair/touch-audio-20261124-r1/manifest.json",
+      "original": {
+        "bytes": 2277,
+        "sha256": "79a858668011a75fcf73286ea79806b48dce6f4c92a0d37ec80baf8abe7d0e67"
+      },
+      "bytes": 2277,
+      "sha256": "79a858668011a75fcf73286ea79806b48dce6f4c92a0d37ec80baf8abe7d0e67",
+      "mode": "100644",
+      "transformed": false
+    },
+    "validation/touch-audio-r1/adaptation.json": {
+      "origin": "/mnt/c/Users/Ankit/Desktop/A51/hakios-a51/evidence/build-repair/touch-audio-20261124-r1/adaptation.json",
+      "original": {
+        "bytes": 550,
+        "sha256": "172506fe878f8ee08606ff5607ee43f782ca979e39d90e00d80580bce522ff76"
+      },
+      "bytes": 550,
+      "sha256": "172506fe878f8ee08606ff5607ee43f782ca979e39d90e00d80580bce522ff76",
+      "mode": "100644",
+      "transformed": false
+    },
+    "validation/touch-audio-r1/references.json": {
+      "origin": "/mnt/c/Users/Ankit/Desktop/A51/hakios-a51/evidence/build-repair/touch-audio-20261124-r1/references.json",
+      "original": {
+        "bytes": 2142,
+        "sha256": "52d4a7283f45c10207ccd8fbe6be9389c579446f7031e48aa69e7efe435a8d33"
+      },
+      "bytes": 2142,
+      "sha256": "52d4a7283f45c10207ccd8fbe6be9389c579446f7031e48aa69e7efe435a8d33",
+      "mode": "100644",
+      "transformed": false
+    },
+    "validation/touch-audio-r1/root-recipe.json": {
+      "origin": "/mnt/c/Users/Ankit/Desktop/A51/hakios-a51/evidence/build-repair/touch-audio-20261124-r1/root-recipe.json",
+      "original": {
+        "bytes": 1127,
+        "sha256": "93c456254ed109b76cbfd50477d1f3ee47d9e117bd9b2b2a1b13363a1c0d38b9"
+      },
+      "bytes": 1127,
+      "sha256": "93c456254ed109b76cbfd50477d1f3ee47d9e117bd9b2b2a1b13363a1c0d38b9",
+      "mode": "100644",
+      "transformed": false
+    },
+    "validation/touch-audio-r1/audio-iris-tests.json": {
+      "origin": "/mnt/c/Users/Ankit/Desktop/A51/hakios-a51/evidence/build-repair/touch-audio-20261124-r1/audio-iris-tests.json",
+      "original": {
+        "bytes": 262,
+        "sha256": "28dbe73b657dfdff857b0c1a6c35b9026eecdcadbe5f67540310e212054bd7ba"
+      },
+      "bytes": 262,
+      "sha256": "28dbe73b657dfdff857b0c1a6c35b9026eecdcadbe5f67540310e212054bd7ba",
+      "mode": "100644",
+      "transformed": false
+    },
+    "validation/touch-audio-r1/touch-clock-tests.json": {
+      "origin": "/mnt/c/Users/Ankit/Desktop/A51/hakios-a51/evidence/build-repair/touch-audio-20261124-r1/touch-clock-tests.json",
+      "original": {
+        "bytes": 276,
+        "sha256": "24700b69c3ede959d44803a9c3e5963984fb8d68be6acc23d28537544a0f67bf"
+      },
+      "bytes": 276,
+      "sha256": "24700b69c3ede959d44803a9c3e5963984fb8d68be6acc23d28537544a0f67bf",
+      "mode": "100644",
+      "transformed": false
+    },
+    "validation/touch-audio-r1/qemu.json": {
+      "origin": "/mnt/c/Users/Ankit/Desktop/A51/hakios-a51/evidence/build-repair/touch-audio-20261124-r1/qemu-20261124T163908Z/result.json",
+      "original": {
+        "bytes": 838,
+        "sha256": "bdc1d4f5dc72150e9e834b7dc99f1cd514b5c4f426e6c3f267c2813a7c4bb56c"
+      },
+      "bytes": 838,
+      "sha256": "bdc1d4f5dc72150e9e834b7dc99f1cd514b5c4f426e6c3f267c2813a7c4bb56c",
+      "mode": "100644",
+      "transformed": false
+    },
+    "validation/touch-audio-r1/xnu-patch-verification.json": {
+      "origin": "/mnt/c/Users/Ankit/Desktop/A51/hakios-a51/evidence/publication/touch-audio-20261124-r1/xnu-patch-verification.json",
+      "original": {
+        "bytes": 368,
+        "sha256": "9595f75b2829ea6cf9da09402d5a1d575b447069e0cf74490c54434275d38a61"
+      },
+      "bytes": 368,
+      "sha256": "9595f75b2829ea6cf9da09402d5a1d575b447069e0cf74490c54434275d38a61",
+      "mode": "100644",
+      "transformed": false
+    },
+    "scripts/record-touch-audio-install.py": {
+      "origin": "/mnt/c/Users/Ankit/Desktop/A51/hakios-a51/scripts/record-touch-audio-install.py",
+      "original": {
+        "bytes": 6715,
+        "sha256": "70369c8e9c699120ceec2754f5e9f765cc0d244b0ed7bd0dc8d9cdc5965b9eff"
+      },
+      "bytes": 6715,
+      "sha256": "70369c8e9c699120ceec2754f5e9f765cc0d244b0ed7bd0dc8d9cdc5965b9eff",
+      "mode": "100644",
+      "transformed": false
+    },
+    "validation/touch-audio-r1/installation.json": {
+      "origin": "sanitized installation verification summary",
+      "original": {
+        "bytes": 523,
+        "sha256": "e9d586a41df838c0e1a60efc7593987a4d34e6aa71b6bd86383e69ca7a9e1241"
+      },
+      "bytes": 523,
+      "sha256": "e9d586a41df838c0e1a60efc7593987a4d34e6aa71b6bd86383e69ca7a9e1241",
       "mode": "100644",
       "transformed": false
     }
@@ -16819,15 +17094,28 @@
       "reason": "UEFI_non_source_input",
       "bytes": 91078,
       "sha256": "8af74c008def702bc214939174ef973042760eb471a8f0062bc4fd4454b6b53f"
+    },
+    {
+      "path": "/opt/a51-hakios/upstream-a51/hakios/devices/a51/uefi/files/Resources/DTBs/a51.dtb",
+      "reason": "binary",
+      "bytes": 135256,
+      "sha256": "5121da3b7bd75875783220d9842ced1aaab17c2b1238b03860e4515f6145c1ca"
+    },
+    {
+      "path": "/opt/a51-hakios/upstream-a51/hakios/devices/a51/uefi/files/Resources/DTBs/a51.dtb",
+      "reason": "binary",
+      "bytes": 135256,
+      "sha256": "5121da3b7bd75875783220d9842ced1aaab17c2b1238b03860e4515f6145c1ca"
     }
   ],
   "scan": {
-    "files_checked": 1515,
+    "files_checked": 1540,
     "failures": [],
     "passed": true
   },
-  "python_files_parsed": 337,
+  "python_files_parsed": 351,
   "phone_operations": false,
   "source_snapshot_not_complete_runtime": true,
-  "self_excluded_from_hashes": true
+  "self_excluded_from_hashes": true,
+  "repair_revision": "touch-audio-20261124-r1"
 }

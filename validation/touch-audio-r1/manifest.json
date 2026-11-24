@@ -1,0 +1,75 @@
+{
+  "schema_version": 1,
+  "verified_at_utc": "2026-11-24T16:38:59.590258+00:00",
+  "image": {
+    "size": 29720576,
+    "sha256": "2f22fbb6f0cacae5afb17488d4bcdc6b6bd3b64a6fd046721bfee43880544ea7"
+  },
+  "kernel_section_bytes": 29579088,
+  "partition_bytes": 61865984,
+  "header_version": 2,
+  "page_size": 2048,
+  "shim": {
+    "size": 176,
+    "sha256": "0790c416d72cd3e04770f4f0cc173c4201f36bb8cd084c5f6fdf735d256e6b9a"
+  },
+  "firmware": {
+    "size": 2097152,
+    "sha256": "038283aa0f0afcda6058e44b7331febd31cbc990bce0456c408bc9be17250ec1"
+  },
+  "entries": {
+    "loader.efi": {
+      "size": 72704,
+      "sha256": "f69a0eeadc0dd630d1934ded356f47d1bfc0b92cf7f91901505090323ab73772"
+    },
+    "kernel": {
+      "size": 15091656,
+      "sha256": "73248a14f02f40b77ee36e7a11901f4e533d0ba3944b7e2ae85321582049665f"
+    },
+    "ramdisk": {
+      "size": 8122368,
+      "sha256": "c847bbf9d9d86e143363c9448427672c8c8458a979fd2c9cbfc848a63e181c48"
+    },
+    "resident": {
+      "size": 4194304,
+      "sha256": "5cae4fe2beba2fc3286c6ad750c7be86b4f8e182cc5fa116c0aa97dc52534af9"
+    },
+    "cmdline": {
+      "size": 467,
+      "sha256": "bfb3abc9795cccad01686aba36127a9fd9fb49b342df905bbd90be16660a0ce1"
+    },
+    "kernel.ver": {
+      "size": 51,
+      "sha256": "ecb8d3e92312537930edb1ec8ff3e93740404f24ed6e3b7431bab63d09f4ac1f"
+    }
+  },
+  "gpu": {
+    "size": 78786,
+    "sha256": "2b6d56d74187fd68cf18620dbc90fbcb3fc2702f75c03209c7f8b8612e640a29"
+  },
+  "audio": {
+    "size": 27542,
+    "sha256": "94a476be7f00b4656f00500bc8768a1579b6d19294d33bab10c7dfeae958a863"
+  },
+  "host_package_verified": true,
+  "device_boot_verified": false,
+  "audible_audio_verified": false,
+  "gpu_hardware_execution_verified": false,
+  "device_writes": false,
+  "touch": {
+    "size": 17615,
+    "sha256": "c5da01e7c3c4abba7360a3f388749028468de3d3b629538927c99f2545aa12a0"
+  },
+  "touch_accuracy_verified": false,
+  "iris_icon_verified": false,
+  "iris_launch_verified": false,
+  "diagnostics_source": {
+    "size": 1819,
+    "sha256": "2332e56d9aacc1c547860d7531ff026e8818f952af1deb1afa7ef65255ea47cd"
+  },
+  "diagnostics_binary": {
+    "size": 34584,
+    "sha256": "6c281c709dd172b635133eec147b2eb4a5fcbc1453f2327d36e720c96d4a90bc"
+  },
+  "diagnostics_persistence_verified": false
+}

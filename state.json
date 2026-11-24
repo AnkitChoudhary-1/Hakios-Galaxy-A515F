@@ -76,5 +76,70 @@
     "packet": "evidence/publication/requested-20261124",
     "phone_operations": false,
     "phase_gates_changed": false
+  },
+  "touch_audio_repair_20261124_r1": {
+    "status": "flashed_readback_verified_hardware_acceptance_pending",
+    "guide": "docs/TOUCH-AUDIO-REPAIR-20261124.md",
+    "packet": "evidence/build-repair/touch-audio-20261124-r1",
+    "artifact": "artifacts/A51-HakiOS-full-quality-touch-audio-r1-boot.img",
+    "image": {
+      "size": 29720576,
+      "sha256": "2f22fbb6f0cacae5afb17488d4bcdc6b6bd3b64a6fd046721bfee43880544ea7"
+    },
+    "audio": {
+      "size": 27542,
+      "sha256": "94a476be7f00b4656f00500bc8768a1579b6d19294d33bab10c7dfeae958a863"
+    },
+    "touch": {
+      "size": 17615,
+      "sha256": "c5da01e7c3c4abba7360a3f388749028468de3d3b629538927c99f2545aa12a0"
+    },
+    "gpu": {
+      "size": 78786,
+      "sha256": "2b6d56d74187fd68cf18620dbc90fbcb3fc2702f75c03209c7f8b8612e640a29"
+    },
+    "host_package_verified": true,
+    "generic_qemu_verified": true,
+    "user_report": "Latest build: audio silent and taps land in the wrong place; Iris observation unanswered",
+    "reported_installed_image_pin": "2f22fbb6f0cacae5afb17488d4bcdc6b6bd3b64a6fd046721bfee43880544ea7",
+    "source_before_audio_sha256": "ad5665883eba58b87c5cb99e2adacee3073aaac7fe71b95d91464b926b3b090d",
+    "touch_coordinates_checked": 4096,
+    "clock_patterns_checked": 64,
+    "audio_native_cases": 11,
+    "iris_native_cases": 4,
+    "iris_helper_reused_from_verified_v3_image": true,
+    "phone_writes_this_repair": true,
+    "device_boot_verified": false,
+    "touch_accuracy_verified": false,
+    "audible_audio_verified": false,
+    "iris_icon_verified": false,
+    "iris_launch_verified": false,
+    "diagnostics_persistence_verified": false,
+    "phase_gates_changed": false,
+    "qemu_scope": "same kernel/loader, virt/raw PID1 hello, a51audio=0",
+    "blocker": "Physical boot/touch/speaker/Iris confirmation pending",
+    "previous_installed_full_partition_sha256": "2f305fb82ff0df52c339f4f621ddf5372521321b1fc6610a15da7ea6d61176df",
+    "device_installation": {
+      "packet": "evidence/build-repair/device-flash-20261124T233949623439Z",
+      "result": "evidence/build-repair/device-flash-20261124T233949623439Z/result.json",
+      "boot_partition": "/dev/block/sda12",
+      "image_sha256": "2f22fbb6f0cacae5afb17488d4bcdc6b6bd3b64a6fd046721bfee43880544ea7",
+      "full_partition_sha256": "fe0b641497b0c7622b76d6a0ca9e59c989aefcffec0e234c489748b1e0e857ca",
+      "boot_backup": {
+        "file": "boot-before.img",
+        "size": 61865984,
+        "sha256": "2f305fb82ff0df52c339f4f621ddf5372521321b1fc6610a15da7ea6d61176df"
+      },
+      "boot_write_verified": true,
+      "reboot_command_succeeded": true,
+      "recovery_dtbo_unchanged": true,
+      "low_battery_override": {
+        "explicit_user_request": "just flash it anyway",
+        "usb_charging_required": true
+      },
+      "observation_status": "no_adb_boot_confirmation",
+      "device_boot_verified": false,
+      "phase_gates_changed": false
+    }
   }
 }

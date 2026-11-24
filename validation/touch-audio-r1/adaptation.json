@@ -1,0 +1,20 @@
+{
+  "audio": {
+    "size": 27542,
+    "sha256": "94a476be7f00b4656f00500bc8768a1579b6d19294d33bab10c7dfeae958a863"
+  },
+  "touch": {
+    "size": 17615,
+    "sha256": "c5da01e7c3c4abba7360a3f388749028468de3d3b629538927c99f2545aa12a0"
+  },
+  "gpu": {
+    "size": 78786,
+    "sha256": "2b6d56d74187fd68cf18620dbc90fbcb3fc2702f75c03209c7f8b8612e640a29"
+  },
+  "v3_userland_baseline": {
+    "size": 8114176,
+    "sha256": "df3bd10f5fd24a02cb95d20d60da0869bbfe8c82558a6d5161e1865a912c2dbd"
+  },
+  "device_operations": false,
+  "hardware_verified": false
+}
