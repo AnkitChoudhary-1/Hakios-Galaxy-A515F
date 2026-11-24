@@ -84,11 +84,19 @@ def validate():
     print(json.dumps(result, indent=2))
 
 
-def publish():
+def publish(followup=False):
     validate()
-    assert not git('ls-remote', '--heads', 'origin').strip(), 'Destination changed; reconcile existing branch before push'
-    git('symbolic-ref', 'HEAD', 'refs/heads/main')
-    git('commit', '-m', 'Publish A51 HakiOS source and audio/Iris v3 repair')
+    parent = None
+    if followup:
+        parent = git('rev-parse', 'HEAD').decode().strip()
+        remote = git('ls-remote', 'origin', 'refs/heads/main').decode().split()[0]
+        assert parent == remote, 'Remote changed; reconcile before committing'
+    else:
+        assert not git('ls-remote', '--heads', 'origin').strip(), 'Destination changed; reconcile existing branch before push'
+        git('symbolic-ref', 'HEAD', 'refs/heads/main')
+    message = ('Record source publication and verification receipts' if followup
+               else 'Publish A51 HakiOS source and audio/Iris v3 repair')
+    git('commit', '-m', message)
     commit = git('rev-parse', 'HEAD').decode().strip()
     git('push', '--set-upstream', 'origin', 'main')
     remote = git('ls-remote', 'origin', 'refs/heads/main').decode().split()[0]
@@ -96,12 +104,14 @@ def publish():
     receipt = {'repository': URL, 'branch': 'main', 'commit': commit, 'remote_head_verified': True,
                'tree': git('rev-parse', 'HEAD^{tree}').decode().strip(), 'files': len(git('ls-files', '-z', binary=True).split(b'\0')) - 1,
                'source_manifest_sha256': sha((D / 'PUBLICATION-MANIFEST.json').read_bytes()), 'phone_operations': False}
-    (PACKET / 'push.json').write_text(json.dumps(receipt, indent=2) + '\n')
+    if parent:
+        receipt['parent'] = parent
+    (PACKET / ('documentation-push.json' if followup else 'push.json')).write_text(json.dumps(receipt, indent=2) + '\n')
     print(json.dumps(receipt, indent=2))
 
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('action', choices=['validate', 'publish'])
+    parser.add_argument('action', choices=['validate', 'publish', 'followup'])
     args = parser.parse_args()
-    {'validate': validate, 'publish': publish}[args.action]()
+    {'validate': validate, 'publish': publish, 'followup': lambda: publish(True)}[args.action]()

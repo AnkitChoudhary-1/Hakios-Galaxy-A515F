@@ -13,3 +13,6 @@ Historical documentation and upstream README/bring-up claims may describe old sc
 GitHub connector metadata verified the destination and access. Native Git is used for the bulk source commit/push because the connector exposes individual object/file operations rather than a bulk checkout upload. The push is the user-requested publication; it does not open an upstream PR or change firmware.
 
 The final scope check additionally exports locally changed/new Mu-Silicium, A51 board and Mu_Basecore source as `port/current-uefi/` overlays, with nested submodule pins and original/exported hashes. Binary logo/DTB changes are excluded. XNU patch applicability and resulting hashes were independently checked on isolated pristine source.
+
+
+Source was published to the requested repository on main at initial commit `24c2b1b5e1b6d6bea0144fd5380f3b8ffe6053c2`, independently verified against remote main. A subsequent documentation commit records this receipt; it does not change the v3 image or any hardware acceptance gate. Speaker audio and Iris acceptance remain pending.

@@ -2139,11 +2139,11 @@
     "scripts/publish-requested-source.py": {
       "origin": "C:\\Users\\Ankit\\Desktop\\A51\\hakios-a51\\scripts\\publish-requested-source.py",
       "original": {
-        "bytes": 5232,
-        "sha256": "a28636d17fb7241c2cd82bf27c2d2abc1686e8ccb2b09dd594f4edeb72134774"
+        "bytes": 5772,
+        "sha256": "4a039bffd57e25a64735b8ec9e4b8734c309af9338fffe4f543f2bc8b9dd9dc8"
       },
-      "bytes": 5232,
-      "sha256": "a28636d17fb7241c2cd82bf27c2d2abc1686e8ccb2b09dd594f4edeb72134774",
+      "bytes": 5772,
+      "sha256": "4a039bffd57e25a64735b8ec9e4b8734c309af9338fffe4f543f2bc8b9dd9dc8",
       "mode": "100644",
       "transformed": false
     },
@@ -4262,11 +4262,11 @@
     "docs/IMPLEMENTATION-LOG.md": {
       "origin": "C:\\Users\\Ankit\\Desktop\\A51\\hakios-a51\\docs\\IMPLEMENTATION-LOG.md",
       "original": {
-        "bytes": 684057,
-        "sha256": "06d2b1d3c39da4963a4e310cefe69b183aabb76e8e5a244a71c24481c8256a77"
+        "bytes": 685244,
+        "sha256": "f5964dd99db82c28d14c176a3362abf688a7c551825a1575dc91f3bc0bf86c45"
       },
-      "bytes": 683956,
-      "sha256": "3e58431095e453dd5c04bf00870f36d90a4e12e4cc9b635e159ed526b4578bcd",
+      "bytes": 685137,
+      "sha256": "c151fa5ce10cf250fb9aabffc4ffd76641f9437d2e31bb2c8a70d01a2e958b7d",
       "mode": "100644",
       "transformed": true
     },
@@ -4535,13 +4535,13 @@
       "transformed": true
     },
     "docs/PUBLICATION.md": {
-      "origin": "publication scope supplement",
+      "origin": "initial publication receipt",
       "original": {
-        "bytes": 2628,
-        "sha256": "105cd64fa4c77bf60e834c53e70bcde750a2443f8462f1f63cec7d726970a11e"
+        "bytes": 2964,
+        "sha256": "45ebc4d88d53972bb8b5b66febbc000e547b9154e6dd748a81178a956d679692"
       },
-      "bytes": 2628,
-      "sha256": "105cd64fa4c77bf60e834c53e70bcde750a2443f8462f1f63cec7d726970a11e",
+      "bytes": 2964,
+      "sha256": "45ebc4d88d53972bb8b5b66febbc000e547b9154e6dd748a81178a956d679692",
       "mode": "100644",
       "transformed": false
     },
@@ -5833,13 +5833,13 @@
       "transformed": false
     },
     "README.md": {
-      "origin": "/mnt/c/Users/Ankit/Desktop/A51/hakios-a51/publication/requested-templates/README.md",
+      "origin": "initial publication receipt",
       "original": {
-        "bytes": 2238,
-        "sha256": "0e2712988f1930a072a914eb1e0a995ea28ce91bc527d2cce364b5a1000fc25d"
+        "bytes": 2574,
+        "sha256": "5a3ed795b7c0a60917ef37f760127072f37be0fbcee90a027d143c2364b3e0fd"
       },
-      "bytes": 2238,
-      "sha256": "0e2712988f1930a072a914eb1e0a995ea28ce91bc527d2cce364b5a1000fc25d",
+      "bytes": 2574,
+      "sha256": "5a3ed795b7c0a60917ef37f760127072f37be0fbcee90a027d143c2364b3e0fd",
       "mode": "100644",
       "transformed": false
     },
@@ -16085,24 +16085,24 @@
       "transformed": false
     },
     "docs/PUBLIC-STATUS.md": {
-      "origin": "/mnt/c/Users/Ankit/Desktop/A51/hakios-a51/publication/requested-templates/docs/PUBLIC-STATUS.md",
+      "origin": "initial publication receipt",
       "original": {
-        "bytes": 1812,
-        "sha256": "57848435d7be606045af3db92010d9f93b61f3566adc50411722009ba0c04297"
+        "bytes": 2148,
+        "sha256": "e0c34a8f70bb817be92cf1c88c174a2fa60167cae699a50455d643322aefc174"
       },
-      "bytes": 1812,
-      "sha256": "57848435d7be606045af3db92010d9f93b61f3566adc50411722009ba0c04297",
+      "bytes": 2148,
+      "sha256": "e0c34a8f70bb817be92cf1c88c174a2fa60167cae699a50455d643322aefc174",
       "mode": "100644",
       "transformed": false
     },
     "state.json": {
-      "origin": "selected current state",
+      "origin": "selected state with first publication receipt",
       "original": {
-        "bytes": 2404,
-        "sha256": "167339c7408a2a249349bcf870ca435fe3ce2062996691e808004edf6fbefdb4"
+        "bytes": 2835,
+        "sha256": "13dd25ad32d0437317c07b1399a838a111fcad5ac145c68386f375e1ce233b7a"
       },
-      "bytes": 2404,
-      "sha256": "167339c7408a2a249349bcf870ca435fe3ce2062996691e808004edf6fbefdb4",
+      "bytes": 2835,
+      "sha256": "13dd25ad32d0437317c07b1399a838a111fcad5ac145c68386f375e1ce233b7a",
       "mode": "100644",
       "transformed": false
     },

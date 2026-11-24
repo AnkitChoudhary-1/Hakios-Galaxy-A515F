@@ -9,3 +9,6 @@ Device observed: user reported v2 iOS home screen, silent audio, missing Iris an
 Unavailable or unknown: wired headphones, microphone capture and route switching in this speaker driver; complete idle/underrun ring handling; verified GPU acceleration/Metal, Safari and Apple services; live v3 clock/DMA/MMU/cache behavior. Compilation and source audits are not hardware validation.
 
 Phases 1–3 retain their previously selected gates. Phase 4 is in progress and its physical peripheral gate is unpassed. The failed storage experiment and independently verified Android restoration remain historical evidence; this supplemental repair does not clear storage/recovery-export blockers.
+
+
+Source was published to the requested repository on main at initial commit `24c2b1b5e1b6d6bea0144fd5380f3b8ffe6053c2`, independently verified against remote main. A subsequent documentation commit records this receipt; it does not change the v3 image or any hardware acceptance gate. Speaker audio and Iris acceptance remain pending.

@@ -65,5 +65,16 @@
       "clock/DMA/MMU/cache assumptions unverified",
       "Iris LaunchServices result unverified"
     ]
+  },
+  "source_publication_20261124": {
+    "repository": "https://github.com/AnkitChoudhary-1/Hakios-Galaxy-A515F.git",
+    "branch": "main",
+    "commit": "24c2b1b5e1b6d6bea0144fd5380f3b8ffe6053c2",
+    "tree": "66223d0aeff064e5fc67c7fd7c5c6d6be0893bb5",
+    "files": 1515,
+    "remote_head_verified": true,
+    "packet": "evidence/publication/requested-20261124",
+    "phone_operations": false,
+    "phase_gates_changed": false
   }
 }

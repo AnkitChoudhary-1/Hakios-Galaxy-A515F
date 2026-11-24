@@ -17,3 +17,6 @@ Read [current status](docs/PUBLIC-STATUS.md), [build instructions](docs/PUBLIC-B
 No installable image, proprietary runtime/SDK, vendor firmware, phone backup or personal raw device logs are distributed here. Local paths in historical scripts must be configured before use. This source snapshot requires separately supplied dependencies and licensed runtime inputs to reproduce the phone package.
 
 Upstream source and individual files retain their licenses and attribution; see `LICENSE`, `LICENSE.APSL`, `LICENSES/` and `THIRD_PARTY_LICENSES.md`.
+
+
+Source was published to the requested repository on main at initial commit `24c2b1b5e1b6d6bea0144fd5380f3b8ffe6053c2`, independently verified against remote main. A subsequent documentation commit records this receipt; it does not change the v3 image or any hardware acceptance gate. Speaker audio and Iris acceptance remain pending.
