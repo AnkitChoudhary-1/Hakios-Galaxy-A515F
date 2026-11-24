@@ -14,7 +14,8 @@ def main():
     spec.loader.exec_module(e)
     manifest = json.loads((D / 'PUBLICATION-MANIFEST.json').read_text())
     e.D, e.files, e.excluded = D, manifest['files'], manifest['excluded_files']
-    for name in ['scripts/publish-requested-source.py', 'scripts/sync-requested-publication-docs.py',
+    for name in ['scripts/publish-requested-source.py', 'scripts/record-requested-publication.py',
+                 'scripts/sync-requested-publication-docs.py',
                  'docs/IMPLEMENTATION-LOG.md']:
         path = P / name
         e.emit(name, path.read_bytes(), str(path), force=True)
@@ -31,7 +32,9 @@ def main():
                 'the v3 image or any hardware acceptance gate. Speaker audio and Iris acceptance '
                 'remain pending.\n')
         for name in ['README.md', 'docs/PUBLIC-STATUS.md', 'docs/PUBLICATION.md']:
-            e.emit(name, (D / name).read_bytes() + note.encode(), 'initial publication receipt', force=True)
+            raw = (D / name).read_bytes()
+            if note.encode() not in raw:
+                e.emit(name, raw + note.encode(), 'initial publication receipt', force=True)
     scan = e.b.scan_tree(D)
     assert scan['passed'], scan['failures']
     manifest.update(files=e.files, scan=scan)

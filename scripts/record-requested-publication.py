@@ -64,6 +64,21 @@ def main():
         if key not in {'active_task', 'next_action'}:
             assert state[key] == before[key]
     state_path.write_text(json.dumps(state, indent=2) + '\n')
+    summary = ('\n\n## Requested source published — 24 November 2026\n\n'
+        'Current HakiOS source, audio/Iris v3 changes, UEFI source overlays, build '
+        'tools and documentation were published to [Hakios-Galaxy-A515F]('
+        'https://github.com/AnkitChoudhary-1/Hakios-Galaxy-A515F) on main at initial '
+        'commit `' + receipt['commit'] + '`. Native remote main and the GitHub '
+        'connector independently confirmed the commit. All ' + str(receipt['files']) +
+        ' staged files matched the reviewed bytes. XNU patch application and all '
+        '269 result hashes passed. Publication receipts are under '
+        'evidence/publication/requested-20261124. This is a source export; binaries '
+        'and private/proprietary inputs remain local. V3 screen/audio/Iris acceptance '
+        'remains pending, and no phase gate changed. A follow-up documentation commit '
+        'records this first-publication receipt.\n')
+    for relative in ['README.md', 'docs/STATE.md', 'docs/INDEX.md', 'docs/PUBLICATION.md']:
+        with (P / relative).open('a', encoding='utf-8') as out:
+            out.write(summary)
     with log.open('a', encoding='utf-8') as out:
         out.write('\n\n### Requested publication result\n\n'
             'Published main commit `' + receipt['commit'] + '` to the requested repository; remote main matched '
